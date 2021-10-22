@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Try It Yourself </title>
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <style type="text/css">   
+      textarea{
+         background-color: #f3f3f3; /* changing background-color */
+         color: #d9534f; /* changing the text color */
+         border: none; /* removing border */
+         outline: none; /* removing outline */
+         resize: none; /* disabling the resize functionality */
+      }
+      button{
+         border: none;
+         background: #0076ff;
+         border-radius: 5px;
+         padding: 5px;
+         color: #fff;
+         font-weight: bold;
+         /*font-size: 20px;*/
+      }
+   </style>
+</head>
+<body>   
+   
+   <textarea rows="10" cols="100%" placeholder="Type your message here..." id="sample"></textarea>
+   <br>
+   <button onclick="getValue();"> Submit here </button>
+   
+   <script type="text/javascript">
+      function getValue() {
+         var value = document.getElementById('sample').value;
+         alert(value);
+      }
+   </script>
+</body>
+</html>

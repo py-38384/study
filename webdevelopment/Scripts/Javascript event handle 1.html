@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title></title>
+ <style>
+   #pi11{
+     display:block;
+     margin-right:50%;
+     border:2px solid black;
+     border-radius:6px;
+     background-color:steelblue;
+     margin:0 auto;
+     color:white;
+     width:100px;
+     height:30px;
+   }
+ </style>
+</head>
+<body>
+  <button id="pi11" onclick="fun()">Change me</button>
+  <p id="pi10" >Hi my name is <span id="pi12" style="background-color:red;">piyal</span></p>
+  <script>
+  var element = document.getElementById("pi12");
+  element.onclick = function (){
+    element.innerHTML = "You dare touch me";
+  }
+  function fun(){
+    var elem = document.getElementById("pi10");
+    elem.style.border = "1px solid black";
+    elem.style.textAlign = "center";
+    elem.style.color = "red";
+    element.style.color = "white"; 
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <title>
+    </title>
+  </head>
+  <body>
+    <script>
+      function Person(name,age){
+        this.name=name;
+        this.age=age;
+        this.getNamAndAge=function(){
+           document.write("Name:"+name+"<br/>Age:"+age);
+        }
+        this.greeting=greet;
+      }
+      function greet(name){
+        document.write("<br/>Hi "+this.name+" I am "+name);
+      }
+      me = new Person("Piyal",19);
+	  me.religious = 'islam';
+      me.getNamAndAge();
+      me.greeting("Sara");
+	  document.write('<br/>'+me.religious);
+    </script>
+  </body>
+</html>

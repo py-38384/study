@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width initial-scale=1">
+     <title> Try It Yourself </title>
+  </head>
+<body>
+  <p id="pi10">10</p>
+  <button onclick="stopInterval()">Stop Iteration</button>
+   <script>
+   var x = 10;
+   var myInterval = setInterval(function (){
+     x+=17;
+     document.getElementById("pi10").innerHTML = x;
+   },1000)
+   function stopInterval(){
+     clearInterval(myInterval);
+   }
+   </script>
+</body>
+</html>

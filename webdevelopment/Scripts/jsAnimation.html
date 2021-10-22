@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width initial-scale=1">
+<title></title>
+<style>
+ p{
+   text-align:center;
+   background-color:grey;
+   height:20px;
+}
+</style>
+</head>
+<body style="margin:0;">
+  <p id="pi10">Piyal Hossain</p>
+  <script>
+   var y = 20;
+   var y_axis;
+   var intervalue = setInterval(function() {
+	 y+=1;
+	 y_axis = y+"px";
+	 document.getElementById("pi10").style.height = y_axis;
+	 document.getElementById("pi10").style.lineHeight = y_axis;
+	},100);
+  </script>
+</body>
+</html>

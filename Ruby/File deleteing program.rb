@@ -1,0 +1,1 @@
+File.delete("/storage/emulated/0/Text.txt")

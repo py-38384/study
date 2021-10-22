@@ -1,0 +1,12 @@
+1.
+SELECT * FROM Apartments 
+WHERE price>=(SELECT AVG(price)FROM Apartments)
+ORDER BY price;
+2.
+INSERT INTO Animals (name, type, country_id) 
+VALUES('Slim', 'Giraffe', '1'); 
+SELECT name, type, country 
+FROM Animals, Countries 
+where Countries.id = Animals.country_id 
+order by Countries.id DESC;
+3.
