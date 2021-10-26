@@ -7,7 +7,7 @@ See private key: cat ~/.ssh/id_rsa
 See public key: cat ~/.ssh/id_rsa.pub
 Connect key to github: ssh -T git@github.com
 Check git remote path: git remote -v
-Hard reset: git reset --hard
+File Hard reset: git reset --hard
 File recover: git checkout filename
 Update local: git pull origin master
 Update remote: git push origin master
