@@ -1,0 +1,5 @@
+ID:3017
+Password:Wap10pi3818
+Service provider name:Goni
+Service provider no:01772915020
+Link:192.168.0.1
