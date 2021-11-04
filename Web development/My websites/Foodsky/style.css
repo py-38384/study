@@ -2,6 +2,7 @@ body {
     font-size: 15pt;
     margin:0;
     padding:0;
+	transition: all 2s ease-in-out;
 }
 .nav{
   position:fixed;
@@ -47,6 +48,7 @@ body {
   right:25px;
   top:15px;
   cursor:pointer;
+  transition: all 2s ease-in-out;
 }
 #nav hr{
   background:red;
