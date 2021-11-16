@@ -269,7 +269,7 @@ body {
 #address .first{
   margin-bottom:30px;
 }
-footer{
+#connectarea{
   font-size:15px;
   text-align:center;
   color:#343434;
@@ -283,6 +283,10 @@ footer{
 }
 #connect img{
   width:30px;
+}
+footer p{
+  font-family: 'Zen Kurenaido', sans-serif;
+  text-align:center;
 }
 #bottom{
   background:#FFC9C9;
