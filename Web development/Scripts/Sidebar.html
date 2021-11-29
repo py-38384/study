@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Something</title>
+<style>
+	body{
+	 padding:0;
+	 margin:0;
+ }
+	#box1{
+		position:relative;
+		width:250px;
+		height:150px;
+		background:red;
+		left:0px;
+		transition:all 500ms;
+		padding:8px;
+	}
+	#box2{
+		position:relative;
+		width:50px;
+		height:150px;
+		background:black;
+		left:0px;
+	}
+</style>
+</head>
+<body>
+	<div id="box1">mif mif sjgvf sfyy sjky djkdde dyye gju. jffgjug djdssn vhfsss jjjf jjr xghsu sjyrf hdjhf gjf</div>
+	<div id="box2"></div>
+	<button onclick="hide()">Click</button>
+	<script>
+	 var box = document.getElementById("box1");
+	 function hide(){
+	 if(box.style.left == "-270px"){
+		 box.style.left = "0px";
+		}
+	 else{
+		 box.style.left = "-270px"
+	 }}
+	</script>
+</body>
+</html>

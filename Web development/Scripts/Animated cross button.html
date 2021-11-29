@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Something</title>
+</head>
+<style>
+	:root{
+		--cosswidth: 30px;
+		--cossheight: 45px;
+		--duration: 300ms;
+		--barheight: 5px;
+	}
+	#form{
+		width:var(--cosswidth);
+		max-width:var(--cosswidth);
+		height:var(--cossheight);
+		max-height:var(--cossheight);
+		display:flex;
+		margin:30px;
+		flex-direction:column;
+		Justify-content:space-evenly;
+	}
+	.line{
+		position:absolute;
+		width:var(--cosswidth);
+		height:var(--barheight);
+		background:black;
+		line-height:50%;
+		transition:all var(--duration) ease-out;
+	}
+	.bar{
+		position:relative;
+		width:var(--cosswidth);
+		height:var(--barheight);
+		background:black;
+		line-height:50%;
+		transition:all var(--duration) ease-in;
+	}
+</style>
+<body>
+	<div id="form">
+		<div class="bar" id="line1"></div>
+		<div class="line" id="line2"></div>
+		<div class="line" id="line3"></div>
+		<div class="bar" id="line4"></div>
+	</div>
+	<script>
+		let line1 = document.getElementById("line1");
+		let line2 = document.getElementById("line2");
+		let line3 = document.getElementById("line3");
+		let line4 = document.getElementById("line4");
+
+		let form = document.getElementById("form");
+		var duration = 300;
+		var num = true;
+		form.addEventListener("click",function () {
+			if(num){
+				line2.style.transform = "rotate(45deg)" ;
+				line3.style.transform = "rotate(-45deg)" ;
+				
+				line1.style.opacity = 0;
+				setTimeout(function () {
+				line1.style.display = "none";
+       		  }, duration);
+
+				line4.style.opacity = 0;
+				setTimeout(function () {
+				line4.style.display = "none";
+       		  }, duration);
+
+				num = false;
+			}else{
+				line1.style.display = "block";
+				setTimeout(function () {
+				line1.style.opacity = 1;
+				 }, duration);
+				
+				line4.style.display = "block";
+				setTimeout(function () {
+				line4.style.opacity = 1;
+				 }, duration);
+				
+				line2.style.transform = "rotate(0deg)" ;
+				line3.style.transform = "rotate(0deg)" ;
+
+				num = true;
+			}
+		})
+	</script>
+</body>
+</html>
