@@ -8,12 +8,13 @@
 </head>
 <style>
 	:root{
-		--cosswidth: 30px;
-		--cossheight: 45px;
+		--cosswidth: 50px;
+		--cossheight: 65px;
 		--duration: 300ms;
-		--barheight: 5px;
+		--barheight: 6px;
+		--radius: 5px;
 	}
-	#form{
+	#fram{
 		width:var(--cosswidth);
 		max-width:var(--cosswidth);
 		height:var(--cossheight);
@@ -28,7 +29,7 @@
 		width:var(--cosswidth);
 		height:var(--barheight);
 		background:black;
-		line-height:50%;
+		border-radius:var(--radius);
 		transition:all var(--duration) ease-out;
 	}
 	.bar{
@@ -36,12 +37,12 @@
 		width:var(--cosswidth);
 		height:var(--barheight);
 		background:black;
-		line-height:50%;
+		border-radius:var(--radius);
 		transition:all var(--duration) ease-in;
 	}
 </style>
 <body>
-	<div id="form">
+	<div id="fram">
 		<div class="bar" id="line1"></div>
 		<div class="line" id="line2"></div>
 		<div class="line" id="line3"></div>
@@ -53,10 +54,10 @@
 		let line3 = document.getElementById("line3");
 		let line4 = document.getElementById("line4");
 
-		let form = document.getElementById("form");
+		let fram = document.getElementById("fram");
 		var duration = 300;
 		var num = true;
-		form.addEventListener("click",function () {
+		fram.addEventListener("click",(event) => {
 			if(num){
 				line2.style.transform = "rotate(45deg)" ;
 				line3.style.transform = "rotate(-45deg)" ;

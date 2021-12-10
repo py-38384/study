@@ -11,3 +11,4 @@ File Hard reset: git reset --hard
 File recover: git checkout filename
 Update local: git pull origin master
 Update remote: git push origin master
+Commit: git commit -m "commit message"

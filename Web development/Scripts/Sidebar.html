@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Something</title>
 <style>
-	body{
+	*{
 	 padding:0;
 	 margin:0;
  }
 	#box1{
 		position:relative;
-		width:250px;
+		width:100%;
 		height:150px;
 		background:red;
 		left:0px;
@@ -29,17 +29,20 @@
 </style>
 </head>
 <body>
-	<div id="box1">mif mif sjgvf sfyy sjky djkdde dyye gju. jffgjug djdssn vhfsss jjjf jjr xghsu sjyrf hdjhf gjf</div>
+	<div id="box1">mzhd jue cfdeds sudhae stayi asdl dyeas lorem. awewyk hufre vhfss ressk hulala frees esesl curee gift</div>
 	<div id="box2"></div>
 	<button onclick="hide()">Click</button>
 	<script>
 	 var box = document.getElementById("box1");
+	 var istrue = true
 	 function hide(){
-	 if(box.style.left == "-270px"){
-		 box.style.left = "0px";
+	 if(istrue){
+		 box.style.left = "-105%";
+		 istrue = false;
 		}
 	 else{
-		 box.style.left = "-270px"
+		 box.style.left = "0%"
+		 istrue = true;
 	 }}
 	</script>
 </body>
