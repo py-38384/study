@@ -1,35 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define queuesize 6
-int myqueue[queuesize],temp[queuesize],rear = 0;
+#define queuesize 9
+int myqueue[queuesize],temp[queuesize],rear = -1;
 void enqueue(int value)
 {
  if(rear == queuesize)printf("Queue overflow!\n");
  else{
  	rear++;
- 	for(int i = 0;i < rear;i++)temp[i] = myqueue[i];
+ 	for(int i = 0;i <= rear;i++)temp[i] = myqueue[i];
  	myqueue[0] = value;
- 	for(int i = 0;i < rear;i++)myqueue[(1+i)] = temp[i];
+ 	for(int i = 0;i <= rear;i++)myqueue[(1+i)] = temp[i];
  	printf("%d enqueue successfully done..\n",value);
  }
 }
 void dequeue()
 {
-if(rear == 0)printf("Queue underflow!\n");
+if(rear <= -1)printf("Queue underflow!\n");
 else{
-	int num = myqueue[(rear-1)];
+	int num = myqueue[rear];
 	rear--;
 	printf("%d dequeue successfully done..\n",num);
  }
 }
 void display()
 {
-     if(rear == 0){
+     if(rear <= -1){
        printf("queue is empty!\n");
      }
      else{
      printf("Showing full queue/_\n");
-     for(int i = 0;i < rear;i++)
+     for(int i = 0;i <= rear;i++)
         printf("%d\n",myqueue[i]);
      }
 }

@@ -6,17 +6,17 @@ int mystack[stacksize],top=-1;
 void push(int value)
 {
     if(top >= stacksize)
-         printf("Stack is full!\n");
+         printf("Stack is full!\n\n");
     else
     {
-         printf("Push:%d\n",value);
+         printf("Push:%d\n\n",value);
          top++;
          mystack[top] = value;
     }    
 }
 void displaystack(){
      if(top <=- 1){
-       printf("Stack is empty!!\n");
+       printf("Stack is empty!!\n\n");
       }
      else{
      int i=top;
@@ -24,14 +24,15 @@ void displaystack(){
      for(;i>=0;i--){
         printf("%d\n",mystack[i]);
      }
+     printf("\n");
    }
 }
-void peek()
-{
-    if(top < 0)
-         printf("Stack underflow!\n");
-    else
-         printf("Peek is %d\n",mystack[top]);
+void peek(int pos){
+	if(pos <= 0 &&pos >= top){
+		printf("Position is out of index.");
+	}
+	int data = mystack[top - (pos - 1)];
+	printf("Peek is %d\n\n",data);
 }
 void pop()
 {
@@ -39,7 +40,7 @@ void pop()
          printf("Stack underflow!\n");
     else
     {
-         printf("%d Poped from Stack\n",mystack[top]);
+         printf("%d Poped from Stack\n\n",mystack[top]);
          top--;
     }
 }
@@ -66,7 +67,9 @@ int main()
                     displaystack();
                     break;
               case 3 :
-                    peek();
+              	  printf("Enter the position of the element/-\n");
+              	  scanf("%d",&num);
+                    peek(num);
                     break;
               case 4 :
                     pop();
@@ -74,7 +77,7 @@ int main()
               case 0 :
                     break;
               default:
-                    printf("Samething wrong!!try again.\n");
+                    printf("Samething wrong!!try again.\n\n");
                     break;
            }
         if(choice==0){
