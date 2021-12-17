@@ -29,7 +29,10 @@ while(1){
                   break;
            case 2:traverse();
                   break;
-           case 3:peek();
+           case 3:
+           		printf("Enter the position/-\n");
+           		scanf("%d",&pos);
+           		peek(pos);
                   break;
            case 4:pop();
                   break;
@@ -47,14 +50,12 @@ while(1){
 void push(int x){
      struct node*t;
      t = (struct node*)malloc(sizeof(struct node));
+     if(t == NULL){
+     	printf("Stack overflow!!");
+     	return;
+     }
      t->data = x;
      count++;
-     if(start == NULL){
-        start = t;
-        start->next = NULL;
-        printf("%d pushed successfully.\n",x);
-        return;
-      }
      t->next = start;
      start = t;
      printf("%d pushed successfully.\n",x);
@@ -67,20 +68,22 @@ void traverse(){
        return ;
      }
    printf("There are %d element in stack.\n",count);
-   while(t->next!=NULL){
+   while(t != NULL){
        printf("%d\n",t->data);
        t = t->next;
      }
-      printf("%d\n",t->data);
 }
-void peek(){
+void peek(int pos){
+     if(pos > count || pos < 1){
+     		printf("Position out of index!!\n");
+     		return;
+     }
      struct node*temp;
      temp = start;
-     if(start == NULL){
-     	printf("Stack underflow.\n");
-     	return;
-     }
-     printf("%d \n",temp->data);
+     for(int i = 1;i < pos;i++){
+     		temp = temp -> next;
+     	}
+      printf("Data of position %d is %d\n",pos, temp->data);
 }
 void pop(){
       struct node*t;
@@ -90,12 +93,9 @@ void pop(){
         return;
       }
      n = start->data;
-     t = start->next;
-     free(start);
-     start = t;
+     t = start;
+     start = start->next;
+     free(t);
      count--;
-     if(count <= 0){
-     	start = NULL;
-     }
      printf("%d poped successfully.\n",n);
 }

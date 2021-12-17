@@ -10,14 +10,17 @@ int count = 0;
 void enqueue(int value){
      struct node*newnode;
      newnode = (struct node*)malloc(sizeof(struct node));
+     if(newnode == NULL){
+     	printf("Queue overflow!!");
+     	return;
+     }
      newnode->data = value;
      newnode->previous = NULL;
      count++;
      if(head == NULL){
-        newnode -> previous = NULL;
         newnode -> next = NULL;
         head = newnode;
-        tail = newnode;
+        tail = head;
         printf("%d enqueue successful.\n",value);
         return;
      }
@@ -36,11 +39,10 @@ void traverse(){
         return;
        }
      printf("There are %d element in the queue.\n",count);
-     while(temp->next!=NULL){
+     while(temp!=NULL){
            printf("%d \n",temp->data);
            temp = temp->next;
           }
-     printf("%d \n",temp->data);
 }
 void dequeue(){
      if(head==NULL){
