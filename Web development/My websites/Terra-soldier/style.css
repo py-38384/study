@@ -1,0 +1,683 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&family=Fuzzy+Bubbles:wght@700&family=Josefin+Sans:wght@600&family=Nanum+Gothic&family=Nanum+Myeongjo:wght@700&family=Open+Sans+Condensed:wght@700&family=Overlock:wght@700&family=Shizuru&display=swap');
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+
+  overflow: scroll;
+  /*background: linear-gradient(white,#F6F6F6);*/
+
+}
+
+:root {
+
+  --cosswidth: 35px;
+  --cossheight: 55px;
+  --duration: 300ms;
+  --barheight: 3px;
+  --radius: 5px;
+  --imgGray: grayscale(100%);
+
+}
+
+#fram {
+
+  position: fixed;
+  width: var(--cosswidth);
+  max-width: var(--cosswidth);
+  height: var(--cossheight);
+  max-height: var(--cossheight);
+  top: 10px;
+  right: 20px;
+  display: flex;
+  z-index: 3;
+  flex-direction: column;
+  Justify-content: space-evenly;
+
+}
+
+.line {
+
+  position: absolute;
+  width: var(--cosswidth);
+  height: var(--barheight);
+  background: black;
+  border-radius: var(--radius);
+  transition: all var(--duration) ease-out;
+
+}
+
+.bar {
+
+  position: relative;
+  width: var(--cosswidth);
+  height: var(--barheight);
+  background: black;
+  border-radius: var(--radius);
+  transition: all var(--duration) ease-in;
+
+}
+
+nav {
+
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #000000;
+  z-index: 2;
+  transition: background 700ms ease-out;
+
+}
+
+nav div img {
+
+  width: 150px;
+  height: 80px;
+
+}
+
+#searchicon {
+  top: 18px;
+  width: 40px;
+  right: 70px;
+  cursor: pointer;
+  z-index: 1;
+  position: absolute;
+}
+
+#closeicon {
+  display: none;
+  width: 17px;
+  top: 25px;
+  right: 75px;
+  z-index: 1;
+  position: absolute;
+  cursor: pointer;
+}
+
+#account {
+  top: 18px;
+  right: 120px;
+  position: fixed;
+  cursor: pointer;
+}
+
+#account img {
+
+  width: 40px;
+  height: 40px;
+
+}
+
+#navlist {
+  left: -110%;
+  position: fixed;
+  display: none;
+  background: black;
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
+  font-family: 'Overlock', cursive;
+  transition: left 500ms ease-out;
+}
+
+.links {
+  text-align: center;
+}
+
+#navcontent {
+  position: relative;
+  top: 8.6rem;
+}
+
+#navlist div div a {
+  display: inline-block;
+  line-height: 105px;
+  text-align: center;
+  width: 25rem;
+  height: 100px;
+  text-decoration: none;
+  color: White;
+  font-size: 2rem;
+}
+
+#search {
+
+  top: 0;
+  right: 0;
+  position: fixed;
+  cursor: pointer;
+  z-index: 2;
+
+}
+
+#search img {
+
+  width: 40px;
+  height: 40px;
+
+}
+
+#sologun::before {
+  background: url("./Images/river.jpg") no-repeat center center/cover;
+  content: " ";
+  position: absolute;
+  top: -7rem;
+  left: 0px;
+  height: 60vh;
+  width: 100vw;
+  z-index: -2;
+  opacity: 0.8;
+  /*filter:grayscale(100%);*/
+  filter: var(--imgGray);
+  transition: all 15000 ease-out;
+}
+
+#sologun {
+  position: relative;
+  top: 7rem;
+  font-size: 45px;
+  color: #27D6C3;
+  z-index: -2;
+}
+
+#sologun div {
+  /*position: relative;*/
+  display: flex;
+  flex-direction: column;
+  padding: 0px 5rem;
+}
+
+#sologun div p {
+  display: inline-block;
+  text-align: center;
+  border-bottom: 10px double #57849B;
+  text-shadow: 3px 2px 0px green;
+  color: #51B1DA;
+  /*  -webkit-text-fill-color:#55B2DB;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black; */
+}
+
+.do {
+  position: absolute;
+  top: 320px;
+  text-decoration: none;
+  border: 2px solid black;
+  padding: 0.8rem;
+  font-size: 20px;
+  box-shadow: 4px 4px 8px black;
+  border-radius: 8px;
+}
+
+#do1 {
+  left: 10px;
+  color: red;
+  -webkit-text-fill-color: red;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+#do2 {
+  right: 10px;
+  color: green;
+  -webkit-text-fill-color: green;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.do:hover {
+  box-shadow: inset 4px 4px 8px black;
+}
+
+#do1:hover {
+  background: red;
+}
+
+#do2:hover {
+  background: green;
+}
+
+#searchbar {
+  display: none;
+  position: fixed;
+  top: 5.75rem;
+  right: 23vw;
+  width: 70vw;
+  height: 47px;
+  background: none;
+  border: 2px solid black;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 20px;
+}
+
+#searchbar::placeholder {
+  color: black;
+}
+
+#searchbar:focus {
+  box-shadow: 2px -2px 7px darkred,
+    -2px 2px 7px darkred;
+  background: #ADADAD78;
+}
+
+#searchbutton {
+  display: none;
+  position: fixed;
+  width: 80px;
+  height: 40px;
+  top: 5.9rem;
+  right: 2.4vw;
+  background: #4ED645;
+  border-radius: 5px;
+  box-shadow: 3px 2px 7px black;
+}
+
+#searchbutton:hover {
+  box-shadow: inset 3px 2px 7px black;
+}
+
+#cover {
+  position: fixed;
+  z-index: 3;
+  background: #6F6F71;
+  opacity: 0.6;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+}
+
+#about {
+  position: absolute;
+  top: 50vh;
+  height: 45vh;
+  text-align: center;
+  margin: 25px 0px 20px 0px;
+  padding: 30px 0px 50px 0px;
+  font-size: 1.1rem;
+  background: linear-gradient(white, #B0D8B1);
+  font-family: 'Nanum Gothic', sans-serif;
+  line-height: 250%;
+}
+
+#about div {
+  display: block;
+  font-size: 2.7rem;
+  color: seagreen;
+  margin: 10px;
+}
+
+#about div span {
+  position: relative;
+  font-size: 10px;
+  top: -20px;
+}
+
+#donate {
+  position: relative;
+  top: 85vh;
+  display: block;
+  text-align: center;
+  padding: 10px 0px 25px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid #DDDDDD;
+  background: #F3F3F3;
+  margin: 2px;
+  border-radius: 10px;
+
+}
+
+#donate p {
+  font-size: 3rem;
+  margin: 20px;
+  color: #009B21;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+}
+
+#donate a {
+  text-decoration: none;
+  font-size: 25px;
+  color: #3DD8BD;
+  width: 90vw;
+  height: 7vh;
+  line-height: 2.35em;
+  border: 1px solid black;
+  border-radius: 13px;
+  transition: background 200ms ease-out;
+}
+
+#donate a:hover {
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #009C21;
+  background: darkgreen;
+}
+
+#shop {
+  position: relative;
+  top: 90vh;
+  padding-bottom: 25px;
+  text-align: center;
+  border-bottom: 4px double #4D4D4D;
+}
+
+#shop p:nth-child(1) {
+  border-bottom: 4px double #4D4D4D;
+  font-size: 3.2rem;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  font-family: 'Overlock', cursive;
+}
+
+.fashionSector {
+  margin: 15px 15px 8px 15px;
+  font-size: 2rem;
+  border-bottom: 5px solid gray;
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+.fashion p {
+  font-size: 1.2rem;
+  padding: 0px 15px 10px 15px;
+  font-family: 'Nanum Gothic', sans-serif;
+  line-height: 40px;
+  /*height: 20rem;*/
+}
+
+.productSection {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.product {
+  position: relative;
+  top: 30px;
+  width: 11.5em;
+}
+
+#pants {
+  width: 8.5em;
+}
+
+#treeshirt {
+  width: 10.4em;
+}
+
+.cardfrem {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  position: relative;
+  text-decoration: none;
+  width: 45%;
+  height: 40vh;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 20px gray;
+  border-radius: 17px;
+  margin-bottom: 30px;
+}
+
+.card span {
+  position: absolute;
+  left: -8px;
+  top: -8px;
+  width: 80px;
+  height: 80px;
+  /*background: red;*/
+  display: flex;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card span::before {
+  content: "25% discount";
+  position: absolute;
+  width: 140%;
+  height: 15px;
+  background: #21BE83;
+  transform: rotate(-45deg) translateY(-10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 10px;
+}
+
+.card span::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #217D5A;
+  left: 0;
+  z-index: -1;
+  bottom: 0.23em;
+  box-shadow: 70px -68px #217D5A;
+}
+
+.productText {
+  position: relative;
+  top: 30px;
+  color: #000000;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  font-size: 1.05rem;
+}
+
+.accessoriesSector {
+  margin: 15px 15px 8px 15px;
+  font-size: 2rem;
+  border-bottom: 5px solid gray;
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+.accessories p {
+  font-size: 1.2rem;
+  padding: 0px 15px 10px 15px;
+  font-family: 'Nanum Gothic', sans-serif;
+  line-height: 40px;
+  margin: 10px;
+}
+
+#endtalk {
+  position: relative;
+  top: 90vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 4px;
+  padding: 25px;
+}
+
+#endtalk::before {
+  background: url("./Images/donate.jpg") no-repeat center center/cover;
+  position: absolute;
+  z-index: -2;
+  content: '';
+  height: 39vh;
+  width: 100vw;
+  opacity: 1;
+  filter: brightness(130%);
+}
+
+#endtalk p {
+  font-size: 2em;
+  font-family: 'Josefin Sans', sans-serif;
+  /*-webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: green;*/
+}
+
+#endtalk a {
+  text-decoration: none;
+  display: block;
+  color: black;
+  width: 95%;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5em;
+  border: 1px solid black;
+  margin: 30px;
+  border-radius: 5px;
+  /*box-shadow: 2px 2px 5px grey;*/
+}
+
+#endtalk span {
+  color: #00860E;
+}
+
+#endtalk a:hover {
+  background: green;
+  color: white;
+  box-shadow: inset 1px 1px 3px black;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.seeButton {
+  position: relative;
+  display: block;
+  text-align: center;
+  line-height: 45px;
+  left: 2rem;
+  text-decoration: none;
+  width: 85%;
+  height: 50px;
+  color: black;
+  border: 1px solid black;
+  font-size: 1.1rem;
+  box-shadow: 2px 2px 5px grey;
+  border-radius: 6px;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.seeButton:hover {
+  background: green;
+  color: white;
+  box-shadow: inset 1px 1px 3px black;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+#foot {
+  position: relative;
+  top: 90vh;
+  text-align: center;
+  color: white;
+  background: green;
+  padding: 30px 0px;
+}
+
+#lastAbout img {
+  width: 90%;
+}
+
+#lastAbout div {
+  position: absolute;
+  text-align: center;
+  top: 1.5rem;
+  width: 88vw;
+  left: 1.45rem;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  font-size: 4rem;
+  text-shadow: 3px 2px black;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+#lastAbout p {
+  padding: 15px;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+#foot :nth-child(2) div {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 2rem;
+}
+
+#subscribe {
+  position: relative;
+  display: inline-block;
+  width: 70%;
+  height: 40px;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 17px;
+  border: 2px solid black;
+}
+
+#subscribeBtn{
+  position: relative;
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  background: #4ED645;
+  box-shadow: 3px 2px 7px black;
+  border: 2px solid black;
+}
+
+#subscribeBtn:hover {
+  box-shadow: inset 3px 2px 7px black;
+}
+
+#contactUs p {
+  font-size: 30px;
+}
+
+#contactUs div {
+  display: inline-block;
+  font-size: 30px;
+  margin: 0px 20px;
+}
+
+#contentUs {
+  padding: 15px;
+}
+
+#contactUs div a {
+  color: white;
+}
+
+#link a {
+  text-decoration: none;
+  color: white;
+}
+
+#link {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 15px;
+}
+
+footer {
+  padding: 10px;
+  font-size: 13px;
+}

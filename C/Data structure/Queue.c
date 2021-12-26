@@ -1,15 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define queuesize 9
-int myqueue[queuesize],temp[queuesize],rear = -1;
+int myqueue[queuesize],rear = -1;
 void enqueue(int value)
 {
  if(rear == queuesize)printf("Queue overflow!\n");
  else{
  	rear++;
- 	for(int i = 0;i <= rear;i++)temp[i] = myqueue[i];
- 	myqueue[0] = value;
- 	for(int i = 0;i <= rear;i++)myqueue[(1+i)] = temp[i];
+ 	myqueue[rear] = value;
  	printf("%d enqueue successfully done..\n",value);
  }
 }
@@ -17,8 +15,11 @@ void dequeue()
 {
 if(rear <= -1)printf("Queue underflow!\n");
 else{
-	int num = myqueue[rear];
+	int num = myqueue[0];
 	rear--;
+	for(int i = 0;i <= rear;i++){
+	    myqueue[i] = myqueue[i+1]; 
+	}
 	printf("%d dequeue successfully done..\n",num);
  }
 }

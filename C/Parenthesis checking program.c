@@ -1,7 +1,7 @@
 #include <stdio.h>
 struct stack
 {
-    int top = -1;
+    int top;
     char string[100];
 };
 void decor1()
@@ -33,6 +33,7 @@ int isParenthesisMatched(char string[])
     int i = 0;
     char data;
     struct stack str;
+    str.top = -1;
     while (string[i] != '\0')
     {
         if (string[i] == '(' || string[i] == '{' || string[i] == '[')
