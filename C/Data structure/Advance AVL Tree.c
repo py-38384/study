@@ -175,6 +175,11 @@ void postOrder(struct Node *n)
 	}
 }
 
+void deco()
+{
+	printf("-------------------------------\n");
+}
+
 int main()
 {
 	struct Node *root = NULL;
@@ -190,16 +195,21 @@ int main()
 		switch (choice)
 		{
 		case 1:
+			deco();
 			printf("Enter the data/-\n");
 			scanf("%d", &data);
 			root = insert(root, data);
+			deco();
 			break;
 		case 2:
+			deco();
 			printf("Enter the data for deletion/-\n");
 			scanf("%d", &data);
 			root = deleteNode(root, data);
+			deco();
 			break;
 		case 3:
+			deco();
 			printf("Enter 1 for preorder.\nEnter 2 for inorder.\nEnter 3 for postorder.\n");
 			scanf("%d", &data);
 			switch (data)
@@ -216,13 +226,20 @@ int main()
 				postOrder(root);
 				printf("\n");
 				break;
+				
+			default:
+				printf("Wrong input!!\n");
 			}
+			deco();
 			break;
 		case 0:
 			break;
 		}
-		if (choice < 0)
+		if (choice <= 0)
 		{
+			deco();
+			printf("Program Termineted!!\n");
+			deco();
 			break;
 		}
 	}
