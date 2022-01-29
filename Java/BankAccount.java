@@ -9,7 +9,7 @@ class Bank{
 		this.id = id;
 	}
 	void addMoney(long amount){
-		if(amount < 1000){
+		if(amount <= 1000){
 			System.out.println("Insufficient Balance to add!");
 		}
 		else{

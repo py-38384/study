@@ -7,7 +7,7 @@ using namespace std;
 };  
  class Rectangle : Shape{
     public:  
-     void draw()    
+    void draw()    
     {    
         cout <<"drawing rectangle..." <<endl;    
     }

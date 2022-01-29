@@ -32,7 +32,7 @@ class Sum:public Add{
 int main()
 {
 	Sum a;
-	a.add(3,4,3);
+	a.add(3,4);
 	a.adds(24,7,3.466);
 	a.show();
 	a.show2();

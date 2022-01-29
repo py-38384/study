@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 class Animal{
+    public:
     string color = "Black";
 	void eat(){
 		cout<<"Eating..."<<endl;

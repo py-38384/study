@@ -4,8 +4,8 @@ using namespace std;
 {    
   public: int width, height;    
    Rectangle(int i,int j){
-   	width = i;
-   	height = j;
+   	this->width = i;
+   	this->height = j;
    }
   void areaOfRectangle() {     
     cout<<"Area of Rectangle is: "<<(width*height);

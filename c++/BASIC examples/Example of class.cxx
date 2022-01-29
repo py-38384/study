@@ -9,7 +9,7 @@ int main()
 	Student obj;
 	obj.id = 12;
 	obj.name = "Piyal hossein";
-	cout << obj.id << "\n";
-	cout << obj.name << "\n";
+	cout << obj.id << endl;
+	cout << obj.name << endl;
 	return 0;
 }

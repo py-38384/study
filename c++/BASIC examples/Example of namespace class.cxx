@@ -26,7 +26,7 @@ namespace First{
 using namespace First;
 int main () {  
   example1::sayHello();
-  example1::sayHello();
+  example2::sayHello();
    return 0;  
 
 }  

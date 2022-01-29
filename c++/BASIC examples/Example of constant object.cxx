@@ -21,7 +21,7 @@ class Addon{
 };
 int main()
 {
-	const Addon obj = Addon(30,20);
+    const Addon obj = Addon(30,20);
 	Addon obj2 = Addon(50,30);
 	cout<<obj.add()<<endl;
 	obj2.num1 = 40;
