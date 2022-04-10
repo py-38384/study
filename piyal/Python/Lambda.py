@@ -1,0 +1,6 @@
+num = int(input("Enter a number/-"))
+print("Square = {0}".format((lambda x: x*x)(num)))
+sum = (lambda x,y:x+y)
+num1 = int(input("Enter number 1/-"))
+num2 = int(input("Enter number 2/-"))
+print("Sum = {0}".format(sum(num1,num2)))

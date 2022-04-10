@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1050 600" style="enable-background:new 0 0 1050 600;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#00D3EC;}
+	.st1{font-family:'NexaBold';}
+	.st2{font-size:80.0158px;}
+	.st3{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st4{stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st5{fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st6{font-family:'Aino-Headline';}
+	.st7{font-size:37.1898px;}
+</style>
+<g>
+	<text transform="matrix(1 0 0 1 278.835 278.5972)"><tspan x="0" y="0" class="st0 st1 st2">Gopay</tspan><tspan x="248" y="0" class="st1 st2"> digital</tspan></text>
+	<g>
+		<path class="st3" d="M346,389.4h-32c-15.5,0-28-12.5-28-28v-32c0-15.5,12.5-28,28-28h32c15.5,0,28,12.5,28,28v32
+			C374,376.9,361.5,389.4,346,389.4z"/>
+		<rect x="279.2" y="358.2" class="st4" width="45.7" height="15.3"/>
+		<circle class="st5" cx="312.8" cy="365.8" r="5.1"/>
+		<text transform="matrix(1 0 0 1 293.8008 350.4907)" class="st6 st7">Fast and secure</text>
+	</g>
+	<g>
+		<rect x="594.2" y="335.9" width="151.9" height="10.1"/>
+		<polygon points="746.1,323.7 746.1,357.2 766.2,340.4 		"/>
+	</g>
+</g>
+</svg>
