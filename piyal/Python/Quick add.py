@@ -1,1 +1,0 @@
-print("Sum =",(num := int(input("Inter 1st number/-")))+(num1:=int(input("Inter 2nd number/-"))))

@@ -1,6 +1,6 @@
 generating ssh key: ssh-keygen -t rsa -b 4096 -C "piyal13133@gmail.com"
 Activeing agent: eval "$(ssh-agent -s)"
-Createing agent file: touch ~/.ssh/config
+Creating agent file: touch ~/.ssh/config
 Opening agent file: nano ~/.ssh/config
 Adding key to agent: ssh-add ~/.ssh/id_rsa
 See private key: cat ~/.ssh/id_rsa
@@ -12,3 +12,5 @@ File recover: git checkout filename
 Update local: git pull origin master
 Update remote: git push origin master
 Commit: git commit -m "commit message"
+git show different between working tree vs staging area: git diff
+git show different between previous commit vs staging area: git diff --staged
