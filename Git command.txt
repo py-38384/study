@@ -14,3 +14,9 @@ Update remote: git push origin master
 Commit: git commit -m "commit message"
 git show different between working tree vs staging area: git diff
 git show different between previous commit vs staging area: git diff --staged
+Direct Commit: git commit -a -m "Direct commit commit message"
+Git delete: git rm file.name
+Git rename: git mv currentFile.name renamedFile.name
+Git Untrack: git rm --cached file name
+Git repository delete: rm -rf .git
+Git alias: git config --global alias.st "status"
