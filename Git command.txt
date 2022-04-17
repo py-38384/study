@@ -20,3 +20,13 @@ Git rename: git mv currentFile.name renamedFile.name
 Git Untrack: git rm --cached file name
 Git repository delete: rm -rf .git
 Git alias: git config --global alias.st "status"
+Git new Branch: git checkout -b branchName
+Git switching Branch: git checkout branchName 
+Git show all Branch: git branch
+Git merge: git merge branchName
+Git show branch with small detail: git branch -v
+Git show merged branch: git branch --merged
+Git show unmerged branch: git branch --no-merged
+Git safe branch delete: git branch -d branchName
+Git unsafe branch delete: git branch -D branchName
+Git delete remote branch: git push -d origin branchName
