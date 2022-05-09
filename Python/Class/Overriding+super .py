@@ -25,4 +25,5 @@ class Cat(Animal):
 piyal = Human("Piyal",19)
 oggy = Cat("Oggy")
 piyal.eat()
+piyal.hi()
 oggy.sound()

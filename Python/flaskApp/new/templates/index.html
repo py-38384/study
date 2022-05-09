@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+    </style>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="bg" src="{{ url_for('static',filename='photo/bg.jpg') }}" alt="">
+    <div id="card">
+        <div><img style="width:150px;" src="{{ url_for('static',filename='photo/logo.jpg') }}" alt=""></div>
+        <div id="loCoLogo">
+            <div><img src="{{ url_for('static',filename='photo/email.png') }}" alt=""></div>
+            <div><img src="{{ url_for('static',filename='photo/phone.png') }}" alt=""></div>
+            <div><img src="{{ url_for('static',filename='photo/website.png') }}" alt=""></div>
+        </div>
+        <div id="loCo">
+            <div>piyal254@gmail.com</div>
+            <div>01328798675</div>
+            <div><a href="">www.hireme.com</a></div>
+        </div>
+        <div id="bottomCover">
+            <a href="#"><img src="{{ url_for('static',filename='photo/facebook.png') }}" alt=""></a>
+            <a href="#"><img src="{{ url_for('static',filename='photo/linkedin.png') }}" alt=""></a>
+            <a href="#"><img src="{{ url_for('static',filename='photo/twitter.png') }}" alt=""></a>
+            <a href="#"><img src="{{ url_for('static',filename='photo/ig.png') }}" alt=""></a>
+        </div>
+    </div>
+</body>
+
+</html>
