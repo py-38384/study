@@ -66,7 +66,7 @@
     echo $log;
     ?>
 
-    <form style="padding:20px;" action="/phpWeb/login/login.php" method="post">
+    <form style="padding:20px;" action="<?php $_SERVER['PHP_SELF'];?>" method="post">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">User name</label>
     <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp">

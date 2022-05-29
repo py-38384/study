@@ -9,11 +9,10 @@
         die("Database not connected ". mysqli_connect_error());
     }
     else{
-        $sql = "CREATE TABLE `phpweb`.`users` ( `sno` INT(12) NOT NULL AUTO_INCREMENT , `username` VARCHAR(20) NOT NULL , `pass` TEXT NOT NULL , `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`sno`), UNIQUE `username` (`username`)) ENGINE = InnoDB;
-        ";
+        $sql = "CREATE TABLE `travel` ( `sno` INT(8) NOT NULL AUTO_INCREMENT , `name` TEXT NOT NULL , `dist` TEXT NOT NULL , PRIMARY KEY (`sno`)) ENGINE = InnoDB;";
         $result = mysqli_query($connect,$sql);
         if($result){
-            echo "<h1>Teble created successful<h1>";
+            echo "Teble created successful";
         }
         else{
             echo "SQL not executed";

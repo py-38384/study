@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.triangle{
+  width:0;
+  margin:20px;
+  border-bottom: 220px solid #686868;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+}

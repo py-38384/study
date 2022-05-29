@@ -10,3 +10,7 @@ FROM Animals, Countries
 where Countries.id = Animals.country_id 
 order by Countries.id DESC;
 3.
+How to add fulltext search in a table/-
+ALTER TABLE table ADD FULLTEXT(`column1`,`column1`);
+How to search using fulltext
+SELECT * FROM table WHERE MATCH(item) AGAINST ("something");
