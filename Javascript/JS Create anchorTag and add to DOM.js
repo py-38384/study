@@ -1,0 +1,10 @@
+console.log('Hello World');
+let anchor = document.createElement('a');
+let anchorText = document.createTextNode('Go to Google');
+anchor.appendChild(anchorText);
+anchor.id = 'googleid';
+anchor.className = 'googleclass';
+anchor.setAttribute('href','https://www.google.com');
+let body = document.querySelector('body');
+body.appendChild(anchor);
+console.log(anchor);
