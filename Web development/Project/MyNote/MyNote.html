@@ -200,9 +200,8 @@ header {
   border: none;
   color: white;
 }
-.edit-content{
-  width:98%;
-  font-size: 18px;
+.edit-content:focus{
+  border:none;
 }
 
 .delete-div {
@@ -340,7 +339,7 @@ function showNotes() {
   notesObj.forEach(function(element, index) {
     html += `
           <div class='content'>
-                <p onclick="editNote(this.id,this)" id="${index}">
+                <p onclick="editNote(this,this.className)" class="${index}" id="${index}" style="padding:0px;">
                   ${element}
                 </p>
                 <hr>
@@ -377,6 +376,7 @@ post_btn.addEventListener('click', (event) => {
   add_btn_toggle();
   showNotes();
 });
+
 function deleteNote(index) {
   let notes = localStorage.getItem('notes');
   let notesObj = JSON.parse(notes);
@@ -398,6 +398,26 @@ search_field.addEventListener('input', (event) => {
     }
   })
 });
+
+function editNote(element,className) {
+  let noTextArea = document.getElementsByClassName('textarea').length;
+  if (noTextArea <= 0) {
+    let text = element.innerText;
+    let height = (text.length/1.5)+"px";
+    element.innerHTML = `<textarea class="textarea" style='width:98%;height:${height};min-height:25px;font-size:18px;' id="edit-content" rows="3"> ${text}</textarea>`;
+  }
+  textarea = element.children[0];
+  textarea.focus();
+  textarea.addEventListener('blur', () => {
+     let html = textarea.value;
+     element.innerHTML = html;
+     let notes = localStorage.getItem('notes');
+     let notesObj = JSON.parse(notes);
+     notesObj[className] = html;
+     localStorage.setItem('notes',JSON.stringify(notesObj));
+     console.log(className);
+  });
+}
 
   </script>
 </body>
