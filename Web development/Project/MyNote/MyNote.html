@@ -217,23 +217,12 @@ header {
   <header>
     <div id="Title">MyNote</div>
     <div id="search">
-      <input id="search-field" type='text' placeholder="Search your note">
+      <input id="search-field" type='text' placeholder="Search your notes">
     </div>
   </header>
   <div id='contener'>
     <div class='content'>
-      <p>
-        The HyperText Markup Language or HTML is the
-        standard markup language for documents designed to
-        be displayed in a web browser. It can be assisted by
-        technologies such as Cascading Style Sheets (CSS)
-        and scripting languages such as JavaScript. HTML.
-        (HyperText Markup Language)
-      </p>
-      <hr>
-      <div class='delete-div'>
-        <button>Delete Note</button>
-      </div>
+		<!--notes goes here -->
     </div>
   </div>
   <div id='cover'></div>
@@ -262,6 +251,7 @@ let post_btn = document.querySelector('#post-btn');
 let post_menu = document.querySelector('#post-menu');
 let post_input = document.querySelector('#post-input');
 let search_field = document.querySelector('#search-field');
+let body = document.querySelector('body');
 let pre = "";
 post_input.value = "";
 let toggle1 = true;
@@ -311,6 +301,7 @@ function add_btn_toggle() {
   if (toggle2) {
     cover.style.display = 'block';
     post_menu.style.display = 'flex';
+	body.style.overflow = 'hidden';
     line1.style.transform = 'rotate(-45deg)';
     line2.style.transform = 'rotate(45deg)';
     add_btn.style.backgroundColor = 'red';
@@ -319,6 +310,7 @@ function add_btn_toggle() {
   else {
     cover.style.display = 'none';
     post_menu.style.display = 'none';
+	body.style.overflow = 'auto';
     line1.style.transform = 'rotate(90deg)';
     line2.style.transform = 'rotate(0deg)';
     add_btn.style.backgroundColor = '#188E43';
