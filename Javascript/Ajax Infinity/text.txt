@@ -1,0 +1,29 @@
+<div>
+<h1>hi my name is piyal Hossain
+and I am learning Ajax.<br></h1>
+<form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+Vitae mauris libero montes ridiculus augue netus! Accumsan eleifend libero nam, mi laoreet venenatis. Suscipit enim fermentum pulvinar taciti pretium feugiat turpis at malesuada ornare. Praesent nullam, ridiculus mollis fringilla erat tellus eu velit facilisi ut primis. Facilisis, pellentesque ligula tempor interdum turpis. Litora, hendrerit aenean lectus aenean eu. Platea dolor class commodo, non senectus et iaculis. Sodales accumsan et sapien amet tempor mollis varius inceptos mattis euismod ligula nisl. Gravida feugiat ridiculus bibendum viverra imperdiet natoque. Venenatis aptent eget lorem mi quis, vivamus pulvinar?
+
+Laoreet in pretium, eros aenean nulla nec mauris consequat quisque neque ridiculus vitae. At fermentum inceptos suspendisse a nibh diam. Lacus magnis tempus consectetur nisl interdum vestibulum nisi vehicula. Nascetur aliquam commodo venenatis taciti massa gravida suspendisse feugiat tincidunt. Ac placerat habitant dictum primis quis eleifend fermentum per! Metus nisi mattis sed bibendum praesent amet ut conubia pharetra platea sagittis commodo.
+
+Porta mattis, curabitur semper lacinia aliquam quisque sapien interdum parturient eu suscipit aliquet. Sociis ridiculus justo maecenas lectus cras! Nam lorem metus conubia velit netus vulputate mattis nullam semper eu? Vehicula sapien diam quisque facilisis dolor. Tincidunt nisi nostra rhoncus semper blandit eu enim sit sit. Mattis vulputate scelerisque ullamcorper proin cubilia. Fermentum convallis quis integer purus potenti eros nulla vitae, elementum praesent sem cubilia. Eget laoreet donec quisque vivamus suspendisse eget quis luctus id. Netus ac felis vivamus eget. Condimentum rhoncus habitasse lorem varius a nulla litora class. Ultrices mi taciti morbi habitasse pellentesque. Mattis potenti purus rhoncus.
+
+Phasellus commodo commodo, nascetur iaculis. Justo rhoncus ultrices nisl dolor consectetur proin sociis aliquet massa arcu. Turpis fames condimentum risus donec. Luctus libero conubia vivamus, quisque erat parturient praesent! Quisque ullamcorper nulla class. Duis platea nibh consequat curae; rhoncus velit sem augue duis purus feugiat suscipit. Orci vestibulum quisque parturient mi ipsum ante ultricies vehicula sodales in duis suscipit. Diam lacinia conubia nullam tellus sagittis sed per metus.
+
+Tortor fermentum id enim. Turpis risus ultricies ultricies suscipit, leo venenatis class ipsum orci penatibus. Sem, aenean imperdiet ridiculus vestibulum. Quam hac, orci praesent. Duis pellentesque elit integer pretium nunc dictum luctus magnis quisque libero? Ac fermentum malesuada, augue penatibus torquent ac maecenas inceptos aptent vehicula dapibus. Lectus, suscipit fames suspendisse congue interdum penatibus fringilla diam? Feugiat condimentum felis faucibus. Vivamus facilisi arcu eu sapien laoreet non dis eget mi. Gravida gravida ut molestie himenaeos urna lectus magna tellus dictum; montes sit suscipit.
+</div>
