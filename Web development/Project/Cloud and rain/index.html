@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+
+  <!-- HTML -->
+
+
+  <!-- Custom Styles -->
+  <style>
+	*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+    font-size: 15pt;
+    min-height:100vh;
+    display: flex;
+    align-items: flex-start;
+    Justify-content: center;
+    padding-top: 30vw;
+    background: #3C3C3C;
+}
+.container{
+  width:400px;
+  position: relative;
+  border-bottom: 2px solid white;
+  height:365px;
+}
+.cloud{
+  margin:0 auto;
+  height:100px;
+  width:320px;
+  background: #FFFFFF;
+  border-radius: 45px;
+}
+.cloud::before{
+  content: '';
+  width:100px;
+  position: absolute;
+  top:-45px;
+  left:80px;
+  height: 100px;
+  border-radius:50%;
+  background: #FFFFFF;
+  box-shadow: 90px 0 0 30px #FFFFFF;
+}
+.rain{
+  position: absolute;
+  top:50px;
+  display: flex;
+  z-index: -1;
+  margin:5px;
+}
+.rain span{
+  position: relative;
+  width:10px;
+  height: 10px;
+  background: #8B8B8B;
+  margin:0 2px;
+  border-radius:100%;
+  transform-origin: bottom;
+  animation: animate 5s linear infinite;
+  animation-duration: calc(15s/var(--i));
+}
+@keyframes animate{
+  0%{
+    transform: translateY(0) scale(1);
+  }
+  70%{
+    transform: translateY(300px) scale(1);
+  }
+  100%{
+    transform: translateY(300px) scale(0);
+  }
+}
+
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="cloud">
+      <div class="rain">
+        <span style="--i:15"></span>
+        <span style="--i:14"></span>
+        <span style="--i:21"></span>
+        <span style="--i:11"></span>
+        <span style="--i:17"></span>
+        <span style="--i:23"></span>
+        <span style="--i:18"></span>
+        <span style="--i:19"></span>
+        <span style="--i:27"></span>
+        <span style="--i:25"></span>
+        <span style="--i:16"></span>
+        <span style="--i:12"></span>
+        <span style="--i:20"></span>
+        <span style="--i:23"></span>
+        <span style="--i:21"></span>
+        <span style="--i:12"></span>
+        <span style="--i:18"></span>
+        <span style="--i:19"></span>
+        <span style="--i:14"></span>
+        <span style="--i:17"></span>
+        <span style="--i:16"></span>
+        <span style="--i:13"></span>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
