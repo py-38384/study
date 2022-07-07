@@ -4,6 +4,7 @@ let today = new Date();
 // console.log(typeof today);
 let otherDate = new Date('8-4-2003 04:54:08');
 // otherDate = new Date('June 13 1976');
+//mm/dd/yyyy
 // otherDate = new Date('09/16/1976');
 console.log(otherDate);
 let a;

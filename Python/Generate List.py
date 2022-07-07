@@ -1,8 +1,8 @@
 def Numbers():
-	num = 1
+	num = 0
 	while num <= 100:
 		yield num
-		num += 1
+		num += 5
 
 List = list(Numbers())
 print(List)
