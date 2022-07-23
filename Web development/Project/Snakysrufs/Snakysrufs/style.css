@@ -1,0 +1,129 @@
+:root {
+  --distance1: 32.32%;
+  --distance2: 15%;
+  --distance3: 14%;
+  --thickness: 68px;
+  --thickness2: 60px;
+  --width1: 150px;
+  --height1: 150px;
+  --color: #53AEFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #3D3F4F;
+}
+
+#displayBoard {
+  height: 60vh;
+  top: 5vh;
+  position: relative;
+  margin: auto;
+  width: 40vh;
+  background: black;
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: repeat(27, 1fr);
+}
+
+.head {
+  background: #FF9F9F;
+}
+
+.sbody {
+  background: #FFFFFF;
+}
+
+.food {
+  background: #84BAFF;
+}
+
+#buttons {
+  position: relative;
+  top: 7vh;
+  height: 25vh;
+}
+
+.button {
+  position: absolute;
+  border: none;
+  border-radius: 5px;
+}
+
+#left {
+  width: var(--thickness);
+  height: var(--height1);
+  top: var(--distance3);
+  left: var(--distance2);
+  background: var(--color);
+}
+
+#top {
+  height: var(--thickness);
+  width: var(--width1);
+  top: 0;
+  left: var(--distance1);
+  background: var(--color);
+}
+
+#right {
+  width: var(--thickness);
+  height: var(--height1);
+  top: var(--distance3);
+  right: var(--distance2);
+  background: var(--color);
+}
+
+#bottom {
+  height: var(--thickness);
+  width: var(--width1);
+  bottom: 0;
+  left: var(--distance1);
+  background: var(--color);
+}
+
+#stopBtn {
+  width: var(--thickness);
+  height: var(--thickness2);
+  width: var(--width1);
+  bottom: 36%;
+  left: var(--distance1);
+  background: var(--color);
+}
+
+#notice {
+  position: fixed;
+  top: 30vh;
+  left: 25vw;
+  width: 50vw;
+  height: 50vw;
+  line-height: 3rem;
+  text-align: center;
+  font-size: 3.5rem;
+  font-family: serif;
+  -webkit-text-fill-color: black;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  color: White;
+  display: none;
+}
+#scoreBoard{
+  position: fixed;
+  top: 6vh;
+  left: 60vw;
+  font-size: 18px;
+  font-family: serif;
+  color: rgba(255, 255, 255, 0.3);
+}
+#highScoreBoard{
+  position: fixed;
+  top: 6vh;
+  left: 15vw;
+  font-size: 18px;
+  font-family: serif;
+  color: rgba(255, 255, 255, 0.3);
+}

@@ -363,18 +363,20 @@ post_btn.addEventListener('click', (event) => {
   }
   noteObj.push(post_input.value);
   post_input.value = "";
-  //document.querySelector('body').innerHTML = noteObj;
   localStorage.setItem("notes", JSON.stringify(noteObj));
   add_btn_toggle();
   showNotes();
 });
 
 function deleteNote(index) {
+  let text = 'Do you really want to delete this note?';
+  if(confirm(text)){
   let notes = localStorage.getItem('notes');
   let notesObj = JSON.parse(notes);
   notesObj.splice(index, 1);
   localStorage.setItem("notes", JSON.stringify(notesObj));
   showNotes();
+  }
 }
 search_field.addEventListener('input', (event) => {
   let inputVal = search_field.value;
