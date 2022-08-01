@@ -11,7 +11,7 @@ int main()
     for(i = 1;i < n;i++){
         temp = data[i];
         j = i - 1;
-        while(data[j] > temp){
+        while(j >= 0 && data[j] > temp){
         data[j+1]=data[j];
             j--;
        }
