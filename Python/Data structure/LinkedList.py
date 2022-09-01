@@ -40,6 +40,15 @@ class LinkedList:
 			self.head.previous = dataObj
 			dataObj.next = self.head
 			self.head = dataObj
+	def insert(self,data,index):
+		nodeObj = Node(data)
+		pointer = self.head
+		for i in range(index):
+			pointer = pointer.next
+		prev = pointer.previous
+		prev.next = nodeObj
+		nodeObj.next = pointer
+		pointer.previous = nodeObj
 	def print(self):
 		pointer = self.head
 		print('< ',end='')
@@ -62,6 +71,7 @@ obj.append(40)
 obj.append(10)
 obj.append(80)
 obj.add(60)
+obj.insert(4,1)
 obj.print()
 print(obj.pop())
 obj.print()
