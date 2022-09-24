@@ -1,5 +1,4 @@
 def rec(n,diff,comb,combs):
-	print(comb)
 	if diff < 0 or diff > n:
 		return
 	elif n == 0:
