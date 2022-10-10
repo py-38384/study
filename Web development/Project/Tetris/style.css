@@ -37,7 +37,7 @@ body {
 
 #buttons {
   position: relative;
-  top: 10vh;
+  top: 8vh;
   height: 25vh;
 }
 
@@ -83,7 +83,7 @@ body {
   width: var(--thickness);
   height: var(--thickness2);
   width: var(--width1);
-  bottom: 35%;
+  bottom: 36%;
   left: var(--distance1);
   background: var(--color);
 }
