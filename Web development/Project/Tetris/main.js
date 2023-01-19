@@ -75,6 +75,7 @@ let Brick7Alt = [[{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 0, y: 1 }, { x: 1, y: 1 }
 
 //Utility functions...⚙️
 function arrange(num) {
+  scoreMusic.play();
   score += 100;
   for (let i = num; i > 0; i--) {
     groundBrick[i - 1].forEach((e) => {
@@ -406,7 +407,6 @@ function gameEngine() {
     if (groundBrick[i].length >= 18) {
       groundBrick[i].splice(0, groundBrick[i].length);
       arrange(i);
-	  scoreMusic.play();
     }
   }
 }

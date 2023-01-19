@@ -39,3 +39,15 @@ let myobj = {
 console.log(myobj)
 console.log(myobj['channel'])
 console.log(myobj.channel)
+//let arr = JSON.parse(localStorage.getItem("test"));
+let arr = { "পিয়াল": 35, "রাকিব": 18, "মিনারুল": 21, "মুরসালীন":100 };
+//localStorage.setItem("test",JSON.stringify(arr));
+let name = "শাওন";
+arr[name] = 200;
+/*arr["মুরসালীন"] = 100;
+console.log(arr);
+delete arr["রাকিব"];
+*/
+console.log(Object.keys(arr));
+console.log(Object.values(arr));
+console.log(arr);
