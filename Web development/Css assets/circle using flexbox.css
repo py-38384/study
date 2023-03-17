@@ -1,0 +1,25 @@
+#contener{
+  display: flex;
+  flex-wrap: wrap;
+  width:200px;
+}
+.obj{
+  width:100px;
+  height:100px;
+}
+#obj1{
+  background: #46C5E2;
+  border-radius: 100% 0 0 0;
+}
+#obj2{
+  background: #46C5E2;
+  border-radius: 0 100% 0 0;
+}
+#obj3{
+  background: #46C5E2;
+  border-radius: 0 0 0 100%;
+}
+#obj4{
+  background: #46C5E2;
+  border-radius: 0 0 100% 0;
+}
