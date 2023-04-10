@@ -12,7 +12,10 @@ app.set('views',path.join(__dirname,'views'));//setting pug file (views or templ
 app.set('view engine','pug');//setting pug as render engine
 
 app.get('/',(req,res)=>{
-    res.status(200).render('index.pug');
+    res.status(200).render('home.pug');
+});
+app.get('/contact',(req,res)=>{
+    res.status(200).render('contact.pug');
 });
 
 app.listen(port);

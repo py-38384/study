@@ -1,0 +1,44 @@
+extends base.pug
+
+block script
+    script(scr='/static/index.js')
+
+block style 
+    style
+      include ../static/mainStyle.css
+
+block content 
+    section#introSection
+      | Welcome to SA Dance Academy 
+
+    section#missionSection
+      h3 Our Mission
+      div.card
+        div.card-box
+          div PERFECTION
+          div.card-img 
+            img(src="../static/img/1.png")
+          div.card-content 
+            p perfection is the key of atraction
+
+        div.card-box
+          div HEALTHY
+          div.card-img 
+            img(src="../static/img/2.png")
+          div.card-content 
+            p Health is the wealth
+
+        div.card-box
+          div HAPPINESS
+          div.card-img 
+            img(src="../static/img/3.png")
+          div.card-content 
+            p The meaing of life is to find happiness.
+
+    section#sponcerSection 
+      h3 Our sponcers
+      #sponcer 
+        img(src="../static/img/logo1.png", alt="Sponcers Image", class="spImage")
+        img(src="../static/img/logo2.png", alt="Sponcers Image", class="spImage")
+        img(src="../static/img/logo3.png", alt="Sponcers Image", class="spImage")
+        img(src="../static/img/logo4.png", alt="Sponcers Image", class="spImage")

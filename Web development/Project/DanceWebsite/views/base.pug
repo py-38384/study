@@ -1,0 +1,22 @@
+doctype html 
+html 
+    head 
+        title SA dance academy 
+        block script 
+        block style 
+    body 
+        nav#navbar 
+            ul 
+                #logo 
+                    img(src="../static/img/logo.png")
+                    | SADA
+                    li #[a(href="/") Home]
+                    li #[a(href="/") About]
+                    li #[a(href="/") Service]
+                    li #[a(href="/contact") Contact US]
+                    li #[a(href="/") Class Info]
+
+        block content
+        footer#footer 
+            //- to write copyright symbol type alt+0169
+            | Copyright © 2023 SADanceAcademy.com | all rights reserved
