@@ -2,6 +2,25 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const port = 80;
+const mongoose = require('mongoose');//mongoDB modules
+const bodyParser = require('body-parser');
+
+main().catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb://127.0.0.1:27017/contactDance');
+}
+
+//Defining Schema
+const contactSchema = new mongoose.Schema({
+    name: String,
+    phone: String,
+    email: String,
+    address: String,
+    desc: String
+});
+
+const Contact = mongoose.model('contact', contactSchema); 
 
 // app.use(express.static('static',options));
 app.use('/static',express.static('static'));
@@ -16,6 +35,14 @@ app.get('/',(req,res)=>{
 });
 app.get('/contact',(req,res)=>{
     res.status(200).render('contact.pug');
+});
+app.post('/contact',(req,res)=>{
+    var Data = new Contact(req.body);
+    Data.save().then(()=>{
+        res.send("Form has been saved to the database");
+    }).catch(()=>{
+        res.statusCode(400).send("Error!!Form has not been saved.");
+    });
 });
 
 app.listen(port);
