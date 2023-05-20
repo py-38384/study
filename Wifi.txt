@@ -1,5 +1,6 @@
-ID: 633815
-Password: Wap10pi3818
-Service provider name: Shamad
-Service provider no: 01716-844930
+ID:1539
+Password:piyal321
+Service provider name:goni
+Service provider no:01755153906
 Link:192.168.0.1
+Link pass: wifilogin13133
