@@ -28,10 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     if (move_uploaded_file($tmp_name, 'photos/' . $new_img_name)) {
                         $status = "Active now";
                         $random_id = rand(time(), 10000000);
-                        $sql = "INSERT INTO `users` (`unique_id`,`firstname`,`lastname`,`email`,`password`,`photo`, `status`) VALUES ('$random_id','$firstName', '$lastName', '$email','$password','$new_img_name','$status');";
-                        $result = mysqli_query($connect, $sql);
-                        if (!$result) {
-                            echo ``;
+                        $sql = mysqli_query($connect,"INSERT INTO `users` (`user_id`, `unique_id`, `firstname`, `lastname`, `email`, `password`, `photo`, `status`, `last_online`) VALUES (NULL, '$random_id', '$firstName', '$lastName', '$email', '$password', '$new_img_name', '$status',0);");
+                        if (!$sql) {
+                            die('Something went miserably wrong.<br>' . mysqli_error($connect));
                         } else {
                             $sql2 = "SELECT * FROM users WHERE email = '{$email}'";
                             $result2 = mysqli_query($connect, $sql2);
@@ -70,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     <div class="wrapper">
         <section class="form signup">
             <header>Twick - A messaging application</header>
-            <form action="/twick/index.php" method="post" enctype="multipart/form-data">
+            <form action="index.php" method="post" enctype="multipart/form-data">
                 <div class="error-text" style="display:<?php if (isset($_GET["error"])) {
                                                             echo "block";
                                                         } else {
