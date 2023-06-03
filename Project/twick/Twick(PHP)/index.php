@@ -28,7 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     if (move_uploaded_file($tmp_name, 'photos/' . $new_img_name)) {
                         $status = "Active now";
                         $random_id = rand(time(), 10000000);
-                        $sql = mysqli_query($connect,"INSERT INTO `users` (`user_id`, `unique_id`, `firstname`, `lastname`, `email`, `password`, `photo`, `status`, `last_online`) VALUES (NULL, '$random_id', '$firstName', '$lastName', '$email', '$password', '$new_img_name', '$status',0);");
+                        $passHash = password_hash($password,PASSWORD_DEFAULT);
+                        $sql = mysqli_query($connect,"INSERT INTO `users` (`user_id`, `unique_id`, `firstname`, `lastname`, `email`, `password`, `photo`, `status`, `last_online`) VALUES (NULL, '$random_id', '$firstName', '$lastName', '$email', '$passHash', '$new_img_name', '$status',0);");
                         if (!$sql) {
                             die('Something went miserably wrong.<br>' . mysqli_error($connect));
                         } else {

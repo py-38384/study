@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $exist = mysqli_num_rows($result);
     if ($exist == 1) {
         $row = mysqli_fetch_assoc($result);
-        if ($password == $row["password"]) {
+        if (password_verify($password,$row["password"])) {
             $_SESSION["unique_id"] = $row["unique_id"];
             header("Location: user.php");
         } else {
