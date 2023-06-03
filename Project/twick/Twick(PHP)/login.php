@@ -8,12 +8,16 @@ $login = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $sql = "SELECT * FROM `users` WHERE `email` = '$email'";
+    try {
+        $sql = "SELECT * FROM `users` WHERE `email` = '$email'";
+    } catch (Exception $e) {
+        die('Server reached its limit. Wait for a moment to cool it down: ' . $e->getMessage());
+    }
     $result = mysqli_query($connect, $sql);
     $exist = mysqli_num_rows($result);
     if ($exist == 1) {
         $row = mysqli_fetch_assoc($result);
-        if (password_verify($password,$row["password"])) {
+        if (password_verify($password, $row["password"])) {
             $_SESSION["unique_id"] = $row["unique_id"];
             header("Location: user.php");
         } else {
@@ -42,14 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="wrapper">
         <section class="form login">
             <header>Twick - A messaging application</header>
-            <form action="/twick/login.php" method="post">
+            <form action="login.php" method="post">
                 <div class="error-text" style="display:<?php if (isset($_GET["error"])) {
                                                             echo "block";
                                                         } else {
                                                             echo "none";
                                                         } ?>;"><?php if (isset($_GET["error"])) {
-                                echo $_GET["error"];
-                            } ?></div>
+                                                                    echo $_GET["error"];
+                                                                } ?></div>
                 <div class="field input">
                     <label>Email</label>
                     <input type="text" name="email" placeholder="Enter your email" required>

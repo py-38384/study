@@ -1,8 +1,8 @@
 <?php
 $url = "localhost";
-$name = "root";
-$pass = "";
-$database = "twickdb";
+$name = "id20849482_piyal4633";
+$pass = "fi8hdftwipiyD*";
+$database = "id20849482_twickdb";
 
 $connect = mysqli_connect($url,$name,$pass,$database);
 
