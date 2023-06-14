@@ -9,18 +9,33 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <header class="header">
-        <a href="#" class="logo">portfolio.</a>
+    <header class="header container">
+        <a href="#" class="logo">It's Hossein.</a>
 
         <nav class="navbar">
-            <a href="#" class="active" style="--i:1;">Home</a>
-            <a href="#" style="--i:2;">About</a>
-            <a href="#"style="--i:3;">Skills</a>
+            <a href="#home" class="active" style="--i:1;">Home</a>
+            <a href="#about" style="--i:2;">About</a>
+            <a href="#skills"style="--i:3;">Skills</a>
             <a href="#"style="--i:4;">portfolio</a>
-            <a href="#"style="--i:5;">Contact</a>
+            <a href="#contact"style="--i:5;">Contact</a>
         </nav>
+        <div class="hamburger">
+            <span class="bar" id="line1"></span>
+            <span class="line" id="line2"></span>
+            <span class="line" id="line3"></span>
+            <span class="bar" id="line4"></span>
+        </div>
     </header>
-    <section class="home">
+    <nav class="responsive-navber">
+        <a href="#home" class="active" style="--i:1;">Home</a>
+        <a href="#about" style="--i:2;">About</a>
+        <a href="#skills"style="--i:3;">Skills</a>
+        <a href="#"style="--i:4;">portfolio</a>
+        <a href="#contact"style="--i:5;">Contact</a>
+    </nav>
+    <div class="cover"></div>
+
+    <section class="home" id="home">
         <div class="home-content">
             <h3>Hello, It's me</h3>
             <h1>Piyal hossein</h1>
@@ -32,10 +47,119 @@
                 <a href="https://www.instagram.com/piyalhossein/" target="_blank" style="--i:8"><i class='bx bxl-instagram' ></i></a>
                 <a href="https://www.linkedin.com/in/piyal-hossain-b3720b21b/" target="_blank" style="--i:9"><i class='bx bxl-linkedin-square' ></i></a>
             </div>
-            <a href="https://www.fiverr.com/piyalhossein" target="_blank" class="btn">Hire me</a>
+            <a href="https://www.fiverr.com/piyalhossein" target="_blank" class="btn hire-btn">Hire me</a>
         </div>
-        <div class="home-image"><img src="home3.png" alt="home image" srcset=""></div>
+        <div class="home-image"><img src="heroPic.png" alt="img image" srcset=""></div>
     </section>
+
+    <section class="about container" id="about">
+        <h2 class="heading">About <span>Me</span></h2>
+        <div class="about-image">
+            <img src="about.png" alt="">
+            <span class="circle-spin"></span>
+        </div>
+        <div class="about-content">
+            <h3>Technology enthusiast</h3>
+            <p>Hallo my name is piyal hossein. I am from bangladesh. I am a computer nard. I know a little bit about everything within the computer field. but mainly I am a programmer and a web developer. So about the programming side. Yet again I know a little bit about every popular programming language out there. but mainly I am a python programmer who have decent experience of machine learning and data analysis using python. And about the web development. Well Html, css, javascript, php, laravel, django, react, nextjs, notejs, asp.net those are my expertise. I am a quick learner. And I learned all those things using only the internet. and I am still learning. currently my main focus is unity..</p>
+            <div class="btn-box btns">
+                <a href="#" class="btn">Contact me</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills container" id="skills">
+        <h2 class="heading">My <span>Skills</span></h2>
+        <div class="skills-row">
+
+            <div class="skills-column">
+                <h3 class="title">Coding skills</h3>
+                <div class="skills-box">
+                    <div class="skills-content">
+                        <div class="progress">
+                            <h3>HTML <span>95%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>CSS <span>90%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>JavaScript <span>75%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Python <span>90%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-column">
+                <h3 class="title">Professional skills</h3>
+                <div class="skills-box">
+                    <div class="skills-content">
+                        <div class="progress">
+                            <h3>Web Development <span>95%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Web Design <span>90%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Machine Learning <span>70%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Game Development <span>80%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <h2 class="heading">Contect <span>Me</span></h2>
+        <form action="#">
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="text" placeholder="Full name" required>
+                    <span class="focus"></span>
+                </div>
+                <div class="input-field">
+                    <input type="email" placeholder="Email Address" required>
+                    <span class="focus"></span>
+                </div>
+            </div>
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="text" placeholder="Mobile Number">
+                    <span class="focus"></span>
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Subject">
+                    <span class="focus"></span>
+                </div>
+            </div>
+            <div class="textarea-field">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Enter your message here..." required></textarea>
+                <span class="focus"></span>
+            </div>
+            <div class="submit-btn-box btns">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </section>
+    <footer>
+        <div class="footer-text">
+            <p>Copyright &copy; 2023 by Piyal | All Rights Reserved.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#"><i class='bx bx-up-arrow-alt' ></i></a>
+        </div>
+    </footer>
 </body>
 <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 <script src="main.js"></script>
