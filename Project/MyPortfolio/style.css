@@ -29,6 +29,9 @@ body{
     align-items: center;
     z-index: 100;
 }
+.header.fixed{
+    background-color: var(--bg-color);
+}
 .logo{
     font-size: 25px;
     color: var(--text-color);
@@ -66,6 +69,7 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 70px 10% 0;
+    border-bottom: 2px solid var(--main-color);
 }
 .home-content{
     max-width: 600px;
@@ -158,7 +162,7 @@ body{
     display: none;
 }
 
-/* about section css starts here */
+/* about section css start here */
 
 .about{
     display: flex;
@@ -168,6 +172,7 @@ body{
     gap: 2rem;
     background-color: var(--secendary-bg-color);
     height: 100vh;
+    border-bottom: 2px solid var(--main-color);
 
 }
 span{
@@ -176,11 +181,13 @@ span{
 .heading{
     font-size: 3rem;
     text-align: center;
+    text-shadow: 3px 3px 3px gray;
+    border-bottom: 2px solid var(--main-color);
 }
 .about-image{
     position: relative;
-    width: 25rem;
-    height: 25rem;
+    width: 20rem;
+    height: 20rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -203,6 +210,7 @@ span{
     border-bottom: .2rem solid var(--secendary-bg-color);
     border-left: .2rem solid var(--main-color);
     border-right: .2rem solid var(--main-color);
+    animation: aboutSpinner 8s linear infinite;
 }
 .about-content{
     text-align: center;
@@ -216,13 +224,14 @@ span{
     margin: 2rem 0 3rem;
 }
 
-/* about section css starts here */
+/* skills section css start here */
 
 .skills{
-    background-color: var(--bg-color);
+    background-color: var(--secendary-bg-color);
     min-height: 100vh;
     padding-bottom: 3.5rem;
     padding-top: 3.5rem;
+    border-bottom: 2px solid var(--main-color);
 }
 .skills .skills-row{
     display: flex;
@@ -235,7 +244,7 @@ span{
 }
 .skills-column .title{
     font-size: 2.5rem;
-    margin: 0 0 1.5rem;
+    margin: 0 0 3rem;
 }
 .skills-box .skills-content{
     position: relative;
@@ -253,7 +262,7 @@ span{
     width: 0%;
     border-radius: 10px;
     height: 100%;
-    background-color: var(--secendary-bg-color);
+    background-color: var(--bg-color);
     z-index: -1;
     transition: .5s;
 }
@@ -311,8 +320,56 @@ span{
 .skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span{
     width: 80%;
 }
-
-/* contect section css starts here */
+/* portfolio section css start here */
+.portfolio{
+    height: 100vh;
+    background-color: var(--secendary-bg-color);
+    border-bottom: 2px solid var(--main-color);
+}
+.portfolio .project-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 1.2rem;
+}
+.portfolio .project-box .project{
+    width: 20rem;
+    height: 25rem;
+    border: 1px solid var(--main-color);
+    text-decoration: none;
+    text-align: center;
+    color: var(--text-colors);
+    border-radius: 15px;
+    transition: .3s;
+}
+.portfolio .project-box .project:hover{
+    width: 21rem;
+    height: 26rem;
+    box-shadow: 5px 5px 30px gray;
+}
+.portfolio .project-box .project .image-container{
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+    border-radius:  12px 12px 0 0;
+}
+.portfolio .project-box .project .image-container img{
+    width: 100%;
+}
+.portfolio .project-box .project .desc-box{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: .2rem;
+}
+.portfolio .project-box .project .desc-box h3{
+    color: var(--main-color);
+    font-size: 2rem;
+}
+/* contect section css start here */
 
 .contact{
     background-color: var(--secendary-bg-color);
@@ -320,6 +377,7 @@ span{
     padding-bottom: 3.5rem;
     padding-top: 3.5rem;
     width: 100%;
+    border-bottom: 2px solid var(--main-color);
 }
 .contact form{
     max-width: 70rem;
@@ -392,6 +450,8 @@ footer .footer-text p{
     border-radius: 10%;
 }
 
+
+
 @keyframes slideright{
     0%{
         transform: translateX(-100px);
@@ -453,7 +513,11 @@ footer .footer-text p{
         transform: translateY(0);
     }
 }
-
+@keyframes aboutSpinner{
+    100%{
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
 /* controlling responsiveness using media query */
 @media screen and (max-width: 1900px) {
     .home-image img{
@@ -504,6 +568,32 @@ footer .footer-text p{
         max-width: 600px;
     }
 }
+@media screen and (max-width: 1200px){
+    .contact{
+        min-height: 100vh;
+        padding-bottom: 3.5rem;
+        padding-top: 3.5rem;
+        width: 100%;
+    }
+    .contact form{
+        max-width: 50rem;
+    }
+    .contact form .input-box .input-field{
+        width: 49%;
+        margin: .8rem 0;
+    }
+    .contact form .input-box .input-field input,
+    .contact form .textarea-field textarea{
+        width: 100%;
+        height: 100%;
+        padding: 1.4rem;
+        font-size: 1.5rem;
+        border-radius: .5rem;
+    }
+    .contact form .textarea-field{
+        margin: .7rem 0 2.5rem;
+    }
+}
 @media screen and (max-width: 1080px){
     .home-content h1{
         font-size: 40px;
@@ -511,10 +601,46 @@ footer .footer-text p{
     .home-image img{
         width: 420px;
     }
+    .about{
+        justify-content: center;
+        gap: 0rem;
+    }
+    .about-image{
+        width: 10rem;
+        padding: 1rem;
+        height: auto;
+    }
+    .about img{
+        width: 8rem;
+    }
 }
 @media screen and (max-width: 960px){
     .home-image img{
         width: 400px;
+    }
+    .contact{
+        min-height: 100vh;
+        padding-bottom: 3.5rem;
+        padding-top: 3.5rem;
+        width: 100%;
+    }
+    .contact form{
+        max-width: 30rem;
+    }
+    .contact form .input-box .input-field{
+        width: 49%;
+        margin: .5rem 0;
+    }
+    .contact form .input-box .input-field input,
+    .contact form .textarea-field textarea{
+        width: 100%;
+        height: 100%;
+        padding: 1.2rem;
+        font-size: 1.4rem;
+        border-radius: .5rem;
+    }
+    .contact form .textarea-field{
+        margin: .5rem 0 2.2rem;
     }
 }
 
@@ -544,9 +670,16 @@ footer .footer-text p{
     }
     .about{
         height: 110vh;
+        justify-content: center;
+        gap: 0rem;
+    }
+    .about-image{
+        width: 10rem;
+        padding: 1rem;
+        height: auto;
     }
     .about img{
-        width: 12rem;
+        width: 8rem;
     }
     .navbar{
         display: none;
@@ -607,6 +740,50 @@ footer .footer-text p{
     }
     
 }
+@media screen and (max-width:610px){
+    footer{
+        justify-content: center;
+        padding: 1rem 9%;
+    }
+    .footer-iconTop a{
+        display: inline-block;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        color: var(--text-color);
+        font-size: 1rem;
+        padding: .6rem;
+        background-color: var(--main-color);
+        border-radius: 10%;
+    }
+    
+}
+@media screen and (max-width:550px){
+    .contact{
+        min-height: 100vh;
+        padding-bottom: 3.5rem;
+        padding-top: 3.5rem;
+        width: 100%;
+    }
+    .contact form{
+        max-width: 20rem;
+    }
+    .contact form .input-box .input-field{
+        width: 49%;
+        margin: .2rem 0;
+    }
+    .contact form .input-box .input-field input,
+    .contact form .textarea-field textarea{
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        border-radius: .5rem;
+    }
+    .contact form .textarea-field{
+        margin: .2rem 0 1.5rem;
+    }
+}
 @media screen and (max-width:500px){
     .home-image img{
         width: 250px;
@@ -652,6 +829,12 @@ footer .footer-text p{
         padding: .2rem;
         margin: .8rem 0;
     }
+    .portfolio .project-box .project .desc-box h3{
+        font-size: 1.4rem;
+    }
+    .portfolio .project-box .project .desc-box p{
+        font-size: .9rem;
+    }
 }
 @media screen and (max-width: 400px){
     .about{
@@ -687,6 +870,36 @@ footer .footer-text p{
     }
     .logo{
         font-size: 20px;
+    }
+    .portfolio .project-box .project .desc-box h3{
+        font-size: 1rem;
+    }
+    .portfolio .project-box .project .desc-box p{
+        font-size: .7rem;
+    }
+    .contact{
+        min-height: 100vh;
+        padding-bottom: 3.5rem;
+        padding-top: 3.5rem;
+        width: 100%;
+    }
+    .contact form{
+        max-width: 14rem;
+    }
+    .contact form .input-box .input-field{
+        width: 49%;
+        margin: .2rem 0;
+    }
+    .contact form .input-box .input-field input,
+    .contact form .textarea-field textarea{
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        border-radius: .5rem;
+    }
+    .contact form .textarea-field{
+        margin: .2rem 0 1.5rem;
     }
 }
 
