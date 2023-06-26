@@ -1,3 +1,9 @@
+<?php
+if (isset($_GET["alert"])) {
+    $alert = $_GET["alert"];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +18,7 @@
 
 <body>
     <header class="header container">
-        <a href="#" class="logo">It's Hossein.</a>
+        <a href="index.php" class="logo">It's Hossein.</a>
 
         <nav class="navbar">
             <a href="#home" class="active" style="--i:1;">Home</a>
@@ -45,19 +51,14 @@
             <p>I am working as a freelancer for almost 5 years. I deliver quality work in reasonable price. Clients full
                 satisfaction is my first priority. Lets talk and solve your problem.</p>
             <div class="social-media">
-                <a href="https://www.facebook.com/people/Piyal-Hossain/pfbid021nUPyedTFro5NQqY6rzdmDXWvFA43QPThABfNNsLnayZ4peP2YWbXTBViqbfdDsnl/"
-                    target="_blank" style="--i:6"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="https://www.facebook.com/people/Piyal-Hossain/pfbid021nUPyedTFro5NQqY6rzdmDXWvFA43QPThABfNNsLnayZ4peP2YWbXTBViqbfdDsnl/" target="_blank" style="--i:6"><i class='bx bxl-facebook-circle'></i></a>
                 <a href="https://github.com/py-38384" target="_blank" style="--i:7"><i class='bx bxl-github'></i></a>
-                <a href="https://www.instagram.com/piyalhossein/" target="_blank" style="--i:8"><i
-                        class='bx bxl-instagram'></i></a>
-                <a href="https://www.linkedin.com/in/piyal-hossain-b3720b21b/" target="_blank" style="--i:9"><i
-                        class='bx bxl-linkedin-square'></i></a>
+                <a href="https://www.instagram.com/piyalhossein/" target="_blank" style="--i:8"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/in/piyal-hossain-b3720b21b/" target="_blank" style="--i:9"><i class='bx bxl-linkedin-square'></i></a>
             </div>
-            <a href="https://www.fiverr.com/piyalhossein" target="_blank" style="border-radius: 15px 0 0 15px;"
-                class="btn hire-btn">Hire me</a>
+            <a href="https://www.fiverr.com/piyalhossein" target="_blank" style="border-radius: 15px 0 0 15px;" class="btn hire-btn">Hire me</a>
             <span class="divider"></span>
-            <a href="https://www.fiverr.com/piyalhossein" target="_blank" style="border-radius: 0px 15px 15px 0px;"
-                class="btn hire-btn">Download CV</a>
+            <a href="resume.txt" target="_blank" style="border-radius: 0px 15px 15px 0px;" class="btn hire-btn">Download CV</a>
         </div>
         <div class="home-image"><img src="heroPic.png" alt="img image" srcset=""></div>
     </section>
@@ -78,7 +79,7 @@
                 notejs, asp.net those are my expertise. I am a quick learner. And I learned all those things using only
                 the internet. and I am still learning. currently my main focus is unity..</p>
             <div class="btn-box btns">
-                <a href="#" class="btn">Contact me</a>
+                <a href="#contact" class="btn">Contact me</a>
             </div>
         </div>
     </section>
@@ -140,44 +141,67 @@
         <h2 class="heading">My <span>Portfolio</span></h2>
         <div class="project-box">
             <!-- this is where you will put your portfolio work/project  -->
-            <a href="https://twick-a-simple-message-app.000webhostapp.com/" target="_blank" class="project"> <!--project block-->
-                <div class="image-container">
-                    <img src="protfolioImage/twick.png" alt=""> <!--project image block-->
-                </div>
-                <div class="desc-box">
-                    <h3>Chat application</h3> <!--project name block-->
-                    <p>A simple chat aplication using html css javascript php and sql.</p>
-                    <!--project project brief description block-->
-                </div>
-            </a> <!--Replicate this anchor tag for each of your project-->
+            <?php
+                include "config.php";
+                $sql = mysqli_query($connect,"SELECT * FROM portfolio");
+                $output = "";
+                while($row = mysqli_fetch_assoc($sql)){
+                    $output .= '
+                    <a href="'.$row['projectlink'].'" target="_blank" class="project">
+                    <div class="image-container">
+                        <img src="protfolioImage/'.$row['projectphoto'].'" alt="">
+                    </div>
+                    <div class="desc-box">
+                        <h3>'.$row['projectname'].'</h3>
+                        <p>'.$row['prjectsmalldescription'].'</p>
+                    </div>
+                </a>
+                    ';
+                }
+                echo $output;
+            ?>
+            
         </div>
     </section>
     <section class="contact" id="contact">
         <h2 class="heading" style="border: none;">Contect <span>Me</span></h2>
-        <form action="#">
+        <form action="message.php" method="post">
+
+        <?php
+        if (isset($_GET["alert"])) {
+            $alert = $_GET["alert"];
+            if($_GET["status"] == "success"){
+                echo '<div class="contact-success">'.$alert.'</div>';
+                echo '<script>alert("Message successfully send");</script>';
+            }else if($_GET["status"] == "failed"){
+                echo '<div class="contact-failed">'.$alert.'</div>';
+                echo '<script>alert("Error!!Message not send");</script>';
+            }
+        }
+        ?>
+
             <div class="input-box">
                 <div class="input-field">
-                    <input type="text" placeholder="Full name" required>
+                    <input type="text" name="fullname" placeholder="Full name" required>
                     <span class="focus"></span>
                 </div>
                 <div class="input-field">
-                    <input type="email" placeholder="Email Address" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
                     <span class="focus"></span>
                 </div>
             </div>
             <div class="input-box">
                 <div class="input-field">
-                    <input type="text" placeholder="Mobile Number">
+                    <input type="text" name="mobilenumber" placeholder="Mobile Number">
                     <span class="focus"></span>
                 </div>
                 <div class="input-field">
-                    <input type="text" placeholder="Subject">
+                    <input type="text" name="subject" placeholder="Subject">
                     <span class="focus"></span>
                 </div>
             </div>
             <div class="textarea-field">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Enter your message here..."
-                    required></textarea>
+                <textarea name="message" id="" cols="30" rows="10" placeholder="Enter your message here..." required></textarea>
                 <span class="focus"></span>
             </div>
             <div class="submit-btn-box btns">

@@ -322,7 +322,7 @@ span{
 }
 /* portfolio section css start here */
 .portfolio{
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--secendary-bg-color);
     border-bottom: 2px solid var(--main-color);
 }
@@ -450,8 +450,28 @@ footer .footer-text p{
     border-radius: 10%;
 }
 
-
-
+.contact-success{
+    width: 100%;
+    position: relative;
+    border:2px solid rgb(11, 245, 69);
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(11, 245, 69);
+    text-align: center;
+    padding: 15px;
+    font-size: 1.5rem;
+}
+.contact-failed{
+    width: 100%;
+    position: relative;
+    border:2px solid rgb(245, 11, 11);
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(245, 11, 11);
+    text-align: center;
+    padding: 15px;
+    font-size: 1.5rem;
+}
 @keyframes slideright{
     0%{
         transform: translateX(-100px);
