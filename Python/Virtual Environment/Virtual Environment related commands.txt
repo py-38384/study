@@ -1,0 +1,5 @@
+for windows__
+Create virtual environment(folder)-> python -m venv .venv
+Show script execution permission(with admin terminal)-> Get-ExecutionPolicy 
+Change script execution permission to remote signed-> Set-ExecutionPolicy RemoteSigned
+Activate virtual environment-> & e:/study/Django/storeFront/.venv/Scripts/Activate.ps1
