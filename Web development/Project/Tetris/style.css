@@ -15,6 +15,7 @@
 }
 
 body {
+  max-height: 100vh;
   background: #283E5E;
 }
 
@@ -23,69 +24,16 @@ body {
 }
 
 #displayBoard {
-  height: 60vh;
   top: 5vh;
   position: relative;
   margin: auto;
+  height: 60vh;
   width: 40vh;
   background: #90B585;
   display: grid;
   grid-template-columns: repeat(18, 1fr);
   grid-template-rows: repeat(27, 1fr);
   grid-gap: 2px;
-}
-
-#buttons {
-  position: relative;
-  top: 8vh;
-  height: 25vh;
-}
-
-.button {
-  position: absolute;
-  border: none;
-  border-radius: 5px;
-}
-
-#left {
-  width: var(--thickness);
-  height: var(--height1);
-  top: var(--distance3);
-  left: var(--distance2);
-  background: var(--color);
-}
-
-#top {
-  height: var(--thickness);
-  width: var(--width1);
-  top: 0;
-  left: var(--distance1);
-  background: var(--color);
-}
-
-#right {
-  width: var(--thickness);
-  height: var(--height1);
-  top: var(--distance3);
-  right: var(--distance2);
-  background: var(--color);
-}
-
-#bottom {
-  height: var(--thickness);
-  width: var(--width1);
-  bottom: 0;
-  left: var(--distance1);
-  background: var(--color);
-}
-
-#stopBtn {
-  width: var(--thickness);
-  height: var(--thickness2);
-  width: var(--width1);
-  bottom: 36%;
-  left: var(--distance1);
-  background: var(--color);
 }
 
 #notice {
@@ -104,19 +52,66 @@ body {
   color: White;
   display: none;
 }
-#scoreBoard{
-  position: fixed;
-  top: 6vh;
-  left: 60vw;
-  font-size: 18px;
-  font-family: serif;
-  color: #3682BF;
+.score-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  position: absolute;
+  top:6vh;
+  z-index: 10;
 }
-#highScoreBoard{
-  position: fixed;
-  top: 6vh;
-  left: 15vw;
-  font-size: 18px;
-  font-family: serif;
+.score-container{
+  width: 38vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: #3682BF;
+  font-size: 1.3rem;
+}
+.button-container{
+  display: none;
+  width: 100%;
+  position: absolute;
+  bottom: 19%;
+  align-items: center;
+  justify-content: center;
+}
+#buttons {
+  position: absolute;
+  width:40vh;
+  height: 28vh;
+}
+.button{
+  position: absolute;
+  border: none;
+  background-color: #3682BF;
+}
+#top{
+  height: 28%;
+  width: 55%;
+  left: 22.5%;
+}
+#left{
+  width: 20%;
+  height: 70%;
+  top:22%;
+}
+#right{
+  width: 20%;
+  height: 65%;
+  right:0;
+  top:22%;
+}
+#bottom{
+  height: 28%;
+  width: 55%;
+  bottom: 0;
+  left: 22.5%;
+}
+#stopBtn{
+  height: 30%;
+  width: 55%;
+  top: 35%;
+  left: 22.5%;
 }

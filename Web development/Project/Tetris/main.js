@@ -1,4 +1,4 @@
-let broad = document.querySelector('#displayBoard');
+let Board = document.querySelector('#displayBoard');
 let btn_outline = '5px solid #D4EFFF';
 let lastPrintTime = 0;
 let frameRate = 2.4;
@@ -27,14 +27,14 @@ let lavelUp = setInterval(() => {
 
 let groundBrick = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [{ x: 1, y: 28 }, { x: 2, y: 28 }, { x: 3, y: 28 }, { x: 4, y: 28 }, { x: 5, y: 28 }, { x: 6, y: 28 }, { x: 7, y: 28 }, { x: 8, y: 28 }, { x: 9, y: 28 }, { x: 10, y: 28 }, { x: 11, y: 28 }, { x: 12, y: 28 }, { x: 13, y: 28 }, { x: 14, y: 28 }, { x: 15, y: 28 }, { x: 16, y: 28 }, { x: 17, y: 28 }, { x: 18, y: 28 }]];
 let objArr = [
-        [{ x: 0, y: 0 }, { x: 0, y: 1 }, { x: 0, y: 2 }, { x: 0, y: 3 }],
-        [{ x: 1, y: 0 }, { x: 0, y: 1 }, { x: 1, y: 1 }, { x: 2, y: 1 }],
-        [{ x: 1, y: 0 }, { x: 1, y: 1 }, { x: 0, y: 1 }, { x: 0, y: 2 }],
-        [{ x: 0, y: 0 }, { x: 0, y: 1 }, { x: 1, y: 1 }, { x: 1, y: 2 }],
-        [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 0, y: 1 }, { x: 0, y: 2 }],
-        [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 1, y: 1 }, { x: 1, y: 2 }],
-        [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 0, y: 1 }, { x: 1, y: 1 }],
-        ];
+  [{ x: 0, y: 0 }, { x: 0, y: 1 }, { x: 0, y: 2 }, { x: 0, y: 3 }],
+  [{ x: 1, y: 0 }, { x: 0, y: 1 }, { x: 1, y: 1 }, { x: 2, y: 1 }],
+  [{ x: 1, y: 0 }, { x: 1, y: 1 }, { x: 0, y: 1 }, { x: 0, y: 2 }],
+  [{ x: 0, y: 0 }, { x: 0, y: 1 }, { x: 1, y: 1 }, { x: 1, y: 2 }],
+  [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 0, y: 1 }, { x: 0, y: 2 }],
+  [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 1, y: 1 }, { x: 1, y: 2 }],
+  [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 0, y: 1 }, { x: 1, y: 1 }],
+];
 let Brick1Alt = [[{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }], [{ x: 0, y: 0 }, { x: 0, y: 1 }, { x: 0, y: 2 }, { x: 0, y: 3 }]];
 let Brick2Alt = [[{ x: 0, y: 0 }, { x: 0, y: 1 }, { x: 0, y: 2 }, { x: 1, y: 1 }], [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 1, y: 1 }], [{ x: 1, y: 0 }, { x: 1, y: 1 }, { x: 1, y: 2 }, { x: 0, y: 1 }], [{ x: 1, y: 0 }, { x: 0, y: 1 }, { x: 1, y: 1 }, { x: 2, y: 1 }]];
 let Brick3Alt = [[{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 1, y: 1 }, { x: 2, y: 1 }], [{ x: 1, y: 0 }, { x: 1, y: 1 }, { x: 0, y: 1 }, { x: 0, y: 2 }]];
@@ -103,7 +103,7 @@ function downFall(groundCell, brickCell) {
   curBrick.forEach((e) => {
     e.y += resultY;
   })
-  if (setGround()) {} else { return false }
+  if (setGround()) { } else { return false }
   isSet = false;
   return true;
 }
@@ -130,7 +130,7 @@ function printBrick(arr) {
     brickElement.style.gridRowStart = e.y;
     brickElement.style.gridColumnStart = e.x;
     brickElement.classList.add('brick');
-    broad.appendChild(brickElement);
+    Board.appendChild(brickElement);
   });
 }
 
@@ -163,20 +163,22 @@ function resetGame() {
 
 //-------Button Functions------🖲️
 function btnFun(ele) {
-  ele.style.outline = btn_outline;
-  setTimeout(() => {
-    ele.style.outline = 'none';
-  }, 100);
-  if (gameOver) {
-    resetGame();
+  if (ele) {
+    ele.style.outline = btn_outline;
+    setTimeout(() => {
+      ele.style.outline = 'none';
+    }, 100);
+    if (gameOver) {
+      resetGame();
+    }
   }
 }
 
-function leftBtn(ele) {
+function leftBtn(ele = null) {
   btnFun(ele);
-  if (pause) {} else {
+  if (pause) { } else {
     playing = true
-    if (gameOver) {} else {
+    if (gameOver) { } else {
       if (isSet) {
         lowestX = { x: Infinity, y: Infinity };
         curBrick.forEach((e) => {
@@ -202,11 +204,11 @@ function leftBtn(ele) {
   }
 }
 
-function rightBtn(ele) {
+function rightBtn(ele = null) {
   btnFun(ele);
-  if (pause) {} else {
+  if (pause) { } else {
     playing = true
-    if (gameOver) {} else {
+    if (gameOver) { } else {
       if (isSet) {
         highestX = { x: -1, y: -1 };
         curBrick.forEach((e) => {
@@ -232,11 +234,11 @@ function rightBtn(ele) {
   }
 }
 
-function topBtn(ele) {
+function topBtn(ele = null) {
   btnFun(ele);
-  if (pause) {} else {
+  if (pause) { } else {
     playing = true
-    if (gameOver) {} else {
+    if (gameOver) { } else {
       switch (index) {
         case 0:
           changeBrick(Brick1Alt, 0);
@@ -264,11 +266,11 @@ function topBtn(ele) {
   }
 }
 
-function bottomBtn(ele) {
+function bottomBtn(ele = null) {
   btnFun(ele);
-  if (pause) {} else {
+  if (pause) { } else {
     playing = true
-    if (gameOver) {} else {
+    if (gameOver) { } else {
       arrE = [];
       breakFree = false;
       breakTolavel1 = false;
@@ -317,12 +319,14 @@ function bottomBtn(ele) {
   }
 }
 
-function pauseGame(ele) {
-  ele.style.outline = btn_outline;
-  setTimeout(() => {
-    ele.style.outline = 'none';
-  }, 100);
-  if (gameOver) {} else {
+function pauseGame(ele = null) {
+  if(ele){
+    ele.style.outline = btn_outline;
+    setTimeout(() => {
+      ele.style.outline = 'none';
+    }, 100);
+  }
+  if (gameOver) { } else {
     if (pause) {
       playing = true;
       pause = false;
@@ -345,7 +349,7 @@ function main(ctime) {
   }
   lastPrintTime = ctime;
   if (frameRate >= 5) { clearInterval(lavelUp) }
-  if (gameOver || pause || !playing) {} else { gameEngine() }
+  if (gameOver || pause || !playing) { } else { gameEngine() }
 }
 
 //-------Game Function--------
@@ -364,7 +368,7 @@ function gameEngine() {
         playing = false;
         bg.pause();
         bg.currentTime = 0;
-		gameOverMusic.play();
+        gameOverMusic.play();
         gameOver = true;
       }
     })
@@ -382,7 +386,7 @@ function gameEngine() {
       curBrick[i].y += 1;
     })
   }
-  broad.innerHTML = '';
+  Board.innerHTML = '';
   printBrick(curBrick);
   groundBrick.forEach((element) => {
     element.forEach((e) => {
@@ -412,3 +416,48 @@ function gameEngine() {
 }
 // This is the starting point of the program...
 window.requestAnimationFrame(main);
+window.addEventListener('keydown', e => {
+  switch (e.key) {
+    case 'W':
+    case 'w':
+        topBtn();
+      break;
+    case 'A':
+    case 'a':
+        leftBtn();
+      break;
+    case 'D':
+    case 'd':
+        rightBtn();
+      break;
+    case 'S':
+    case 's':
+        bottomBtn();
+      break;
+    case " ":
+        pauseGame();
+      break;
+    default:
+      break;
+  }
+})
+var a;
+var isMobileDevice = function () {
+  if (navigator.userAgent.match(/Android/i)
+    || navigator.userAgent.match(/webOS/i)
+    || navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    || navigator.userAgent.match(/BlackBerry/i)
+    || navigator.userAgent.match(/Windows Phone/i)) {
+    a = true;
+  } else {
+    a = false;
+  }
+}
+if (isMobileDevice()) {
+  document.querySelector(".button-container").style.display = "flex";
+} else {
+  Board.style.width = "600px";
+  Board.style.height = "90vh";
+}
