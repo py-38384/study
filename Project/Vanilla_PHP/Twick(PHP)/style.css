@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+:root{
+    --chatColor:#333;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgb(214, 109, 109);
+}
+
+.wrapper {
+    background-color: rgba(255, 255, 255, 0.082);
+    width: 450px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+        0 32px 64px -48px rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+
+}
+
+/* Signup form css code */
+
+.form {
+    padding: 25px 30px;
+
+}
+
+.form header {
+    font-size: 25px;
+    font-weight: 600;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 10px;
+}
+
+.form form {
+    margin: 20px 0;
+
+}
+
+.form form .error-text {
+    color: #e4182c;
+    background-color: #ffffffc2;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #e4182c;
+}
+
+.form form .name-details {
+    display: flex;
+}
+
+form .name-details .field:first-child {
+    margin-right: 10px;
+}
+
+form .name-details .field:last-child {
+    margin-left: 10px;
+}
+
+.form form .field {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form form .field label {
+    margin-bottom: 2px;
+}
+
+.form form .field input {
+    outline: none;
+}
+
+.form form .input input {
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+
+.form form .image input {
+    font-size: 17px;
+}
+
+.form form .button input {
+    margin-top: 13px;
+    height: 45px;
+    border: none;
+    font-size: 17px;
+    font-weight: 400;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.eye {
+    position: absolute;
+    display: inline-block;
+    right: 15px;
+    color: #333;
+    z-index: 2;
+    top: 70%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.form .link {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 17px;
+
+}
+
+.form .link a {
+    color: #333;
+
+}
+
+.form .link a:hover {
+    text-decoration: underline;
+}
+
+/* user area css */
+
+.user {
+    padding: 25px 30px;
+}
+
+.wrapper img {
+    object-fit: cover;
+    border-radius: 50%;
+
+}
+
+.user header .content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 57%;
+}
+
+.user header .content img {
+    margin: 0px 15px;
+}
+
+.user header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.user header .content img {
+    height: 50px;
+    width: 50px;
+}
+
+.user header details {
+    margin-left: 15px;
+
+}
+
+.user header details span {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.user header .logout {
+    background-color: #333;
+    color: #fff;
+    padding: 7px 15px;
+    font-size: 17px;
+    border-radius: 5px;
+}
+
+.user .search {
+    margin: 40px 0;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user .search .text {
+    font-size: 18px;
+}
+
+.user .search input {
+    position: absolute;
+    height: 42px;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 0 13px;
+    font-size: 16;
+    border-radius: 5px;
+    outline: none;
+}
+
+.user .text {
+    display: block;
+    width: 390px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.userlist {
+    max-height: 350px;
+    overflow: auto;
+}
+
+.userlist::-webkit-scrollbar {
+    width: 0;
+}
+
+.userlist a {
+    display: flex;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.userlist a .content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 255px;
+    color: #333;
+}
+.userlist a .content img {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.userlist a .status-dot {
+    font-size: 10px;
+    color: rgb(7, 143, 75);
+}
+
+:is(.users-list, .chat-box)::-webkit-scrollbar{
+    width: 0;
+}
+
+
+/* chat css starts here */
+.chat-area header{
+    display: flex;
+    align-items: center;
+    padding: 18px 30px;
+}
+.chat-area header .back-icon{
+    font-size: 18px;
+    color: #333;
+
+}
+.chat-area header img{
+    height: 45px;
+    width: 45px;
+    margin: 0 15px;
+}
+.chat-area header span{
+    font-size: 17px;
+    font-weight: 500;
+
+}
+.chat-box{
+    height: 450px;
+    padding: 10px 30px 20px 30px;
+    overflow-y: auto;
+    background-color: #5a5a5a33;
+}
+.chat-box .chat{
+    margin: 15px 0;
+}
+.chat-box .chat p{
+    word-wrap: break-word;
+    padding: 8px 16px;
+    box-shadow: 0 0 32px rgb(0 0 0 / 8%),
+                0 16px 16px -16px rgb(0 0 0 / 10%);
+}
+.chat-box .outgoing{
+    display: flex;
+}
+.outgoing .details{
+    margin-left: auto;
+    max-width: calc(100% - 130px);
+}
+.outgoing .details p{
+    background-color: var(--chatColor);;
+    color: #ffffff4d;
+    border-radius: 18px 18px 0 18px;
+}
+.chat-box .incoming{
+    display: flex;
+    align-items: flex-end;
+
+}
+.chat-box .incoming img{
+    height: 35px;
+    width: 35px;
+}
+.incoming .details{
+    margin-left: 10px;
+    margin-right: auto;
+    max-width: calc(100% - 130px);
+}
+.incoming .details p{
+    background-color: #ffffff4d;
+    color: #333;
+    border-radius: 18px 18px 18px 0;
+    
+}
+.chat-area .typing-area{
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.typing-area input{
+    height: 45px;
+    width: calc(100% - 58px);
+    font-size: 17px;
+    padding: 0 13px;
+    border: none;
+    color: #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    background-color: var(--chatColor);
+}
+.typing-area button{
+    width: 55px;
+    border: none;
+    outline: none;
+    border-radius: 0 5px 5px 0;
+    background-color: var(--chatColor);
+    color: #fff;
+    font-size: 19px;
+    cursor: pointer;
+}
