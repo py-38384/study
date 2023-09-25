@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login to mycart</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="logo-container">
+        <a href="/" class="logo-container-a">
+          <span class="logo-1 logo-class">My</span
+          ><span class="logo-2 logo-class">Cart</span>
+        </a>
+      </div>
+      <div class="login">Welcome back!</div>
+      <div class="google"><a href=""><img src="{% static 'img/google.png'%}" alt="google_logo">Log in with Google</a></div>
+      <div class="facebook"><a href=""><img src="{% static 'img/facebook.png'%}" alt="facebook_logo">Log in with Facebook</a></div>
+      <div class="option-div">
+        <span class="left-line"></span>
+        <span class="option">or login by email</span>
+        <span class="right-line"></span>
+      </div>
+      {% for message in messages %}
+        <div style="color:red;">{{message}}</div>
+      {% endfor %}
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="email-field">
+          <label for="email-input">Email:</label><br>
+          <input
+            id="email-input"
+            type="email"
+            name="email"
+            placeholder=""
+          />
+        </div>
+        <div class="password-field">
+          <label for="password-input">Password:</label><br>
+          <input
+            id="password-input"
+            type="password"
+            name="password"
+            placeholder=""
+          />
+        </div>
+        <div class="condition"><input type="checkbox" name="" onclick="togglepass(this)" id="terms-and-condition"> Show password</a></div>
+        <button type="submit">Log in</button>
+      </form>
+      <div>Don't have an account? <a href="{% url 'registration' %}">Sign up</a></div>
+      <hr />
+      <div><a href="{% url 'password_reset' %}">forget password?</a></div>
+    </div>
+  </body>
+  <script src="{% static 'js/login.js' %}"></script>
+</html>

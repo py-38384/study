@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register to mycart</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="logo-container">
+        <a href="/" class="logo-container-a">
+          <span class="logo-1 logo-class">My</span
+          ><span class="logo-2 logo-class">Cart</span>
+        </a>
+      </div>
+      <div class="login">Welcome!</div>
+      <div class="google"><a href=""><img src="{% static 'img/google.png'%}" alt="google_logo">Register with Google</a></div>
+      <div class="facebook"><a href=""><img src="{% static 'img/facebook.png'%}" alt="facebook_logo">Register with Facebook</a></div>
+      <div class="option-div">
+        <span class="left-line"></span>
+        <span class="option">or register by email</span>
+        <span class="right-line"></span>
+      </div>
+      <form action="" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="password-field">
+            <label for="password-input">{{field.label}}:</label><br>
+            {{field}}
+            {{field.errors}}
+        </div>
+        {% endfor %}
+
+        <div class="condition-div"><input type="checkbox" onclick="togglepass(this)" name="" id="terms-and-condition" class="condition" > Show password</a></div>
+        <div class="condition-div"><input type="checkbox" name="" class="condition"> I agree to the <a href="">Terms of Service</a> and <a href="">Privary Policy</a></div>
+        <button type="submit">Register</button>
+      </form>
+      <hr />
+      <div>Already have an account? <a href="{% url 'login' %}">Log in</a></div>
+      <!-- <div class="about-us"><a href="#">About us</a></div> -->
+    </div>
+  </body>
+  <script src="{% static 'js/register.js' %}"></script>
+</html>
