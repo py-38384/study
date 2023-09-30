@@ -1,4 +1,5 @@
 from core.models import *
+from user_auth.models import User
 from core.views import DEFAULT_PRODUCT_LIMIT_PER_PAGE
 
 def total_cart_items(request):
@@ -17,7 +18,19 @@ def total_cart_items(request):
         total_items+=item.quantity
     return {'total_cart_items':total_items}
 
-
+def get_user_info(request):
+    context = {}
+    if request.user.is_authenticated:
+        user = User.objects.get(id=request.user.id)
+        context['logged_in_user'] = True
+        context['name'] = user.name
+        if user.display_picture:
+            context['image'] = user.display_picture
+        else:
+            context['image'] = 'static/img/user.png'
+    else:
+        context['logged_in_user'] = False
+    return context
 
 def category(request):
     categories_arr = [] 

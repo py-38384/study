@@ -245,8 +245,13 @@ function updateUserOrder(productId, action, quantity, color, size, orderItemId) 
                   data-action="add">
                     <i class="fa fa-shopping-cart mr-1"></i> Added To Cart
                   </button>`;
-          document.querySelector(".size_div").remove();
-          document.querySelector(".color_div").remove();
+          try{
+            document.querySelector(".size_div").remove();
+          }catch(e){}
+          
+          try{
+            document.querySelector(".color_div").remove();
+          }catch(e){}
         }
         
       }
@@ -259,7 +264,7 @@ function updateUserOrder(productId, action, quantity, color, size, orderItemId) 
 
 function order_item_delete(ele) {
   product_id = ele.dataset.id;
-  var url = "/order_item_delete/" + product_id;
+  var url = "/order_item_delete/" + product_id + "/";
   if (user === "AnonymousUser") {
     let cart = getCookie('cart');
       if(cart){

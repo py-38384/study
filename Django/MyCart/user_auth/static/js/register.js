@@ -1,4 +1,5 @@
 let password_fields = document.querySelectorAll('input[type=password]');
+let main_color = "#FFD333";
 function togglepass(ele){
     if(ele.checked){
         for(let i = 0;i<password_fields.length;i++){
@@ -10,3 +11,14 @@ function togglepass(ele){
         }
     }
 }
+function activeSubmitBtn(ele){
+    let submit_button = document.querySelector('button');
+    if(ele.checked){
+        submit_button.style.pointerEvents = "auto";
+        submit_button.style.backgroundColor = main_color;
+    }else{
+        submit_button.style.pointerEvents = "none";
+        submit_button.style.backgroundColor = 'gray';
+    }
+}
+//pointer-events: none;

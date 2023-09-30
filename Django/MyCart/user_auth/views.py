@@ -18,7 +18,7 @@ def loginView(request):
             login(request,user)
             userobj = User.objects.get(email=user.get_username())
             username = userobj.username
-            messages.success(request,'<strong>Log in successful</strong> Welcone to MyCART {0}'.format(username))
+            messages.success(request,'<strong>Log in successful</strong> Welcome back {0}'.format(username))
             return redirect('home')
         else:
             messages.error(request,'Email or password is incorrect!!')
@@ -33,17 +33,27 @@ def logoutView(request):
 @unauthenticated_user
 def registrationView(request):
     form = CreateUserForm()
+    context = {'form':form}
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request,'<strong>Account created successfully</strong> Welcone to MyCART {0}'.format(username))
-            return redirect('home')
+        agreed = request.POST.get('agree')
+        password = request.POST.get('password1')
+        if(agreed == 'on'):
+            if form.is_valid():
+                form.save()
+                name = form.cleaned_data.get('name')
+                email = form.cleaned_data.get('email')
+                user = authenticate(request, email=email, password=password)
+                login(request,user)
+                messages.success(request,'<strong>Account created successfully</strong> Welcone to MyCART {0}'.format(name))
+                return redirect('home')
 
+            else:
+                context['form'] = form
+                return render(request,'register.html',context)
         else:
-            print(form.errors)
+            messages.success(request,'You need to agree on our Terms of Service and Privary Policy.')
+            return render(request,'register.html',context)
 
-    context = {'form':form}
     return render(request,'register.html',context)
 

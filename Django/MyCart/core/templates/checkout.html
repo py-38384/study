@@ -33,28 +33,24 @@
                 <div class="bg-light p-30 mb-5">
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <label>First Name</label>
-                            <input class="form-control" type="text" placeholder="John" value="{{customer.first_name}}">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Last Name</label>
-                            <input class="form-control" type="text" placeholder="Doe" value="{{customer.last_name}}">
+                            <label>Full name</label>
+                            <input class="form-control" type="text" placeholder="John Doe" value="{{customer.name}}">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>E-mail</label>
-                            <input class="form-control" type="text" placeholder="example@email.com" value="{{customer.email}}">
+                            <input class="form-control" type="text" placeholder="example@email.com" value="">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Mobile No</label>
-                            <input class="form-control" type="text" placeholder="+123 456 789" value="{{customer.mobile_number}}">
+                            <input class="form-control" type="text" placeholder="+123 456 789" value="">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Primary Address</label>
-                            <input class="form-control" type="text" placeholder="123 Street" value="{{customer.primary_address}}">
+                            <input class="form-control" type="text" placeholder="123 Street" value="">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Secondary Address</label>
-                            <input class="form-control" type="text" placeholder="123 Street" value="{{customer.secondary_address}}">
+                            <input class="form-control" type="text" placeholder="123 Street" value="">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Country</label>
@@ -75,7 +71,7 @@
                         <div class="col-md-12 form-group">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="newaccount">
-                                <label class="custom-control-label" for="newaccount">Create an account</label>
+                                <label class="custom-control-label" for="newaccount">Save info for later</label>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -142,7 +138,7 @@
                         {% for item in items %}
                         <div class="d-flex justify-content-between">
                             <p>{{item.product.name}}</p>
-                            <p>${{item.product.price}}</p>
+                            <p>${{item.product.price}}(qt:{{item.quantity}})</p>
                         </div>
                         {% endfor %}
                     </div>

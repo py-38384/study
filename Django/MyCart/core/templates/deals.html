@@ -1,7 +1,11 @@
 
 
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %} {% block nav %}
+<a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+<a href="{% url 'deals' %}" class="nav-item nav-link active">Today's Deals</a>
+<a href="{% url 'shop' %}" class="nav-item nav-link">Shop</a>
+<a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+{% endblock %}
 {% block content %}
 
 <div class="category discount todays-deal">Best deal for today</div>
@@ -45,6 +49,9 @@
                                       </div>
                                 </div>
                             </div>
+                            {% if product.discount %}
+                                <div class="product-discount">{{product.discount}}% off</div>
+                            {% endif %}
                             <div class="text-center py-4">
                                 <a class="h6 text-decoration-none text-truncate" href="">{{product.title}}</a>
                                 <div class="d-flex align-items-center justify-content-center mt-2">

@@ -1,15 +1,22 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import CreateUserForm
+from . import forms as core_forms
 from django.core.paginator import Paginator
 from django.http import HttpResponse, JsonResponse
+from django.contrib import messages
 from django.db.models import Q
 from random import randint
 from .models import *
+from django.conf import settings
+from user_auth.models import User
+from user_auth import forms
 from datetime import datetime
+from pathlib import Path
 from decimal import Decimal
 import json
+import os
 
 # Create your views here.
 
@@ -84,7 +91,7 @@ class Index(View):
                 if product.discount:
                     if product.discount>0:
                         product_obj['discount'] = product.discount
-                        discount_price_cut = product.price*(product.discount/100)
+                        discount_price_cut = product.price*(Decimal(product.discount)/100)
                         discount_price = product.price-discount_price_cut
                         product_obj['price'] = discount_price
                         product_obj['original_price'] = product.price
@@ -115,7 +122,7 @@ class UpdateItem(View):
             discount_price_cut = 0
             discount = False
             
-            customer = Customer.objects.get(user=request.user)
+            customer, created = Customer.objects.get_or_create(user=request.user,name=request.user.name)
             product = Product.objects.get(id=productID)
             order, created = Order.objects.get_or_create(customer=customer,complete=False)
             
@@ -358,8 +365,11 @@ class Cart(View):
 class Order_Item_Delete(View):
     def get(self, request, productid):
         order_item = OrderItem.objects.get(id=productid)
-        order_item.delete()
-        return JsonResponse('Order item deleted',safe=False)
+        if order_item.order.customer.user == request.user:
+            order_item.delete()
+            return JsonResponse('Order item deleted',safe=False)
+        else:
+            return JsonResponse('You are not authorized to do that!!',safe=False)
         
 
 class Checkout(View):
@@ -370,12 +380,11 @@ class Checkout(View):
             items = list(OrderItem.objects.filter(order=order.id))
         else:
             pass
-        subtotal = 0
-        shipping = 10
+        subtotal = Decimal(0)
+        shipping = Decimal(SHIPPING_CHARGE)
         for item in items:
-            subtotal+=item.total
-        subtotal = (subtotal, 2)
-        total = ((subtotal+shipping), 2)
+            subtotal+=Decimal(item.total)
+        total = subtotal+shipping
         context = {'customer':customer,'items':items, 'subtotal':subtotal, 'shipping':shipping, 'total':total}
         return render(request,"checkout.html", context)
     
@@ -399,6 +408,8 @@ class Detail(View):
         has_order = False
         product = Product.objects.get(id=id)
         related_products = list(Product.objects.filter(category=product.category))[:10]
+        reviews = list(Review.objects.filter(product=product))
+        print(reviews)
         order_items = OrderItem.objects.all()
         has_size = product.has_size
         colors = product.colors.all()
@@ -421,8 +432,7 @@ class Detail(View):
                 product_image_obj['id'] = related_product.id
                 product_image_obj['title'] = get_title(related_product.name,20)
                 product_image_obj['price'] = related_product.price
-                product_image_obj['review'] = None
-                product_image_obj['comment'] = None
+                product_image_obj['reviews'] = list[Review.objects.filter(product=product)]
                 if related_product.discount:
                     if not related_product.discount==0:
                         product_image_obj['discount'] = related_product.discount
@@ -441,6 +451,7 @@ class Detail(View):
         context['has_order'] = has_order
         context['colors'] = colors
         context['has_size'] = has_size
+        context['reviews'] = reviews
         if product.discount:
                 if not product.discount==0:
                     discount_price_cut = product.price*(Decimal(product.discount)/Decimal(100))
@@ -448,6 +459,24 @@ class Detail(View):
                     context['discount_price'] =  discount_price
         return render(request,"detail.html", context)
     
+    def post(self, request, id):
+        if request.user.is_authenticated:
+            user = request.user
+            comment = request.POST.get('comment')
+            review_star = request.POST.get('review_star')
+            product = Product.objects.get(id=id)
+            review_obj = Review(product=product,user=user,comment=comment,review_star=review_star)
+            review_obj.save()
+            print(comment)
+            print(review_star)
+            return self.get(request, id)
+        else:
+            return self.get(request, id)
+    
+class AddReview(View):
+    def get(self, request):
+        pass
+
 class Offer(View):
     def get(self, request, keyword):
         product_arr = []
@@ -504,3 +533,94 @@ class Discount(View):
         
         context = {'products':product_arr,'pagenator_object':products,'last_page':last_page,'page_list':page_list,'current_page':page_number,'keyword':keyword}
         return render(request,"discount.html", context)
+    
+class ManageAccount(View):
+    def get(self,request):
+        context = {}
+        return render(request,"manage.html",context)
+    
+
+class CustomizeProfile(View):
+    def get(self,request):
+        user = User.objects.get(id=request.user.id)
+        form = forms.ProfileCostomize(instance=user)
+        context = {'form':form}
+        return render(request,"customize.html",context)
+    
+    def post(self,request):
+        user = User.objects.get(id=request.user.id)
+        form = forms.ProfileCostomize(request.POST,request.FILES,instance=user)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'<strong>Profile update successfully</strong>...')
+            return redirect('customize_profile')
+        else:
+            context = {'form':form}
+            return render(request,"customize.html",context) 
+    
+
+class LoginSecurity(View):
+    def get(self,request):
+        context = {}
+        return render(request,"loginsecurity.html",context)
+    
+
+class ChangePassword(View):
+    def get(self,request):
+        context = {}
+        user = User.objects.get(id=request.user.id)
+        form = core_forms.ChangePasswordForm(user)
+        context['form'] = form
+        return render(request,"change_password.html",context)
+    
+    def post(self,request):
+        context = {}
+        user = User.objects.get(id=request.user.id)
+        email = user.email
+        form = core_forms.ChangePasswordForm(user,request.POST)
+        if form.is_valid():
+            password = form.cleaned_data['new_password1']
+            form.save()
+            login(request,user)
+            messages.success(request,'Password change successful...')
+            return redirect('change_password')
+        else:
+            context['form'] = form
+            return render(request,"change_password.html",context)
+
+class ChangeEmail(View):
+    def get(self,request):
+        user = User.objects.get(id=request.user.id)
+        email = user.email
+        context = {'email':email}
+        return render(request,"change_email.html",context)
+        
+    def post(self,request):
+        context = {}
+        try:
+            new_email = request.POST['new_email']
+            if User.objects.filter(email=new_email).exists():
+                context = {'email':new_email}
+                messages.error(request,'This email is already exist!!')
+                return render(request,"change_email.html",context)
+            else:
+                context = {'email':new_email}
+                user = User.objects.get(id=request.user.id)
+                user.email = new_email
+                user.save()
+                messages.success(request,'Email change successful...')
+                return render(request,"change_email.html",context)
+        except:
+            pass
+
+
+class YourReviews(View):
+    def get(self,request):
+        context = {}
+        return render(request,"yourreviews.html",context)
+
+
+class YourOrder(View):
+    def get(self,request):
+        context = {}
+        return render(request,"yourorder.html",context)

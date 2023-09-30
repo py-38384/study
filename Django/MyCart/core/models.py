@@ -1,20 +1,21 @@
 from django.db import models
 from django.contrib.auth.models import User
+from user_auth.models import User as Auth_User
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
+from decimal import Decimal
 from PIL import Image
 
 class Customer(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=30, null=True)
-    last_name = models.CharField(max_length=30, null=True)
+    name = models.CharField(max_length=130, null=True)
     mobile_number = models.CharField(max_length=20, null=True, blank=True)
     primary_address = models.CharField(max_length=200,null=True)
     secondary_address = models.CharField(max_length=200,null=True, blank=True)
     email = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
-        return self.first_name
+        return self.user.name
 
 class Category(models.Model):
     name = models.CharField(max_length=200, null=True)
@@ -65,8 +66,10 @@ class ProductImages(models.Model):
 
 class Review(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE,null=True,blank=True) 
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE,null=True,blank=True)
+    user = models.ForeignKey(Auth_User, on_delete=models.CASCADE,null=True,blank=True)
     comment = models.TextField(null=True,blank=True)
+    review_star = models.IntegerField(null=True,blank=True)
+    time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.comment[0:30]
@@ -95,7 +98,7 @@ class OrderItem(models.Model):
 
     @property
     def total(self):
-        total = round(self.product.price * self.quantity,2)
+        total = self.product.price * self.quantity
         return total
 
 class ShippingAddress(models.Model):

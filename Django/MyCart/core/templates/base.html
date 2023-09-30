@@ -35,6 +35,12 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <style>
+        :root{
+            --main-color:#FFD333;
+        }
+        .carousel-image{
+            height: 800px;
+        }
         .selected{
             background:#3D464D;
             color:#FFD333;
@@ -88,6 +94,152 @@
             margin-left:0;
             margin-right:0;
         }
+        .manage-container{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 30vh;
+        }
+        .manage-container div:nth-child(1){
+            display: flex;
+            align-items: center;
+
+        }
+        .manage-account a img{
+            width:47px;
+            height:47px;
+        }
+        .manage-account a{
+            display: inline-block;
+            border-radius:50%;
+            overflow:hidden;
+            border:1px solid rgb(212, 212, 212);
+        }
+        .manage-account span{
+            display: inline-block;
+            position: relative;
+            top:-20px;
+            left: -20px;
+            font-size: 16px;
+        }
+        .manage-account-header{
+            font-size: 30px;
+            padding-left: 30px;
+        }
+        .account-manage-div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .account-manage-option{
+            width:300px;
+            height: 120px;
+            border: 1px solid rgb(216, 216, 216);
+            padding: 20px;
+            display: flex;
+            gap: 15px;
+            color:#3D464D;
+        }
+        .title-desc-div strong{
+            font-size: 22px;
+        }
+        .title-desc-div p{
+            font-size: 14px;
+        }
+        .account-manage-div
+        .logo-div img{
+            width:50px;
+        }
+        .logout-trigger{
+            cursor: pointer;
+        }
+        .logout-trigger:hover{
+            text-decoration: underline;
+        }
+        .customize-input-div,
+        .change-email,
+        .change-password-div{
+            display: flex;
+            align-items: center;
+            padding-left:40px;
+            color:#494949;
+        }
+        .customize-input-div form,
+        .change-email form,
+        .change-password-div form{
+            width:30%;
+            margin-top: 10px;
+        }
+        .customize-input-div input,
+        .customize-input-div textarea,
+        .change-email form input,
+        .change-password-div form input{
+            width:100%;
+            height: 45px;
+            border: none;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            background-color: #dbdbdb;
+            padding: 0 10px;
+            font-size: 18px;
+            color:#3D464D;
+        
+        }
+        .customize-input-div textarea{
+            height: 240px;
+        }
+        .customize-input-div form input:focus,
+        .change-email form input:focus,
+        .change-password-div form input:focus{
+            background-color: #ffffff;
+            outline:2px solid rgb(126, 197, 255);
+        }
+        .errorlist{
+            color: red;
+            margin-left: 20px;
+        }
+        .customize-input-div form input[type=checkbox],
+        #terms-and-condition{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+        }
+        .customize-input-div form button,
+        .change-email form button,
+        .change-password-div form button{
+            width: 100%;
+            height: 50px;
+            font-size: 16px;
+            border-radius: 20px;
+            border: none;
+            background-color: var(--main-color);
+            cursor: pointer;
+        }
+        .customize-input-div form button:hover,
+        .change-email form button:hover,
+        .change-password-div form button:hover{
+            background-color: black;
+            color: var(--main-color);
+        }
+        .header{
+            margin-left: 30px;
+        }
+        .review-login-require{
+            color:#3D464D;
+        }
+        @media only screen and (max-width: 1500px){
+            .customize-input-div form,
+            .change-email form,
+            .change-password-div form{
+                width:50%;
+                margin-top: 10px;
+            }
+            .carousel-image{
+                height: 600px;
+            }
+        }
         @media only screen and (max-width: 1200px){
             .category{
                 margin-left: 1rem;
@@ -96,6 +248,32 @@
             }
             .todays-deal{
                 padding-left: 0px;
+            }
+        }
+        @media only screen and (max-width: 600px){
+            .customize-input-div form,
+            .change-email form,
+            .change-password-div form{
+                width:70%;
+            }
+            .customize-input-div,
+            .change-email,
+            .change-password-div{
+                justify-content: center;
+                padding: 0;
+            }
+        }
+        @media only screen and (max-width: 400px){
+            .customize-input-div form,
+            .change-email form,
+            .change-password-div form{
+                width:90%;
+            }
+            .header{
+                margin-left: 10px;
+            }
+            .carousel-image{
+                height: 500px;
             }
         }
     </style>
@@ -140,6 +318,22 @@
               }
             }
           }
+
+
+    // password to text function
+    function togglepass(ele){
+        if(ele.checked){
+            let password_fields = document.querySelectorAll('input[type=password]');
+            for(let i = 0;i<password_fields.length;i++){
+                password_fields[i].type = 'text';
+            }
+        }else{
+            let password_fields = document.querySelectorAll('input[type=text]');
+            for(let i = 0;i<password_fields.length;i++){
+                password_fields[i].type = 'password';
+            }
+        }
+    }
     </script>
 </head>
 
@@ -157,10 +351,10 @@
                 <div class="d-inline-flex align-items-center">
                     {% if request.user.is_authenticated %}
                     <div class="btn-group">
-                        <a href="" class="text-body mr-3" type="button">Manage account</a>
+                        <a href="{% url 'manage_account' %}" class="text-body mr-3" type="button">Manage account</a>
                     </div>
                     <div class="btn-group">
-                        <a href="{% url 'logout' %}" class="text-body mr-3" type="button">Log out</a>
+                        <span class="logout-trigger" data-bs-toggle="modal" data-bs-target="#exampleModal">Log out</span>
                     </div>
                     {% else %}
                     <div class="btn-group">
@@ -171,6 +365,25 @@
                     </div>
                     {% endif %}
                 </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Log out?</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" style="text-align:left;">
+                        Are you really want to log out?
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="{% url 'logout' %}" type="button" class="btn btn-primary">Log Out</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
                 <div class="d-inline-flex align-items-center d-block d-lg-none">
                     <a href="{% url 'cart' %}" class="btn px-0 ml-2">
                         <i class="fas fa-shopping-cart text-dark"></i>
@@ -194,12 +407,16 @@
                 </form>
             </div>
             <div class="col-lg-4 col-6 text-right">
-                <div class="manage-account">Manage account</div>
+                {% if logged_in_user %}
+                <div class="manage-account">{% if name %}<span>Welcome {{name}}</span>{% endif %}<a href="{% url 'manage_account' %}"><img src="/{{image}}/"></a></div>
+                {% else %}
+                <div class="manage-account"><a href="{% url 'login' %}"><img src="{% static 'img/user.png' %}"></a></div>
+                {% endif %}
             </div>
         </div>
     </div>
     <!-- Topbar End -->
-
+      
 
     <!-- Navbar Start -->
     <div class="container-fluid bg-dark mb-30">
