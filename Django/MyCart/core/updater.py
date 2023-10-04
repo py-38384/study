@@ -1,6 +1,6 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 from .models import Product
-from .views import DEFAULT_PRODUCT_LIMIT_PER_PAGE as limit
+from django.conf import settings
 import random
 
 
@@ -9,7 +9,7 @@ def update_something():
     for product in products:
         product.todays_deals = False
         product.save()
-    random_products = random.sample(products, limit)
+    random_products = random.sample(products, settings.DEFAULT_PRODUCT_LIMIT_PER_PAGE)
     # if you want only a single random item
     # random_item = random.choice(items)
     for random_product in random_products:

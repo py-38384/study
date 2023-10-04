@@ -45,7 +45,7 @@ def registrationView(request):
                 email = form.cleaned_data.get('email')
                 user = authenticate(request, email=email, password=password)
                 login(request,user)
-                messages.success(request,'<strong>Account created successfully</strong> Welcone to MyCART {0}'.format(name))
+                messages.success(request,'<strong>Account created successfully</strong> Welcome to MyCART {0}'.format(name))
                 return redirect('home')
 
             else:

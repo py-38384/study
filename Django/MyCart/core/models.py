@@ -4,6 +4,7 @@ from user_auth.models import User as Auth_User
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from decimal import Decimal
+from django.utils import timesince
 from PIL import Image
 
 class Customer(models.Model):
@@ -25,6 +26,12 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+class SubCategory(models.Model):
+    name = models.CharField(max_length=200, null=True)
+
+    def __str__(self):
+        return self.name
+
 class Color(models.Model):
     name = models.CharField(max_length=100,null=True)
     rgb = models.CharField(max_length=100,blank=True,null=True)
@@ -38,6 +45,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200, null=True)
     price = models.DecimalField(null=True, max_digits=15, decimal_places=2)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
+    sub_category = models.ForeignKey(SubCategory, on_delete=models.SET_NULL, null=True, blank=True)
     small_desc = models.CharField(max_length=255,null=True, blank=False)
     desc = models.TextField(null=True, blank=False)
     add_info = models.TextField(null=True, blank=False)
@@ -56,6 +64,13 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def get_title(self):
+        name = self.name
+        i = settings.PRODUCT_NAME_LIMIT
+        if len(name) > i:
+            return name[0:i]+'. . .'
+        return name
 
 class ProductImages(models.Model):
     product = models.ForeignKey(Product,blank=True,null=True,default=None,on_delete=models.CASCADE)
@@ -73,6 +88,10 @@ class Review(models.Model):
 
     def __str__(self):
         return self.comment[0:30]
+    
+    @property
+    def timesince(self):
+        return timesince.timesince(self.time)
 
 
 class Order(models.Model):

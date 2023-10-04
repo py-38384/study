@@ -20,9 +20,6 @@ import os
 
 # Create your views here.
 
-SHIPPING_CHARGE = 10
-DEFAULT_PRODUCT_LIMIT_PER_PAGE = 20
-
 def get_title(name,i):
     if len(name) > i:
         return name[0:i]+'. . .'
@@ -167,7 +164,7 @@ class UpdateItem(View):
 
             original_total_price = order_item.quantity*order_item.product.price
 
-            return JsonResponse({'id':order_item_id,'quantity':order_item.quantity,'total_items':total_items,'total_price':total_price,'original_total_price':original_total_price,'discount':discount,'subtotal':subtotal,'total':subtotal+SHIPPING_CHARGE})
+            return JsonResponse({'id':order_item_id,'quantity':order_item.quantity,'total_items':total_items,'total_price':total_price,'original_total_price':original_total_price,'discount':discount,'subtotal':subtotal,'total':subtotal+settings.SHIPPING_CHARGE})
         
 class Search(View):
     def get(self, request):
@@ -186,11 +183,11 @@ class Search(View):
                 q='Product ID: {0}'.format(q)
             except:
                 products_array = list(Product.objects.filter(Q(name__icontains=q)|Q(category__name__icontains=q)))
-            p = Paginator(products_array,DEFAULT_PRODUCT_LIMIT_PER_PAGE)
+            p = Paginator(products_array,settings.DEFAULT_PRODUCT_LIMIT_PER_PAGE)
         else:
             products_array = list(Product.objects.all())
             q = "All Products"
-            p = Paginator(products_array,DEFAULT_PRODUCT_LIMIT_PER_PAGE)
+            p = Paginator(products_array,settings.DEFAULT_PRODUCT_LIMIT_PER_PAGE)
         products = p.get_page(page_number)
         last_page = products.paginator.num_pages
 
@@ -217,7 +214,7 @@ class Shop(View):
         try:
             product_limit = int(request.session['limit'])
         except KeyError:
-            product_limit = DEFAULT_PRODUCT_LIMIT_PER_PAGE
+            product_limit = settings.DEFAULT_PRODUCT_LIMIT_PER_PAGE
         limit = request.GET.get('limit')
         if limit:
             request.session['limit'] = limit
@@ -359,7 +356,7 @@ class Cart(View):
             product_obj.append(product_obj_element)
 
         subtotal = subtotal
-        context = {'product_obj':product_obj, 'subtotal':subtotal, 'shipping':SHIPPING_CHARGE, 'total':subtotal+SHIPPING_CHARGE }
+        context = {'product_obj':product_obj, 'subtotal':subtotal, 'shipping':settings.SHIPPING_CHARGE, 'total':subtotal+settings.SHIPPING_CHARGE }
         return render(request,'cart.html',context)
 
 class Order_Item_Delete(View):
@@ -381,7 +378,7 @@ class Checkout(View):
         else:
             pass
         subtotal = Decimal(0)
-        shipping = Decimal(SHIPPING_CHARGE)
+        shipping = Decimal(settings.SHIPPING_CHARGE)
         for item in items:
             subtotal+=Decimal(item.total)
         total = subtotal+shipping
@@ -408,8 +405,11 @@ class Detail(View):
         has_order = False
         product = Product.objects.get(id=id)
         related_products = list(Product.objects.filter(category=product.category))[:10]
-        reviews = list(Review.objects.filter(product=product))
-        print(reviews)
+        reviews_all = list(Review.objects.filter(product=product).order_by('-time'))
+        review_all_length = len(reviews_all)
+        p = Paginator(reviews_all,settings.REVIEW_SHOW_LIMIT)
+        reviews = p.get_page(1)
+        last_page = reviews.paginator.num_pages
         order_items = OrderItem.objects.all()
         has_size = product.has_size
         colors = product.colors.all()
@@ -452,6 +452,8 @@ class Detail(View):
         context['colors'] = colors
         context['has_size'] = has_size
         context['reviews'] = reviews
+        context['review_last_page'] = last_page
+        context['review_all_length'] = review_all_length
         if product.discount:
                 if not product.discount==0:
                     discount_price_cut = product.price*(Decimal(product.discount)/Decimal(100))
@@ -459,23 +461,116 @@ class Detail(View):
                     context['discount_price'] =  discount_price
         return render(request,"detail.html", context)
     
-    def post(self, request, id):
-        if request.user.is_authenticated:
-            user = request.user
-            comment = request.POST.get('comment')
-            review_star = request.POST.get('review_star')
-            product = Product.objects.get(id=id)
-            review_obj = Review(product=product,user=user,comment=comment,review_star=review_star)
-            review_obj.save()
-            print(comment)
-            print(review_star)
-            return self.get(request, id)
-        else:
-            return self.get(request, id)
-    
+
 class AddReview(View):
-    def get(self, request):
-        pass
+    def post(self, request):
+        if request.user.is_authenticated:
+            try:
+                review_arr = []
+                display_picture_url = ''
+                user = request.user
+                comment = request.POST.get('comment')
+                review_star = request.POST.get('review_star')
+                product_id = request.POST.get('product_id')
+                review_id = request.POST.get('review_id')
+                if review_id:
+                    product = Product.objects.get(id=product_id)
+                    review_model_obj = Review.objects.get(id=review_id)
+                    review_model_obj.comment = comment
+                    review_model_obj.review_star = review_star
+                    review_model_obj.save()
+                else:
+                    product = Product.objects.get(id=product_id)
+                    review_model_obj = Review(product=product,user=user,comment=comment,review_star=review_star)
+                    review_model_obj.save()
+                review_all = list(Review.objects.filter(product=product).order_by('-time'))
+                review_all_length = len(review_all)
+                p = Paginator(review_all,settings.REVIEW_SHOW_LIMIT)
+                reviews = p.get_page(1)
+                last_page = reviews.paginator.num_pages
+                for review in reviews:
+                    if review.user.display_picture:
+                        display_picture_url = review.user.display_picture.url
+                    else:
+                        display_picture_url = '/static/img/review_default_user_dp.png'
+                        
+                    review_obj = {}
+                    review_obj['id'] = review.id
+                    review_obj['user'] = {'user_name':review.user.name,'user_id':review.user.id,'user_image':display_picture_url,'user_email':review.user.email}
+                    review_obj['comment'] = review.comment
+                    review_obj['review_star'] = review.review_star
+                    review_obj['time'] = review.time
+                    review_obj['timesince'] = review.timesince
+                    review_arr.append(review_obj)
+                return JsonResponse({'reviews':review_arr,'product':product.name,'product_count':review_all_length,'last_page':last_page})
+            except Exception as e:
+                print(e)
+                return JsonResponse({"error": "Something terrible happened.."})
+        else:
+            return redirect('home')
+
+
+class DeleteReview(View):
+    def post(self, request):
+        if request.user.is_authenticated:
+            id = request.POST.get('review_id')
+            review = Review.objects.get(id=id)
+            if request.user == review.user:
+                product = Product.objects.get(id=review.product.id)
+                review.delete()
+                review_all = list(Review.objects.filter(product=product))
+                review_count = len(review_all)
+                return JsonResponse({'success':'Review deleted sucessfully..','total_review':review_count,'product':product.name})
+            else:
+                return JsonResponse({"error": "ERROR!! Your are not the owner of this review. don't try to fool me.."})
+        else:
+            return redirect('home')
+
+
+class GetReview(View):
+    def post(self, request):
+        if request.user.is_authenticated:
+            try:
+                review_id = request.POST.get('review_id')
+                review = Review.objects.get(id=review_id)
+                if request.user == review.user:
+                    return JsonResponse({'product':review.product.id,'user':review.user.id,'review_star':review.review_star,'comment':review.comment,'time':review.time})
+                else:
+                    return JsonResponse({"error": "ERROR!! Your are not the owner of this review. don't try to fool me.."})
+            except Exception as e:
+                print(e)
+                return JsonResponse({"error": "ERROR!! most probably review id wrong."})
+        else:
+            return redirect('home')
+
+
+class GetReviews(View):
+    def post(self, request):
+        review_arr = []
+        page = request.POST.get('review_page_indicator')
+        id = request.POST.get('product_id')
+        product = Product.objects.get(id=id)
+        review_all = list(Review.objects.filter(product=product).order_by('-time'))
+        review_count = len(review_all)
+        p = Paginator(review_all,settings.REVIEW_SHOW_LIMIT)
+        reviews = p.get_page(page)
+        last_page = reviews.paginator.num_pages
+        for review in reviews:
+            if review.user.display_picture:
+                display_picture_url = review.user.display_picture.url
+            else:
+                display_picture_url = '/static/img/review_default_user_dp.png'
+                
+            review_obj = {}
+            review_obj['id'] = review.id
+            review_obj['user'] = {'user_name':review.user.name,'user_id':review.user.id,'user_image':display_picture_url,'user_email':review.user.email}
+            review_obj['comment'] = review.comment
+            review_obj['review_star'] = review.review_star
+            review_obj['time'] = review.time
+            review_obj['timesince'] = review.timesince
+            review_arr.append(review_obj)
+        return JsonResponse({'reviews':review_arr,'product':product.name,'last_page':last_page,'product_count':review_count})
+
 
 class Offer(View):
     def get(self, request, keyword):
@@ -489,7 +584,7 @@ class Offer(View):
             else:
                 page_number = 1
 
-            p = Paginator(products,DEFAULT_PRODUCT_LIMIT_PER_PAGE)
+            p = Paginator(products,settings.DEFAULT_PRODUCT_LIMIT_PER_PAGE)
             products = p.get_page(page_number)
             last_page = products.paginator.num_pages
             for i in range(1,last_page+1):
@@ -521,7 +616,7 @@ class Discount(View):
         else:
             page_number = 1
 
-        p = Paginator(products,DEFAULT_PRODUCT_LIMIT_PER_PAGE)
+        p = Paginator(products,settings.DEFAULT_PRODUCT_LIMIT_PER_PAGE)
         products = p.get_page(page_number)
         last_page = products.paginator.num_pages
         for i in range(1,last_page+1):
@@ -534,6 +629,7 @@ class Discount(View):
         context = {'products':product_arr,'pagenator_object':products,'last_page':last_page,'page_list':page_list,'current_page':page_number,'keyword':keyword}
         return render(request,"discount.html", context)
     
+
 class ManageAccount(View):
     def get(self,request):
         context = {}
@@ -616,7 +712,19 @@ class ChangeEmail(View):
 
 class YourReviews(View):
     def get(self,request):
-        context = {}
+        review_arr = []
+        product_arr = []
+        reviews = list(Review.objects.filter(user=request.user))
+        for review in reviews:
+            if not review.product in product_arr:
+                product_arr.append(review.product)
+        for product in product_arr:
+            related_product_reviews_obj = {'product_name':product.name}
+            related_product_reviews = list(Review.objects.filter(product=product,user=request.user))
+            related_product_reviews_obj['list'] = related_product_reviews
+            review_arr.append(related_product_reviews_obj)
+        print(review_arr)
+        context = {'review_arr':review_arr}
         return render(request,"yourreviews.html",context)
 
 

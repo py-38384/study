@@ -1,6 +1,6 @@
 from core.models import *
 from user_auth.models import User
-from core.views import DEFAULT_PRODUCT_LIMIT_PER_PAGE
+from django.conf import settings
 
 def total_cart_items(request):
     total_items = 0
@@ -43,4 +43,4 @@ def category(request):
         categories_obj['products'] = len(list(Product.objects.filter(category=category)))
         categories_arr.append(categories_obj)
 
-    return {'categories':categories_arr,'DEFAULT_PRODUCT_LIMIT_PER_PAGE':DEFAULT_PRODUCT_LIMIT_PER_PAGE}
+    return {'categories':categories_arr,'DEFAULT_PRODUCT_LIMIT_PER_PAGE':settings.DEFAULT_PRODUCT_LIMIT_PER_PAGE}

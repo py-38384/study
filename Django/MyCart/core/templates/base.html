@@ -229,6 +229,35 @@
         .review-login-require{
             color:#3D464D;
         }
+        .review-action-buttons-edit{
+            
+        }
+        .review-action-buttons-delete{
+
+        }
+        .review-action-button{
+            display: inline-block;
+            padding-right: 10px;
+        }
+        .review-action-button:hover{
+            text-decoration: underline;
+            color: #FFCB0D;
+            cursor: pointer;
+        }
+        .see-more-div{
+            width:50%;
+            display: flex;
+            justify-content: center;
+        }
+        .see-more-div button{
+            border: none;
+            outline: none;
+            padding: 7px 10px;
+            color: #3d3d3d;
+        }
+        .see-more-div button:hover{
+            outline: 2px solid rgb(148, 242, 255);
+        }
         @media only screen and (max-width: 1500px){
             .customize-input-div form,
             .change-email form,
@@ -248,6 +277,17 @@
             }
             .todays-deal{
                 padding-left: 0px;
+            }
+        }
+        @media only screen and (max-width: 767px){
+            .see-more-div{
+                width:100%;
+            }
+            .see-more-div button{
+                margin-top: 15px;
+            }
+            .see-more-div button:hover{
+                
             }
         }
         @media only screen and (max-width: 600px){
@@ -277,64 +317,8 @@
             }
         }
     </style>
-    <script>
-        var user = '{{request.user}}';
-        function getCookie(cname) {
-            let name = cname + "=";
-            let ca = document.cookie.split(';');
-            for(let i = 0; i < ca.length; i++) {
-              let c = ca[i];
-              while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-              }
-              if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-              }
-            }
-            return undefined;
-        }
-          function change_add_to_cart(){
-            if (user === "AnonymousUser") {
-              let add_to_cart_div = document.querySelector('.add_cart_div');
-              let cart = getCookie('cart');
-              if(cart){
-                  cart = JSON.parse(cart)
-                  if(cart[product_id]){
-                  console.log('Entered');
-                  add_to_cart_div.innerHTML = `<button
-                  class="btn btn-primary px-3"
-                  style="
-                    background: grey;
-                    cursor: default;
-                    border: none;
-                    pointer-events: none;
-                  "
-                  data-product="{{product.id}}"
-                  data-action="add"
-                >
-                  <i class="fa fa-shopping-cart mr-1"></i> Added To Cart
-                </button>`;
-                }
-              }
-            }
-          }
-
-
-    // password to text function
-    function togglepass(ele){
-        if(ele.checked){
-            let password_fields = document.querySelectorAll('input[type=password]');
-            for(let i = 0;i<password_fields.length;i++){
-                password_fields[i].type = 'text';
-            }
-        }else{
-            let password_fields = document.querySelectorAll('input[type=text]');
-            for(let i = 0;i<password_fields.length;i++){
-                password_fields[i].type = 'password';
-            }
-        }
-    }
-    </script>
+    <script src="{% static '/js/pre_load.js' %}"></script>
+    <script>var user = "{{request.user}}";</script>
 </head>
 
 <body>
