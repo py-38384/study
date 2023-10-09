@@ -3,3 +3,5 @@ Create virtual environment(folder)-> python -m venv .venv
 Show script execution permission(with admin terminal)-> Get-ExecutionPolicy 
 Change script execution permission to remote signed-> Set-ExecutionPolicy RemoteSigned
 Activate virtual environment-> & e:/study/Django/storeFront/.venv/Scripts/Activate.ps1
+Get required python packages for your virtual environment-> pip freeze > requirements.txt
+Install required packages for your virtual environment-> pip install -r requirements.txt
