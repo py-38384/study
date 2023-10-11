@@ -42,22 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
     'user_auth.apps.UserAuthConfig',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
 ]
-
-SOCIAlACCOUNT_PROVIDERS = {
-    'google':{
-        'SCOPE':{
-            'profile',
-            'email',
-        },
-        'AUTH_PARAMS':{'access_type':'online'}
-    }
-}
 
 AUTH_USER_MODEL = 'user_auth.User'
 
@@ -173,9 +158,3 @@ SHIPPING_CHARGE = 10
 DEFAULT_PRODUCT_LIMIT_PER_PAGE = 20
 REVIEW_SHOW_LIMIT = 5
 PRODUCT_NAME_LIMIT = 25
-
-
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backend.ModelBackend',
-    'allauth.accounts.auth_backends.AuthenticationBackend',
-)
