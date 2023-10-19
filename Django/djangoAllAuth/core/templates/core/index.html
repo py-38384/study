@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django all-auth test site</title>
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+    <h2>Welcome, {{request.user.username}}</h2>
+    <div class="picture_div"><img src='{{user_profile_pic}}'></div>
+    <a href="{% url 'account_logout' %}">log out</a>
+    <a href="{% url 'account_change_password' %}">password change</a>
+    {% comment %} <div class="picture_div"><img src='{{user.socialaccount_set.all.0.get_avatar_url}}'></div> {% endcomment %}
+    {% else %}
+    <h2>You are not logged in! <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">Sign up</a></h2>
+    <h2>You are not logged in! <a href="{% url 'account_reset_password' %}">password reset</a> 
+    {% endif %}
+</body>
+</html>

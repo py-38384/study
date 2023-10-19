@@ -7,8 +7,11 @@ from .models import User
 from .decorator import unauthenticated_user
 from django.contrib.auth.decorators import login_required
 
+# {% provider_login_url 'google' %}
+
 @unauthenticated_user
 def loginView(request):
+
     context = {}
     if request.method == 'POST':
         email = request.POST.get('email')

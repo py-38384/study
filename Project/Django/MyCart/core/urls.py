@@ -29,4 +29,5 @@ urlpatterns = [
     path('delete_review/',login_required(views.DeleteReview.as_view()),name='delete_review'),
     path('get_reviews/',views.GetReviews.as_view(),name='get_reviews'),
     path('subscribe/',views.Subscribe.as_view(),name='subscribe'),
+    
 ]
