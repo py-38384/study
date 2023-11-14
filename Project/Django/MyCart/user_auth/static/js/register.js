@@ -12,7 +12,7 @@ function togglepass(ele){
     }
 }
 function activeSubmitBtn(ele){
-    let submit_button = document.querySelector('button');
+    let submit_button = document.querySelector('form .signup');
     if(ele.checked){
         submit_button.style.pointerEvents = "auto";
         submit_button.style.backgroundColor = main_color;

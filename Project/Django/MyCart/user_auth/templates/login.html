@@ -1,4 +1,5 @@
 {% load static %}
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,8 +17,8 @@
         </a>
       </div>
       <div class="login">Welcome back!</div>
-      <div class="google"><a href=""><img src="{% static 'img/google.png'%}" alt="google_logo">Log in with Google</a></div>
-      <div class="facebook"><a href=""><img src="{% static 'img/facebook.png'%}" alt="facebook_logo">Log in with Facebook</a></div>
+      <form action="{% provider_login_url 'google' %}" method="post" class="google"> {% csrf_token %} <button type="submit"><img src="{% static 'img/google.png'%}" alt="google_logo">Log in with Google</button></form>
+      <form class="facebook"><button type="submit"><img src="{% static 'img/facebook.png'%}" alt="facebook_logo">Log in with Facebook</button></form>
       <div class="option-div">
         <span class="left-line"></span>
         <span class="option">or login by email</span>
@@ -32,7 +33,7 @@
           <label for="email-input">Email:</label><br>
           <input
             id="email-input"
-            type="email"
+            type="text"
             name="email"
             placeholder=""
           />
@@ -47,7 +48,7 @@
           />
         </div>
         <div class="condition"><input type="checkbox" name="" onclick="togglepass(this)" id="terms-and-condition"> Show password</a></div>
-        <button type="submit">Log in</button>
+        <button type="submit" class="login">Log in</button>
       </form>
       <div>Don't have an account? <a href="{% url 'registration' %}">Sign up</a></div>
       <hr />

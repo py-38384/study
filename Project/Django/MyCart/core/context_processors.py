@@ -24,11 +24,18 @@ def get_user_info(request):
     if request.user.is_authenticated:
         user = User.objects.get(id=request.user.id)
         context['logged_in_user'] = True
-        context['name'] = user.name
-        if user.display_picture:
-            context['image'] = user.display_picture
+        if user.first_name and user.last_name:
+            context['username'] = user.first_name + " " + user.last_name
         else:
-            context['image'] = 'static/img/user.png'
+            context['username'] = user.username
+        if user.display_picture:
+            context['image'] = user.display_picture.url 
+        else:
+            try:
+                context['image'] = user.socialaccount_set.filter(provider='google')[0].extra_data['picture']
+            except Exception as e:
+                context['image'] = '/static/img/user.png'
+                
     else:
         context['logged_in_user'] = False
     return context

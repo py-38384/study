@@ -16,8 +16,8 @@
         </a>
       </div>
       <div class="login">Welcome!</div>
-      <div class="google"><a href=""><img src="{% static 'img/google.png'%}" alt="google_logo">Register with Google</a></div>
-      <div class="facebook"><a href=""><img src="{% static 'img/facebook.png'%}" alt="facebook_logo">Register with Facebook</a></div>
+      <form class="google"><button type="submit"><img src="{% static 'img/google.png'%}" alt="google_logo">Log in with Google</button></form>
+      <form class="facebook"><button type="submit"><img src="{% static 'img/facebook.png'%}" alt="facebook_logo">Log in with Facebook</button></form>
       <div class="option-div">
         <span class="left-line"></span>
         <span class="option">or register by email</span>
@@ -44,7 +44,7 @@
           {% endfor %}
         {% endif %}
         <div class="condition-div"><input type="checkbox" onclick="activeSubmitBtn(this)" name="agree" class="condition"> I agree to the <a href="">Terms of Service</a> and <a href="">Privary Policy</a></div>
-        <button style="pointer-events: none;background:gray;" type="submit">Register</button>
+        <button style="pointer-events: none;background:gray;" class="signup" type="submit">Register</button>
       </form>
       <hr />
       <div>Already have an account? <a href="{% url 'login' %}">Log in</a></div>

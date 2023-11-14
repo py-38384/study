@@ -19,8 +19,11 @@ def loginView(request):
         user = authenticate(request, email=email, password=password)
         if user is not None:
             login(request,user)
-            userobj = User.objects.get(email=user.get_username())
-            username = userobj.username
+            userobj = User.objects.get(email=user.email)
+            if userobj.first_name and userobj.last_name:
+                username = userobj.first_name + " " + userobj.last_name
+            else:
+                username = userobj.username
             messages.success(request,'<strong>Log in successful</strong> Welcome back {0}'.format(username))
             return redirect('home')
         else:
@@ -44,11 +47,10 @@ def registrationView(request):
         if(agreed == 'on'):
             if form.is_valid():
                 form.save()
-                name = form.cleaned_data.get('name')
                 email = form.cleaned_data.get('email')
                 user = authenticate(request, email=email, password=password)
                 login(request,user)
-                messages.success(request,'<strong>Account created successfully</strong> Welcome to MyCART {0}'.format(name))
+                messages.success(request,'<strong>Account created successfully</strong> Welcome to MyCART {0}'.format(user.first_name+' '+user.last_name))
                 return redirect('home')
 
             else:

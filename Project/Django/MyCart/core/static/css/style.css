@@ -9710,3 +9710,287 @@ a.text-dark:hover, a.text-dark:focus {
     transform: translateY(-15px);
   }
 }
+
+/* Custom css for Mycart*/
+
+:root{
+  --main-color:#FFD333;
+}
+.carousel-image{
+  height: 800px;
+}
+.selected{
+  background:#3D464D;
+  color:#FFD333;
+}
+.search-quarry{
+  -webkit-text-fill-color:#ffc800;
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: black;
+}
+.category{
+  font-size:40px;
+  -webkit-text-fill-color: #FFD333;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  border-bottom:1px solid #FFD333;
+  margin-left:4rem;
+  margin-right:4rem;
+  margin-bottom: 10px;
+  background: #3D464D;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding-left: 10px;
+}
+.discount{
+  background: red;
+  -webkit-text-fill-color: #FFFEFA;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #FD4221;
+  color:#FFFEFA;
+  border-bottom:none;
+}
+.product-discount{
+  text-align:center;
+  color:white;
+  background:red;
+}
+.details_discount_tag{
+  font-size: 30px;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ff3838;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.todays-deal{
+  background:#FFD333;
+  -webkit-text-stroke-width: 0px;
+  -webkit-text-fill-color: #3D464D;
+  padding-left: 60px;
+  margin-left:0;
+  margin-right:0;
+}
+.manage-container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 30vh;
+}
+.manage-container div:nth-child(1){
+  display: flex;
+  align-items: center;
+
+}
+.manage-account a img{
+  width:47px;
+  height:47px;
+}
+.manage-account a{
+  display: inline-block;
+  border-radius:50%;
+  overflow:hidden;
+  border:1px solid rgb(212, 212, 212);
+}
+.manage-account span{
+  display: inline-block;
+  position: relative;
+  top:-20px;
+  left: -20px;
+  font-size: 16px;
+}
+.manage-account-header{
+  font-size: 30px;
+  padding-left: 30px;
+}
+.account-manage-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.account-manage-option{
+  width:300px;
+  height: 120px;
+  border: 1px solid rgb(216, 216, 216);
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  color:#3D464D;
+}
+.title-desc-div strong{
+  font-size: 22px;
+}
+.title-desc-div p{
+  font-size: 14px;
+}
+.account-manage-div
+.logo-div img{
+  width:50px;
+}
+.logout-trigger{
+  cursor: pointer;
+}
+.logout-trigger:hover{
+  text-decoration: underline;
+}
+.customize-input-div,
+.change-email,
+.change-password-div{
+  display: flex;
+  align-items: center;
+  padding-left:40px;
+  color:#494949;
+}
+.customize-input-div form,
+.change-email form,
+.change-password-div form{
+  width:30%;
+  margin-top: 10px;
+}
+.customize-input-div input,
+.customize-input-div textarea,
+.change-email form input,
+.change-password-div form input{
+  width:100%;
+  height: 45px;
+  border: none;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  background-color: #dbdbdb;
+  padding: 0 10px;
+  font-size: 18px;
+  color:#3D464D;
+
+}
+.customize-input-div textarea{
+  height: 240px;
+}
+.customize-input-div form input:focus,
+.change-email form input:focus,
+.change-password-div form input:focus{
+  background-color: #ffffff;
+  outline:2px solid rgb(126, 197, 255);
+}
+.errorlist{
+  color: red;
+  margin-left: 20px;
+}
+.customize-input-div form input[type=checkbox],
+#terms-and-condition{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+.customize-input-div form button,
+.change-email form button,
+.change-password-div form button{
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--main-color);
+  cursor: pointer;
+}
+.customize-input-div form button:hover,
+.change-email form button:hover,
+.change-password-div form button:hover{
+  background-color: black;
+  color: var(--main-color);
+}
+.header{
+  margin-left: 30px;
+}
+.review-login-require{
+  color:#3D464D;
+}
+.review-action-buttons-edit{
+  
+}
+.review-action-buttons-delete{
+
+}
+.review-action-button{
+  display: inline-block;
+  padding-right: 10px;
+}
+.review-action-button:hover{
+  text-decoration: underline;
+  color: #FFCB0D;
+  cursor: pointer;
+}
+.see-more-div{
+  width:50%;
+  display: flex;
+  justify-content: center;
+}
+.see-more-div button{
+  border: none;
+  outline: none;
+  padding: 7px 10px;
+  color: #3d3d3d;
+}
+.see-more-div button:hover{
+  outline: 2px solid rgb(148, 242, 255);
+}
+@media only screen and (max-width: 1500px){
+  .customize-input-div form,
+  .change-email form,
+  .change-password-div form{
+      width:50%;
+      margin-top: 10px;
+  }
+  .carousel-image{
+      height: 600px;
+  }
+}
+@media only screen and (max-width: 1200px){
+  .category{
+      margin-left: 1rem;
+      margin-right: 1rem;
+      text-align: center;
+  }
+  .todays-deal{
+      padding-left: 0px;
+  }
+}
+@media only screen and (max-width: 767px){
+  .see-more-div{
+      width:100%;
+  }
+  .see-more-div button{
+      margin-top: 15px;
+  }
+  .see-more-div button:hover{
+      
+  }
+}
+@media only screen and (max-width: 600px){
+  .customize-input-div form,
+  .change-email form,
+  .change-password-div form{
+      width:70%;
+  }
+  .customize-input-div,
+  .change-email,
+  .change-password-div{
+      justify-content: center;
+      padding: 0;
+  }
+}
+@media only screen and (max-width: 400px){
+  .customize-input-div form,
+  .change-email form,
+  .change-password-div form{
+      width:90%;
+  }
+  .header{
+      margin-left: 10px;
+  }
+  .carousel-image{
+      height: 500px;
+  }
+}

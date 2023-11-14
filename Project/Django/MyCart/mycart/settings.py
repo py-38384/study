@@ -42,6 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
     'user_auth.apps.UserAuthConfig',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 AUTH_USER_MODEL = 'user_auth.User'
@@ -54,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'mycart.urls'
@@ -157,3 +164,29 @@ SHIPPING_CHARGE = 10
 DEFAULT_PRODUCT_LIMIT_PER_PAGE = 20
 REVIEW_SHOW_LIMIT = 5
 PRODUCT_NAME_LIMIT = 25
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'EMAIL_AUTHENTICATION': True,
+        'APP': {
+            'client_id': '383616365376-177in9c4m8hkjm8he9aup6ff6fllq6l3.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
+    }
+}
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT=True
+ACCOUNT_EMAIL_REQUIRED=True
+ACCOUNT_CHANGE_EMAIL=True
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+LOGIN_REDIRECT_URL = "home"
