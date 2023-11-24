@@ -1,0 +1,37 @@
+{% load static %}
+<div class="logo">
+    <a href="{% url 'index' %}"
+      ><img src="{% static 'images/logo.png' %}" alt="logo"
+    /></a>
+  </div>
+  <div class="basic-menu">
+    <ul>
+      <li>
+        <a href="">Start earning <span></span></a>
+      </li>
+      <li>
+        <a href="{% url 'login_signup' %}">Login <span></span></a>
+      </li>
+      <li>
+        <a href="{% url 'login_signup' %}">Sign up <span></span></a>
+      </li>
+    </ul>
+    <div class="breadcrumb">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="nav-window-wrapper">
+    <div class="nav-window">
+      <div class="nav-window-content-div">
+        <div><a href="" data-text="&nbsp;Home">&nbsp;Home</a></div>
+        <div><a href="" data-text="&nbsp;Find work">&nbsp;Find work</a></div>
+        <div><a href="" data-text="&nbsp;About">&nbsp;About</a></div>
+        <div><a href="" data-text="&nbsp;Login">&nbsp;Login</a></div>
+        <div><a href="" data-text="&nbsp;Sign up">&nbsp;Sign up</a></div>
+        <div><a href="" data-text="&nbsp;Contact us">&nbsp;Contact us</a></div>
+        <p>&copy;Next IT Doctor All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>

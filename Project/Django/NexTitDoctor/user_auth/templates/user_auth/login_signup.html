@@ -1,15 +1,106 @@
-{% extends 'base.html' %}
+{% extends 'initial/initial_base.html' %}
 {% load static %}
 {% block title %} Log in or sign up to Next IT Doctor {% endblock title %}
 {% block css %} 
+<link rel="stylesheet" href="{% static 'user_auth/css/user_auth.css' %}" />
 <style>
-    body{
-        background-image: url("{% static 'images/login_signup_background.jpg' %}");
-        background-size: 100%;
-        background-repeat: no-repeat;
-    }
+    
 </style>
 {% endblock css %}
 {% block content %}
-
+<div class="welcome-text video-container">
+    <div class="text">
+        <div> Welcome to</div> 
+        <div> Next IT Doctor</div>
+    </div>
+    <video autoplay muted loop src="{% static 'user_auth/videos/background_video.mp4' %}"></video>
+</div>
+<div class="box-container">
+    <div class="box">
+        <!-------Login box--------->
+        <form action="" method="post" class="box-login" id="login" style="left: 27px;">
+            <div class="top-header">
+                <h3>Hello, Again</h3>
+                <small>We are happy to have you back.</small>
+            </div>
+            <div class="input-group-div">
+                <div class="input-field">
+                    <input type="text" class="input-box" id="logEmail" required>
+                    <label for="logEmail">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" class="input-box" id="logPassword" required>
+                    <label for="logPassword">Password</label>
+                    <div class="eye-area">
+                        <div class="eye-box" onclick="myLogPassword()">
+                            <img id="eye" src="{% static 'user_auth/svgs/eye-solid.svg' %}" alt="eye solid">
+                            <img id="eye-slash" src="{% static 'user_auth/svgs/eye-slash-solid.svg' %}" alt="eye slash solid">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <input type="submit" class="input-submit" value="Log in">
+                </div>
+                <div class="forgot">
+                    <a href="#">Forget password?</a>
+                </div>
+            </div>
+        </form>
+        <!-------Sign Up box--------->
+        <form action="" method="post" class="box-register" id="register" style="left: 350px;">
+            <div class="top-header">
+                <h3>Sign Up, Now</h3>
+                <small>We are happy to have you with us.</small>
+            </div>
+            <div class="input-group-div">
+                <div class="input-field">
+                    <input type="text" class="input-box" id="regUser" required>
+                    <label for="regEmail">Username</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" class="input-box" id="regEmail" required>
+                    <label for="regEmail">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" class="input-box" id="regPassword" required>
+                    <label for="regPassword">Password</label>
+                    <div class="eye-area">
+                        <div class="eye-box" onclick="myRegPassword">
+                            <img id="eye" src="{% static 'user_auth/svgs/eye-solid.svg' %}" alt="eye solid">
+                            <img id="eye-slash" src="{% static 'user_auth/svgs/eye-slash-solid.svg' %}" alt="eye slash solid">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <input type="submit" class="input-submit" value="Sign Up">
+                </div>
+            </div>
+        </form>
+        <!-------Switch------->
+        <div class="switch">
+            <a href="#" class="login" onclick="login()">Login</a>
+            <a href="#" class="register" onclick="register()">Sign up</a>
+            <div class="btn-active" id="btn"></div>
+        </div>
+        <div class="bottom-part">
+            <div class="or">Or, continue with.</div>
+            <div class="social-account">
+                <form action="" method="post" class="google-login-signup">
+                    <button type="submit">
+                        <img src="{% static 'images/google.png' %}" alt="">
+                    </button>
+                </form>
+                <form action="" method="post" class="facebook-login-signup">
+                    <button>
+                        <img src="{% static 'images/facebook.png' %}" alt="">
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cover"><div class="circle"></div></div>
 {% endblock content %}
+{% block js %}
+<script src="{% static 'user_auth/js/main.js' %}"></script>
+{% endblock js%}

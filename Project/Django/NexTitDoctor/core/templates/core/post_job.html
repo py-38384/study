@@ -1,0 +1,1035 @@
+{% extends 'primary/primary_base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    body{
+        background: rgb(240, 243, 245);
+    }
+</style>
+    <h1 class="title">Post a job</h1>
+    <form action="#" method="post" enctype="multipart/form-data" class="post-job-wizard">
+        <div class="location-container form-data-section">
+            <div class="section-title">
+                <h1>Select location to <span>exclude</span></h1>
+                <small><b>Select countries you want to hide from the selected zone (optional)</b></small>
+            </div>
+            <div class="zone-title"><h5>Select zone</h5></div>
+            <div class="zone form-radio-input-div">
+                <div class="zone-item-div form-radio-input">
+                    <input type="radio" name="zone" value="International" id="radio-international" checked>
+                    <label class="zone-item" for="radio-international">International</label>
+                </div>
+                <div class="zone-item-div form-radio-input">
+                    <input type="radio" name="zone" value="Asia" id="radio-asia">
+                    <label class="zone-item" for="radio-asia">Asia</label>
+                </div>
+                <div class="zone-item-div form-radio-input">
+                    <input type="radio" name="zone" value="USA & Western" id="radio-western">
+                    <label class="zone-item" for="radio-western">USA & Western</label>
+                </div>
+                <div class="zone-item-div form-radio-input">
+                    <input type="radio" name="zone" value="Africa" id="radio-africa">
+                    <label class="zone-item" for="radio-africa">Africa</label>
+                </div>
+                <div class="zone-item-div form-radio-input">
+                    <input type="radio" name="zone" value="Muslim Countries" id="radio-muslim">
+                    <label class="zone-item" for="radio-muslim">Muslim Countries</label>
+                </div>
+                <div class="zone-item-div form-radio-input">
+                    <input type="radio" name="zone" value="Europe West" id="radio-europe-west">
+                    <label class="zone-item" for="radio-europe-west">Europe West</label>
+                </div>
+                <div class="zone-item-div form-radio-input">
+                    <input type="radio" name="zone" value="Europe East" id="radio-europe-east">
+                    <label class="zone-item" for="radio-europe-east">Europe East</label>
+                </div>
+                <div class="zone-item-div form-radio-input">
+                    <input type="radio" name="zone" value="Latin America" id="radio-latin-america">
+                    <label class="zone-item" for="radio-latin-america">Latin America</label>
+                </div>
+            </div>
+            <div class="countries-title"><h5>Select countries</h5></div>
+            <div class="zone-international countries " style="display: flex;">
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Pakistan-1" value="Pakistan">
+                    <label for="exclude-country-checkbox-Pakistan-1">Pakistan</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-India-1" value="India">
+                    <label for="exclude-country-checkbox-India-1">India</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Nepal-1" value="Nepal">
+                    <label for="exclude-country-checkbox-Nepal-1">Nepal</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Albania-1" value="Albania">
+                    <label for="exclude-country-checkbox-Albania-1">Albania</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Indonesia-1" value="Indonesia">
+                    <label for="exclude-country-checkbox-Indonesia-1">Indonesia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Philippines-1" value="Philippines">
+                    <label for="exclude-country-checkbox-Philippines-1">Philippines</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Romania-1" value="Romania">
+                    <label for="exclude-country-checkbox-Romania-1">Romania</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Egypt-1" value="Egypt">
+                    <label for="exclude-country-checkbox-Egypt-1">Egypt</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Poland-1" value="Poland">
+                    <label for="exclude-country-checkbox-Poland-1">Poland</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Malaysia-1" value="Malaysia">
+                    <label for="exclude-country-checkbox-Malaysia-1">Malaysia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Nepal-2" value="Nepal">
+                    <label for="exclude-country-checkbox-Nepal-2">Nepal</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Vietnam-2" value="Vietnam">
+                    <label for="exclude-country-checkbox-Vietnam-2">Vietnam</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-China-1" value="China">
+                    <label for="exclude-country-checkbox-China-1">China</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Lithuania-1" value="Lithuania">
+                    <label for="exclude-country-checkbox-Lithuania-1">Lithuania</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Morocco-1" value="Morocco">
+                    <label for="exclude-country-checkbox-Morocco-1">Morocco</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-United-States-1" value="United States">
+                    <label for="exclude-country-checkbox-United-States-1">United States</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Canada-1" value="Canada ">
+                    <label for="exclude-country-checkbox-Canada-1">Canada </label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-United-Kingdom-1" value="United Kingdom">
+                    <label for="exclude-country-checkbox-United-Kingdom-1">United Kingdom</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Australia-1" value="Australia">
+                    <label for="exclude-country-checkbox-Australia-1">Australia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Germany-1" value="Germany">
+                    <label for="exclude-country-checkbox-Germany-1">Germany</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-France-1" value="France">
+                    <label for="exclude-country-checkbox-France-1">France</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Sri-Lanka-1" value="Sri Lanka">
+                    <label for="exclude-country-checkbox-Sri-Lanka-1">Sri Lanka</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Slovenia-1" value="Slovenia">
+                    <label for="exclude-country-checkbox-Slovenia-1">Slovenia</label>
+                </div>
+            </div>
+            <div class="zone-asia countries" style="display: none;">
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-China-2" value="China">
+                    <label for="exclude-country-checkbox-China-2">China</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-India-2" value="India">
+                    <label for="exclude-country-checkbox-India-2">India</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Japan" value="Japan">
+                    <label for="exclude-country-checkbox-Japan">Japan</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Indonesia-2" value="Indonesia">
+                    <label for="exclude-country-checkbox-Indonesia-2">Indonesia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-South-Korea" value="South Korea">
+                    <label for="exclude-country-checkbox-South-Korea">South Korea</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Sri-Lanka-2" value="Sri Lanka">
+                    <label for="exclude-country-checkbox-Sri-Lanka-2">Sri Lanka</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Malaysia-2" value="Malaysia">
+                    <label for="exclude-country-checkbox-Malaysia-2">Malaysia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Pakistan-2" value="Pakistan">
+                    <label for="exclude-country-checkbox-Pakistan-2">Pakistan</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Philippines-2" value="Philippines">
+                    <label for="exclude-country-checkbox-Philippines-2">Philippines</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Singapore" value="Singapore">
+                    <label for="exclude-country-checkbox-Singapore">Singapore</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Thailand" value="Thailand">
+                    <label for="exclude-country-checkbox-Thailand">Thailand</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Vietnam-1" value="Vietnam">
+                    <label for="exclude-country-checkbox-Vietnam-1">Vietnam</label>
+                </div>
+            </div>
+            <div class="zone-USA-and-western countries" style="display: none;">
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-United-States-2" value="United States">
+                    <label for="exclude-country-checkbox-United-States-2">United States</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-United-Kingdom-2" value="United Kingdom">
+                    <label for="exclude-country-checkbox-United-Kingdom-2">United Kingdom</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Canada-2" value="Canada">
+                    <label for="exclude-country-checkbox-Canada-2">Canada</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Australia-2" value="Australia">
+                    <label for="exclude-country-checkbox-Australia-2">Australia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-New-Zealand" value="New Zealand">
+                    <label for="exclude-country-checkbox-New-Zealand">New Zealand</label>
+                </div>
+            </div>
+            <div class="zone-africa countries" style="display: none;">
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Angola" value="Angola">
+                    <label for="exclude-country-checkbox-Angola">Angola</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Botswana" value="Botswana">
+                    <label for="exclude-country-checkbox-Botswana">Botswana</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Congo" value="Congo">
+                    <label for="exclude-country-checkbox-Congo">Congo</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Egypt-2" value="Egypt">
+                    <label for="exclude-country-checkbox-Egypt-2">Egypt</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Ethiopia" value="Ethiopia">
+                    <label for="exclude-country-checkbox-Ethiopia">Ethiopia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Ghana" value="Ghana">
+                    <label for="exclude-country-checkbox-Ghana">Ghana</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Kenya" value="Kenya">
+                    <label for="exclude-country-checkbox-Kenya">Kenya</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Libya" value="Libya">
+                    <label for="exclude-country-checkbox-Libya">Libya</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Morocco-2" value="Morocco">
+                    <label for="exclude-country-checkbox-Morocco-2">Morocco</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Mozambique" value="Mozambique">
+                    <label for="exclude-country-checkbox-Mozambique">Mozambique</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Nigeria-1" value="Nigeria">
+                    <label for="exclude-country-checkbox-Nigeria-1">Nigeria</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Rwanda" value="Rwanda">
+                    <label for="exclude-country-checkbox-Rwanda">Rwanda</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-South-Africa" value="South Africa">
+                    <label for="exclude-country-checkbox-South-Africa">South Africa</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Tanzania" value="Tanzania">
+                    <label for="exclude-country-checkbox-Tanzania">Tanzania</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Uganda" value="Uganda">
+                    <label for="exclude-country-checkbox-Uganda">Uganda</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Zimbabwe" value="Zimbabwe">
+                    <label for="exclude-country-checkbox-Zimbabwe">Zimbabwe</label>
+                </div>
+            </div>
+            <div class="zone-europe-west countries" style="display: none;">
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Austria" value="Austria">
+                    <label for="exclude-country-checkbox-Austria">Austria</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Belgium" value="Belgium">
+                    <label for="exclude-country-checkbox-Belgium">Belgium</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Switzerland" value="Switzerland">
+                    <label for="exclude-country-checkbox-Switzerland">Switzerland</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Germany-2" value="Germany">
+                    <label for="exclude-country-checkbox-Germany-2">Germany</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Denmark" value="Denmark">
+                    <label for="exclude-country-checkbox-Denmark">Denmark</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Spain" value="Spain">
+                    <label for="exclude-country-checkbox-Spain">Spain</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Finland" value="Finland">
+                    <label for="exclude-country-checkbox-Finland">Finland</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-France-2" value="France">
+                    <label for="exclude-country-checkbox-France-2">France</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-United-Kingdom-3" value="United Kingdom">
+                    <label for="exclude-country-checkbox-United-Kingdom-3">United Kingdom</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Iceland" value="Iceland">
+                    <label for="exclude-country-checkbox-Iceland">Iceland</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Italy" value="Italy">
+                    <label for="exclude-country-checkbox-Italy">Italy</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Luxembourg" value="Luxembourg">
+                    <label for="exclude-country-checkbox-Luxembourg">Luxembourg</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Monaco" value="Monaco">
+                    <label for="exclude-country-checkbox-Monaco">Monaco</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Norway" value="Norway">
+                    <label for="exclude-country-checkbox-Norway">Norway</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Portugal" value="Portugal">
+                    <label for="exclude-country-checkbox-Portugal">Portugal</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Sweden" value="Sweden">
+                    <label for="exclude-country-checkbox-Sweden">Sweden</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-San-Marino" value="San Marino">
+                    <label for="exclude-country-checkbox-San-Marino">San Marino</label>
+                </div>
+            </div>
+            <div class="zone-muslim-countries countries" style="display: none;">
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Algeria" value="Algeria">
+                    <label for="exclude-country-checkbox-Algeria">Algeria</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Indonesia-3" value="Indonesia">
+                    <label for="exclude-country-checkbox-Indonesia-3">Indonesia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Pakistan-3" value="Pakistan">
+                    <label for="exclude-country-checkbox-Pakistan-3">Pakistan</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Morocco-3" value="Morocco">
+                    <label for="exclude-country-checkbox-Morocco-3">Morocco</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Nigeria-2" value="Nigeria">
+                    <label for="exclude-country-checkbox-Nigeria-2">Nigeria</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Egypt-3" value="Egypt">
+                    <label for="exclude-country-checkbox-Egypt-3">Egypt</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Iran" value="Iran">
+                    <label for="exclude-country-checkbox-Iran">Iran</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Turkey-1" value="Turkey">
+                    <label for="exclude-country-checkbox-Turkey-1">Turkey</label>
+                </div>
+            </div>
+            <div class="zone-europe-east countries" style="display: none;">
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Turkey-2" value="Turkey">
+                    <label for="exclude-country-checkbox-Turkey-2">Turkey</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Albania-2" value="Albania">
+                    <label for="exclude-country-checkbox-Albania-2">Albania</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Armenia" value="Armenia">
+                    <label for="exclude-country-checkbox-Armenia">Armenia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Belarus" value="Belarus">
+                    <label for="exclude-country-checkbox-Belarus">Belarus</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Bosnia-and-Herzegovina" value="Bosnia and Herzegovina">
+                    <label for="exclude-country-checkbox-Bosnia-and-Herzegovina">Bosnia and Herzegovina</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Bulgaria" value="Bulgaria">
+                    <label for="exclude-country-checkbox-Bulgaria">Bulgaria</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Cyprus" value="Cyprus">
+                    <label for="exclude-country-checkbox-Cyprus">Cyprus</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Czech-Republic" value="Czech Republic">
+                    <label for="exclude-country-checkbox-Czech-Republic">Czech Republic</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Estonia" value="Estonia">
+                    <label for="exclude-country-checkbox-Estonia">Estonia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Greece" value="Greece">
+                    <label for="exclude-country-checkbox-Greece">Greece</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Hungary" value="Hungary">
+                    <label for="exclude-country-checkbox-Hungary">Hungary</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Croatia" value="Croatia">
+                    <label for="exclude-country-checkbox-Croatia">Croatia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Lithuania-2" value="Lithuania">
+                    <label for="exclude-country-checkbox-Lithuania-2">Lithuania</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Macedonia" value="Macedonia">
+                    <label for="exclude-country-checkbox-Macedonia">Macedonia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Malta" value="Malta">
+                    <label for="exclude-country-checkbox-Malta">Malta</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Serbia" value="Serbia">
+                    <label for="exclude-country-checkbox-Serbia">Serbia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Russian-Federation" value="Russian Federation">
+                    <label for="exclude-country-checkbox-Russian-Federation">Russian Federation</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Slovenia-2" value="Slovenia">
+                    <label for="exclude-country-checkbox-Slovenia-2">Slovenia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Slovakia" value="Slovakia">
+                    <label for="exclude-country-checkbox-Slovakia">Slovakia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Turkey-3" value="Turkey">
+                    <label for="exclude-country-checkbox-Turkey-3">Turkey</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Ukraine" value="Ukraine">
+                    <label for="exclude-country-checkbox-Ukraine">Ukraine</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Poland-2" value="Poland">
+                    <label for="exclude-country-checkbox-Poland-2">Poland</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Romania-2" value="Romania">
+                    <label for="exclude-country-checkbox-Romania-2">Romania</label>
+                </div>
+            </div>
+            <div class="zone-latin-america countries" style="display: none;">
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Argentina" value="Argentina">
+                    <label for="exclude-country-checkbox-Argentina">Argentina</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Bolivia" value="Bolivia">
+                    <label for="exclude-country-checkbox-Bolivia">Bolivia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Brazil" value="Brazil">
+                    <label for="exclude-country-checkbox-Brazil">Brazil</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Chile" value="Chile">
+                    <label for="exclude-country-checkbox-Chile">Chile</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Colombia" value="Colombia">
+                    <label for="exclude-country-checkbox-Colombia">Colombia</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Ecuador" value="Ecuador">
+                    <label for="exclude-country-checkbox-Ecuador">Ecuador</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Malvinas" value="Malvinas">
+                    <label for="exclude-country-checkbox-Malvinas">Malvinas</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-French-Guiana" value="French Guiana">
+                    <label for="exclude-country-checkbox-French-Guiana">French Guiana</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Guyana" value="Guyana">
+                    <label for="exclude-country-checkbox-Guyana">Guyana</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Mexico" value="Mexico">
+                    <label for="exclude-country-checkbox-Mexico">Mexico</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Paraguay" value="Paraguay">
+                    <label for="exclude-country-checkbox-Paraguay">Paraguay</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Peru" value="Peru">
+                    <label for="exclude-country-checkbox-Peru">Peru</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Suriname" value="Suriname">
+                    <label for="exclude-country-checkbox-Suriname">Suriname</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Uruguay" value="Uruguay">
+                    <label for="exclude-country-checkbox-Uruguay">Uruguay</label>
+                </div>
+                <div class="country-div">
+                    <input type="checkbox" name="exclude-countries" id="exclude-country-checkbox-Venezuela" value="Venezuela">
+                    <label for="exclude-country-checkbox-Venezuela">Venezuela</label>
+                </div>
+            </div>
+        </div>
+        <div class="category-section form-data-section">
+            <div class="section-title">
+                <h1>Select Job Category</h1>
+                <small><b>Select the category of your job</b></small>
+            </div>
+            <div class="category-title"><h5>Select Category</h5></div>
+            <div class="job-categories form-radio-input-div">
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Ads Click" id="Ads-Click" checked>
+                    <label class="radio-label" for="Ads-Click">Ads Click</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Answers" id="Answers">
+                    <label class="radio-label" for="Answers">Answers</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Assigenment" id="Assigenment">
+                    <label class="radio-label" for="Assigenment">Assigenment</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Blog" id="Blog">
+                    <label class="radio-label" for="Blog">Blog</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Comment" id="Comment">
+                    <label class="radio-label" for="Comment">Comment</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Computer Programs" id="Computer-Programs">
+                    <label class="radio-label" for="Computer-Programs">Computer-Programs</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Discord" id="Discord">
+                    <label class="radio-label" for="Discord">Discord</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Edit" id="Edit">
+                    <label class="radio-label" for="Edit">Edit</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Facebook" id="Facebook">
+                    <label class="radio-label" for="Facebook">Facebook</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Facebook Invite" id="Facebook-Invite">
+                    <label class="radio-label" for="Facebook-Invite">Facebook Invite</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Gmail Account" id="Gmail-Account">
+                    <label class="radio-label" for="Gmail-Account">Gmail Account</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Graphics Design" id="Graphics-Design">
+                    <label class="radio-label" for="Graphics-Design">Graphics Design</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Instagram" id="Instagram">
+                    <label class="radio-label" for="Instagram">Instagram</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Kyc Submit" id="Kyc-Submit">
+                    <label class="radio-label" for="Kyc-Submit">Kyc Submit</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Linkedin" id="Linkedin">
+                    <label class="radio-label" for="Linkedin">Linkedin</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Medium" id="Medium">
+                    <label class="radio-label" for="Medium">Medium</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Mobile Application" id="Mobile-Application">
+                    <label class="radio-label" for="Mobile-Application">Mobile Application</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Others" id="Others">
+                    <label class="radio-label" for="Others">Others</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Promotion" id="Promotion">
+                    <label class="radio-label" for="Promotion">Promotion</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Reddit" id="Reddit">
+                    <label class="radio-label" for="Reddit">Reddit</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Reel-/-Short" id="Reel-or-Short">
+                    <label class="radio-label" for="Reel-or-Short">Reel-/-Short</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Refer Program" id="Refer-Program">
+                    <label class="radio-label" for="Refer-Program">Refer Program</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Review" id="Review">
+                    <label class="radio-label" for="Review">Review</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Search / Click" id="Search-or-Click">
+                    <label class="radio-label" for="Search-or-Click">Search / Click</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Share" id="Share">
+                    <label class="radio-label" for="Share">Share</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Sign Up" id="Sign-Up">
+                    <label class="radio-label" for="Sign-Up">Sign Up</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Story" id="Story">
+                    <label class="radio-label" for="Story">Story</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Survey" id="Survey">
+                    <label class="radio-label" for="Survey">Survey</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Telegram" id="Telegram">
+                    <label class="radio-label" for="Telegram">Telegram</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Tik-tok" id="Tik-tok">
+                    <label class="radio-label" for="Tik-tok">Tik-tok</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Twitter" id="Twitter">
+                    <label class="radio-label" for="Twitter">Twitter</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Typing" id="Typing">
+                    <label class="radio-label" for="Typing">Typing</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Views" id="Views">
+                    <label class="radio-label" for="Views">Views</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Visitor" id="Visitor">
+                    <label class="radio-label" for="Visitor">Visitor</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Website" id="Website">
+                    <label class="radio-label" for="Website">Website</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="Write an Article" id="Write-an-Article">
+                    <label class="radio-label" for="Write-an-Article">Write an Article</label>
+                </div>
+                <div class="category-item-div form-radio-input">
+                    <input type="radio" name="category" value="YouTube / Toffe" id="YouTube-or-Toffe">
+                    <label class="radio-label" for="YouTube-or-Toffe">YouTube / Toffe</label>
+                </div>
+            </div>
+            <div class="subcategory-title"><h5>Select Sub-Category</h5></div>
+            <div class="Ads-Click-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="1 Ads click for Youtube Video" id="1-Ads-click-for-Youtube-Video">
+                    <label class="radio-label" for="1-Ads-click-for-Youtube-Video">1 Ads click for Youtube Video</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="2 Ads click for Youtube Video" id="2-Ads-click-for-Youtube-Video">
+                    <label class="radio-label" for="2-Ads-click-for-Youtube-Video">2 Ads click for Youtube Video</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="1 Ads click for Facebook Video" id="1-Ads-click-for-Facebook-Video">
+                    <label class="radio-label" for="1-Ads-click-for-Facebook-Video">1 Ads click for Facebook Video</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="2 Ads click for Facebook Video" id="2-Ads-click-for-Facebook-Video">
+                    <label class="radio-label" for="2-Ads-click-for-Facebook-Video">2 Ads click for Facebook Video</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Website Ads Click" id="Website-Ads-Click">
+                    <label class="radio-label" for="Website-Ads-Click">Website Ads Click</label>
+                </div>
+            </div>
+            <div class="Answers-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Answer-Only" id="Answer-Only">
+                    <label class="radio-label" for="Answer-Only">Answer Only</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Short Answer + Link (up to 30 words)" id="Short-Answer-plus-Link-up-to-30-words">
+                    <label class="radio-label" for="Short-Answer-plus-Link-up-to-30-words">Short Answer + Link (up to 30 words)</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Long Answer + Link (30 + words)" id="Long-Answer-Link-30-words">
+                    <label class="radio-label" for="Long-Answer-Link-30-words">Long Answer + Link (30 + words)</label>
+                </div>
+            </div>
+            <div class="Assigenment-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Assigenment ( 300 words )" id="Assigenment-300-words">
+                    <label class="radio-label" for="Assigenment-300-words">Assigenment ( 300 words )</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Assigenment ( 400 words )" id="Assigenment-400-words">
+                    <label class="radio-label" for="Assigenment-400-words">Assigenment ( 400 words )</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Assigenment ( 500 words )" id="Assigenment-500-words">
+                    <label class="radio-label" for="Assigenment-500-words">Assigenment ( 500 words )</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Assigenment ( 600 words )" id="Assigenment-600-words">
+                    <label class="radio-label" for="Assigenment-600-words">Assigenment ( 600 words )</label>
+                </div>
+            </div>
+            <div class="Blog-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Comment Blog" id="Comment-Blog">
+                    <label class="radio-label" for="Comment-Blog">Comment</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Blog Post" id="Blog-Post">
+                    <label class="radio-label" for="Blog-Post">Blog Post</label>
+                </div>
+            </div>
+            <div class="Comment-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Youtube" id="Youtube">
+                    <label class="radio-label" for="Youtube">Youtube</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook" id="Facebook">
+                    <label class="radio-label" for="Facebook">Facebook</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Twitter" id="Twitter">
+                    <label class="radio-label" for="Twitter">Twitter</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Instagram" id="Instagram">
+                    <label class="radio-label" for="Instagram">Instagram</label>
+                </div>
+            </div>
+            <div class="Computer-Programs-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Download" id="Download">
+                    <label class="radio-label" for="Download">Download</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Download + Install" id="Download-Install">
+                    <label class="radio-label" for="Download-Install">Download + Install</label>
+                </div>
+            </div>
+            <div class="Discord-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Verify" id="Verify">
+                    <label class="radio-label" for="Verify">Verify</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Join" id="Join">
+                    <label class="radio-label" for="Join">Join</label>
+                </div>
+            </div>
+            <div class="Edit-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="3 Pictures Edit" id="3-Pictures-Edit">
+                    <label class="radio-label" for="3-Pictures-Edit">3 Pictures Edit</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="4 Pictures Edit" id="4-Pictures-Edit">
+                    <label class="radio-label" for="4-Pictures-Edit">4 Pictures Edit</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="5 Pictures Edit" id="5-Pictures-Edit">
+                    <label class="radio-label" for="5-Pictures-Edit">5 Pictures Edit</label>
+                </div>
+            </div>
+            <div class="Facebook-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Picture Like" id="Picture-Like">
+                    <label class="radio-label" for="Picture-Like">Picture Like</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Page Like" id="Page-Like">
+                    <label class="radio-label" for="Page-Like">Page Like</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Follower" id="Follower">
+                    <label class="radio-label" for="Follower">Follower</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Join a Group" id="Join-a-Group">
+                    <label class="radio-label" for="Join-a-Group">Join a Group</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Like + Comment" id="Like-and-Comment">
+                    <label class="radio-label" for="Like-and-Comment">Like + Comment</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="New-facebook-account" id="New-facebook-account">
+                    <label class="radio-label" for="New-facebook-account">New facebook account</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook Account + Gmail Account" id="Facebook-Account-and-Gmail-Account">
+                    <label class="radio-label" for="Facebook-Account-and-Gmail-Account">Facebook Account + Gmail Account</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Video-Like" id="Video-Like">
+                    <label class="radio-label" for="Video-Like">Video Like</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Like + Share" id="Like-and-Share">
+                    <label class="radio-label" for="Like-and-Share">Like + Share</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Report" id="Report">
+                    <label class="radio-label" for="Report">Report</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Birthday Wish" id="Birthday-Wish">
+                    <label class="radio-label" for="Birthday-Wish">Birthday Wish</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Like + Invite" id="Like-and-Invite">
+                    <label class="radio-label" for="Like-and-Invite">Like + Invite</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Like + Follow" id="Like-and-Follow">
+                    <label class="radio-label" for="Like-and-Follow">Like + Follow</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook Video Length (1-2) Minutes" id="Facebook-Video-Length-1-2-Minutes">
+                    <label class="radio-label" for="Facebook-Video-Length-1-2-Minutes">Facebook Video Length (1-2) Minutes</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook Video Length (1-2) Minutes + comment" id="Facebook-Video-Length-1-2-Minutes-and-comment">
+                    <label class="radio-label" for="Facebook-Video-Length-1-2-Minutes-and-comment">Facebook Video Length (1-2) Minutes + comment</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook Video Length (1-2) Minutes + Share" id="Facebook-Video-Length-1-2-Minutes-and-share">
+                    <label class="radio-label" for="Facebook-Video-Length-1-2-Minutes-and-share">Facebook Video Length (1-2) Minutes + Share</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook Video Length (1-2) Minutes + comment + Like" id="Facebook-Video-Length-1-2-Minutes-and-comment-like">
+                    <label class="radio-label" for="Facebook-Video-Length-1-2-Minutes-and-comment-like">Facebook Video Length (1-2) Minutes + comment + Like</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook Video Length (1-2) Minutes + comment + Like" id="Facebook-Video-Length-1-2-Minutes-and-comment-like">
+                    <label class="radio-label" for="Facebook-Video-Length-1-5-Minutes">Facebook Video Length (1-5) Minutes</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook Video Length (1-2) Minutes + comment + Like" id="Facebook-Video-Length-1-2-Minutes-and-comment-like">
+                    <label class="radio-label" for="Facebook-Video-Length-1-5-Minutes">Facebook Video Length (1-5) Minutes</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook Video Length (1-5) Minutes + Share" id="Facebook-Video-Length-1-5-Minutes-and-Share">
+                    <label class="radio-label" for="Facebook-Video-Length-1-5-Minutes-and-Share">Facebook Video Length (1-5) Minutes + Share</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook Video Length (1-5) Minutes + comment" id="Facebook-Video-Length-1-5-Minutes-and-comment">
+                    <label class="radio-label" for="Facebook-Video-Length-1-5-Minutes-and-comment">Facebook Video Length (1-5) Minutes + comment</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook Video Length (1-5) Minutes + comment + Like" id="Facebook-Video-Length-1-5-Minutes-and-comment-and-like">
+                    <label class="radio-label" for="Facebook-Video-Length-1-5-Minutes-and-comment-and-like">Facebook Video Length (1-5) Minutes + comment + Like</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook Video Length (1-10) Minutes + Share" id="Facebook-Video-Length-1-10-Minutes-and-Share">
+                    <label class="radio-label" for="Facebook-Video-Length-1-10-Minutes-and-Share">Facebook Video Length (1-10) Minutes + Share</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook Video Length (1-20) Minutes + Share" id="Facebook-Video-Length-1-20-Minutes-and-Share">
+                    <label class="radio-label" for="Facebook-Video-Length-1-20-Minutes-and-Share">Facebook Video Length (1-20) Minutes + Share</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Video lenght ( 1-5 min )+ Follower" id="Video-lenght-1-5-min+Follower">
+                    <label class="radio-label" for="Video-lenght-1-5-min+Follower">Video lenght ( 1-5 min )+ Follower</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Video length ( 1-10 min )+ Follower" id="Video-length-1-10-min-Follower">
+                    <label class="radio-label" for="Video-length-1-10-min-Follower">Video length ( 1-10 min )+ Follower</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Vote" id="Vote">
+                    <label class="radio-label" for="Vote">Vote</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Like+follow+comment+share" id="Like-follow-comment-share">
+                    <label class="radio-label" for="Like-follow-comment-share">Like+follow+comment+share</label>
+                </div>
+            </div>
+            <div class="Facebook-Invite-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="50 Invite" id="50-Invite">
+                    <label class="radio-label" for="50-Invite">50 Invite</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="100 Invite" id="100-Invite">
+                    <label class="radio-label" for="100-Invite">100 Invite</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="200 Invite" id="200-Invite">
+                    <label class="radio-label" for="200-Invite">200 Invite</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="300 Invite" id="300-Invite">
+                    <label class="radio-label" for="300-Invite">300 Invite</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="50 Invite + Share" id="50-Invite-Share">
+                    <label class="radio-label" for="50-Invite-Share">350 Invite + Share</label>
+                </div>
+            </div>
+            <div class="Gmail-Account-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="New Gmail" id="New-Gmail">
+                    <label class="radio-label" for="New-Gmail">New Gmail</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="old Gmail" id="old-Gmail">
+                    <label class="radio-label" for="old-Gmail">old Gmail</label>
+                </div>
+            </div>
+            <div class="Graphics-Design-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Youtube Thumbnail" id="Youtube-Thumbnail">
+                    <label class="radio-label" for="Youtube-Thumbnail">Youtube Thumbnail</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Facebook Page Logo" id="Facebook-Page-Logo">
+                    <label class="radio-label" for="Facebook-Page-Logo">Facebook Page Logo</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Youtube Channel Logo" id="Youtube-Channel-Logo">
+                    <label class="radio-label" for="Youtube-Channel-Logo">Youtube Channel Logo</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Youtube Channel Art" id="Youtube-Channel-Art">
+                    <label class="radio-label" for="Youtube-Channel-Art">Youtube Channel Art</label>
+                </div>
+            </div>
+            <div class="Instagram-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Follow" id="Follow">
+                    <label class="radio-label" for="Follow">Follow</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Like Instagram" id="Like-Instagram">
+                    <label class="radio-label" for="Like-Instagram">Like</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Comment Instagram" id="Comment-Instagram">
+                    <label class="radio-label" for="Comment-Instagram">Comment</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Follow + Like + Comment + Share  Instagram" id="Follow-Like-Comment-Share-Instagram">
+                    <label class="radio-label" for="Follow-Like-Comment-Share-Instagram">Follow + Like + Comment + Share</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Account Create Instagram" id="Account-Create-Instagram">
+                    <label class="radio-label" for="Account-Create-Instagram">Account Create</label>
+                </div>
+            </div>
+            <div class="Kyc-Submit-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Mobile App" id="Mobile-App">
+                    <label class="radio-label" for="Mobile-App">Mobile App</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Website Kyc Submit" id="Website-Kyc-Submit">
+                    <label class="radio-label" for="Website-Kyc-Submit">Website Kyc Submit</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Other Kyc" id="Other-Kyc">
+                    <label class="radio-label" for="Other-Kyc">Other Kyc</label>
+                </div>
+            </div>
+            <div class="Linkedin-subcategoris subcategories form-radio-input-div">
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="LinkedIn account creation" id="LinkedIn-account-creation">
+                    <label class="radio-label" for="LinkedIn-account-creation">LinkedIn account creation</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Old Linkedin account" id="Old-Linkedin-account">
+                    <label class="radio-label" for="Old-Linkedin-account">Old LinkedIn account</label>
+                </div>
+                <div class="subcategory-item-div form-radio-input">
+                    <input type="radio" name="subcategory" value="Like Linkedin" id="Like-Linkedin">
+                    <label class="radio-label" for="Like-Linkedin">Like</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-data-section"><input type="reset" value="Reset"></div>
+    </form>
+    {% endblock content %}

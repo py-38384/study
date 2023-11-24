@@ -1,0 +1,251 @@
+.box-container .box .box-login .input-group-div .input-field .eye-area .eye-box img:nth-child(1){
+    width: 20px;
+    opacity: 1;
+}
+.box-container .box .box-login .input-group-div .input-field .eye-area .eye-box img:nth-child(2){
+    width: 22px;
+    opacity: 0;
+}
+.box-container{
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    justify-content: right;
+    padding-right: 10%;
+    min-height: 100vh;
+    /* background-color: red; */
+    /* top: -150px; */
+}
+.box-container .box{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 60px 20px 30px 20px;
+    height: 700px;
+    width: 350px;
+    background-color: rgba(255, 220, 220, 0.4);
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    box-shadow: 0 0 20px rgb(207, 198, 198);
+}
+.box-container .box .box-login{
+    position: absolute;
+    width: 85%;
+    left: 27px;
+    transition: .5s ease-in-out;
+}
+.box-container .box .box-register{
+    position: absolute;
+    width: 85%;
+    right: -350px;
+    transition: .5s ease-in-out;
+}
+.box-container .box .top-header{
+    text-align: center;
+    margin: 30px 0;
+}
+.box-container .box .top-header h3{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.box-container .box .input-group-div{
+    width: 100%
+}
+.box-container .box .input-group-div .input-field{
+    margin: 12px 0;
+    position: relative;
+}
+.box-container .box .input-group-div .input-field .input-box{
+    width: 100%;
+    height: 50px;
+    font-size: 15px;
+    color: #040404;
+    border: none;
+    border-radius: 10px;
+    padding: 7px 45px 0 20px;
+    background: rgba(224, 223, 223, .6);
+    backdrop-filter: blur(2px);
+    outline: none;
+}
+.box-container .box .input-group-div .input-field label{
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    font-size: 15px;
+    transition: .3s ease-in-out;
+}
+.box-container .box .input-group-div .input-field .input-box:focus ~ label, .box-container .box .input-group-div .input-field .input-box:valid ~ label{
+    top: 2px;
+    font-size: 10px;
+    color: #c12828;
+    font-weight: 500;
+}
+.box-container .box .input-group-div .input-field .eye-area{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+.box-container .box .input-group-div .input-field .eye-area .eye-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.box-container .box .input-group-div .input-field .eye-area .eye-box img{
+    position: absolute;
+    cursor: pointer;
+}
+.box-container .box .input-group-div .input-field .input-submit{
+    width: 100%;
+    height: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    background: #bc6202;
+    color: #fff;
+    box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.145);
+    cursor: pointer;
+    transition: .4s;
+}
+.box-container .box .input-group-div .input-field .input-submit:hover{
+    background: #db3e00;
+    box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.32);
+}
+.box-container .box .input-group-div .forgot{
+    text-align: center;
+    font-size: 13px;
+    font: 500;
+    margin-top: 40px;
+}
+.box-container .box .input-group-div .forgot a{
+    text-decoration: none;
+    color: #000;
+}
+.box-container .box .input-group-div .forgot a:hover{
+    text-decoration: underline;
+    color: #db3e00;
+}
+.box-container .box .switch{
+    display: flex;
+    position: absolute;
+    bottom: 200px;
+    left: 25px;
+    width: 85%;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.box-container .box .switch a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+    width: 50%;
+    border-radius: 10px;
+    z-index: 2;
+}
+.box-container .box .switch #btn{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 145px;
+    height: 50px;
+    background: #cccccd;
+    border-radius: 10px;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
+    transition: .5s ease-in-out;
+}
+.box-container .box .bottom-part{
+    position: relative;
+    width: 100%;
+    height: 90px;
+    top: 470px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.box-container .box .bottom-part .social-account{
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+    padding-top: 30px;
+}
+.box-container .box .bottom-part .social-account form{
+    border: 1px solid rgb(180, 164, 164);
+    padding: 8px;
+    border-radius: 5px;
+}
+.box-container .box .bottom-part .social-account form button{
+    border: none;
+}
+.box-container .box .bottom-part .social-account form:hover{
+    border: 1px solid rgb(255, 0, 0);
+}
+.box-container .box .bottom-part .or{
+    color: rgb(44, 44, 44);
+    font-size: 14px;
+}
+.box-container .box .bottom-part .social-account form img{
+    width: 30px;
+    background-color: none;
+}
+.cover{
+    position: absolute;
+    width: 100%;
+    bottom: 50px;
+    z-index: -10;
+    height: 300px;
+    background-color: rgba(255, 0, 0, 0.158);
+}
+.cover .circle{
+    position: absolute;
+    width: 500px;
+    top: -140px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    margin-left: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cover .circle::before{
+    position: absolute;
+    content: '';
+    width: 90%;
+    height: 90%;
+    background-color: rgba(255, 0, 0, 0.158);
+    border-radius: 50%;
+}
+.welcome-text{
+    font-size: 50px;
+    position: absolute;
+    top: 150px;
+    padding-left: 90px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+.video-container video{
+    position: absolute;
+    width: 450px;
+    z-index: -2;
+    top: 0;
+}
+.welcome-text .text{
+    background-color: white;
+    mix-blend-mode: screen;
+    width: 700px;
+    height: 300px;
+    color: white;
+}

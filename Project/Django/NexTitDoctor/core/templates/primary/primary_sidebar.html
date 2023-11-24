@@ -1,0 +1,51 @@
+{% load static %}
+<div class="sidebar-wrapper">
+    <div class="sidebar">
+        <div class="sidebar-container">
+            <a href="" class="top-container">
+                <div class="logo"><img src="{% static 'images/logo.png' %}" alt="Logo"></div>
+                <div class="band">NEXT IT DOCTOR</div>
+            </a>
+            <div class="sidebar-main-container">
+                <a href="#" class="verify-now side-bar-item "><img src="{% static 'images/sidebar_icons/check.png' %}" alt="Verify now"><span>Verify Now</span></a>
+                <a href="{% url 'jobs' %}" class="find-jobs side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/search-dollar.png' %}" alt="Find jobs"><span>Find jobs</span></a>
+                <a href="{% url 'post_job' %}" class="post-new-job side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/plus.png' %}" alt="Find jobs"><span>Post New Job</span></a>
+                <div class="my-work side-bar-item side-bar-item-div filter-apply">
+                    <div class="left-section">
+                        <img src="{% static 'images/sidebar_icons/list.png' %}" alt="My Work"><span>My Work</span>
+                    </div>
+                    <div class="right-section">
+                        <img src="{% static 'images/sidebar_icons/arrow-right.png' %}" alt="Right Arraw">
+                    </div>
+                </div>
+                <a href="" class="my-work side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/jobs.png' %}" alt="My Jobs"><span>My Jobs</span></a>
+                <a href="" class="notifications side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/bell.png' %}" alt="Notifications"><span>Notifications</span></a>
+                <a href="" class="deposit side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/credit-card.png' %}" alt="Deposit"><span>Deposit</span></a>
+                <a href="" class="share-and-earn side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/group.png' %}" alt="Share & Earn"><span>Share & Earn</span></a>
+                <div class="transaction side-bar-item side-bar-item-div filter-apply">
+                    <div class="left-section">
+                        <img src="{% static 'images/sidebar_icons/transaction.png' %}" alt="Transaction"><span>Transaction</span>
+                    </div>
+                    <div class="right-section">
+                        <img src="{% static 'images/sidebar_icons/arrow-right.png' %}" alt="Right Arraw">
+                    </div>
+                </div>
+                <div class="advertisement side-bar-item side-bar-item-div filter-apply">
+                    <div class="left-section">
+                        <img src="{% static 'images/sidebar_icons/ad.png' %}" alt="Advertisement"><span>Advertisement</span>
+                    </div>
+                    <div class="right-section">
+                        <img src="{% static 'images/sidebar_icons/arrow-right.png' %}" alt="Right Arraw">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-primary-contents-container">
+            <div class="toggle-sidebar-button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>
