@@ -308,10 +308,7 @@ Your Video Length (1-5) Minutes + Subscriber + share
 Your Video Length (1-8) Minutes + Subscriber + share 
 Your Video Length (1-10) Minutes + Subscriber + share 
 Your Video Length (1-12) Minutes + Subscriber + share
-Your Video Length (1-12) Minutes + Subscriber + share 
 Your Video Length (1-15) Minutes + Subscriber + share 
-Your Video Length (1-18) Minutes + Subscriber + share
-Your Video Length (1-18) Minutes + Subscriber + share
 Your Video Length (1-18) Minutes + Subscriber + share 
 Your Video Length (1-25) Minutes + Subscriber + share 
 Like + comment + subscribe 
@@ -323,3 +320,43 @@ Like + Comment + Subscribe + Watch time
 1-8 Min watch time + 1 ads view 
 1-8 Min watch time + 2 ads view 
 1-8 Min watch time + 3 ads view
+
+category value for radio input----
+
+Ads Click
+Answers
+Assigenment
+Blog
+Comment
+Computer Programs
+Discord
+Edit
+Facebook
+Facebook Invite
+Gmail Account
+Graphics Design
+Instagram
+Kyc Submit
+Linkedin
+Medium
+Mobile Application
+Others
+Promotion
+Reddit
+Reel-/-Short
+Refer Program
+Review
+Search / Click
+Share
+Sign Up
+Story
+Survey
+Telegram
+Tik-tok
+Twitter
+Typing
+Views
+Visitor
+Website
+Write an Article
+YouTube / Toffe
