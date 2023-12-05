@@ -249,6 +249,7 @@ let image_upload_containers = document.querySelectorAll('.image-upload-container
 image_upload_containers.forEach((image_upload_container)=>{
     let image_upload_button = image_upload_container.children[1].children[0];
     image_upload_button.addEventListener('change',(event)=>{
+        let image_upload_preview = image_upload_container.children[0];
         let chosen_image = image_upload_container.children[0].children[0].children[1];
         let image_name = image_upload_container.children[0].children[0].children[2];
         let image_parent = chosen_image.parentElement
@@ -256,6 +257,7 @@ image_upload_containers.forEach((image_upload_container)=>{
         let reader = new FileReader();
         console.log(typeof image_upload_button.files[0]);
         if(image_upload_button.files[0]){
+            image_upload_preview.style.display = 'block';
             reader.readAsDataURL(image_upload_button.files[0]);
             reader.addEventListener('load',(e)=>{
                 chosen_image.setAttribute("src",reader.result);
@@ -268,16 +270,100 @@ image_upload_containers.forEach((image_upload_container)=>{
             }else{
                 shortify_iamge_name=full_image_name
             }
-            image_name.textContent = shortify_iamge_name;
+            image_name.innerHTML = shortify_iamge_name;
         }
         iamge_cross_button.addEventListener('click',(e)=>{
+            let image_upload_preview = image_upload_container.children[0];
             let image_upload_button = image_upload_container.children[1].children[0];
             let chosen_image = image_upload_container.children[0].children[0].children[1];
             let image_name = image_upload_container.children[0].children[0].children[2];
             image_upload_button.value = '';
             chosen_image.removeAttribute('src');
-            image_name.textContent = '';
+            image_name.innerHTML = '';
             iamge_cross_button.style.display = 'none';
+            image_upload_preview.style.display = 'none';
         })
     })
+})
+let add_step_button = document.querySelector('.job-information-section .job-task-div .add-step-div button');
+let job_title_input = document.querySelector('.job-information-section .job-title-div input')
+function step_close_func(element){
+    let step_number = element.dataset.stepNumber;
+    let step_class = 'step-'+step_number+'-task';
+    let step_div = document.querySelector(`.job-information-section .job-task-div .job-task-div-step-textarea-div .${step_class}`);
+    step_div.remove();
+}
+add_step_button.addEventListener('click',(e)=>{
+    e.preventDefault();
+    let job_task_div_step_textarea_div = document.querySelector('.job-information-section .job-task-div .job-task-div-step-textarea-div'); 
+    add_step_button.style.boxShadow = 'none';
+    setTimeout(()=>{
+        console.log(add_step_button);
+        add_step_button.style.boxShadow = '2px 5px 10px rgba(0,0,0,0.3)';
+    },150);
+    let current_count = add_step_button.dataset.stepCount
+    if(job_task_div_step_textarea_div.children.length<10){
+        let parentElement = document.querySelector('.job-information-section .job-task-div .job-task-div-step-textarea-div');
+        let step_div = document.createElement('div');
+        step_div.setAttribute('style','margin-top:10px');
+        step_div_classes = "step step-"+current_count+"-task";
+        step_div.setAttribute('class',step_div_classes)
+        let span_element = document.createElement('span');
+        let span_element_textContent = "Step "+current_count+":";
+        span_element.setAttribute('class','step_label');
+        span_element.textContent = span_element_textContent;
+        let step_close_span = document.createElement('span');
+        let bar_1 = document.createElement('span');
+        let bar_2 = document.createElement('span');
+        step_close_span.setAttribute('class','step-close');
+        step_close_span.setAttribute('data-step-number',current_count);
+        step_close_span.setAttribute('onclick','step_close_func(this)');
+        step_close_span.append(bar_1);
+        step_close_span.append(bar_2);
+        span_element.appendChild(step_close_span);
+        let textarea_element = document.createElement('textarea');
+        let textarea_element_name = "job_task_"+current_count;
+        textarea_element.setAttribute('name',textarea_element_name)
+        step_div.appendChild(span_element);
+        step_div.appendChild(textarea_element);
+        parentElement.appendChild(step_div);
+        current_count++;
+        add_step_button.setAttribute('data-step-count',current_count);
+    }
+})
+job_title_input.addEventListener('input',()=>{
+    let word_counter_span = document.querySelector('.job-information-section .job-title-div span');
+    let word_count = job_title_input.value.length;
+    let word_counter_textContent = word_count+'/60';
+    word_counter_span.textContent = word_counter_textContent; 
+})
+
+let worker_need = document.querySelector('.budget-and-setting .setting-container .setting-input-div #total-worker-need')
+let worker_earn = document.querySelector('.budget-and-setting .setting-container .setting-input-div #Each-worker-Earn')
+
+worker_need.addEventListener('input',(e)=>{
+    let worker_earn = document.querySelector('.budget-and-setting .setting-container .setting-input-div #Each-worker-Earn')
+    let total_budget_span = document.querySelector('.budget-and-setting .budget-container .total-budget span:nth-child(2)');
+    let number_1 = Number(worker_need.value);
+    let number_2 = Number(worker_earn.value);
+    console.table(number_1,number_2);
+    if(number_1&&number_2){
+        let textContent = (number_1*number_2).toFixed(2);
+        total_budget_span.innerHTML = textContent;
+    }else{
+        total_budget_span.innerHTML = '0';
+    }
+})
+worker_earn.addEventListener('input',(e)=>{
+    let worker_need = document.querySelector('.budget-and-setting .setting-container .setting-input-div #total-worker-need')
+    let total_budget_span = document.querySelector('.budget-and-setting .budget-container .total-budget span:nth-child(2)');
+    let number_1 = Number(worker_need.value);
+    let number_2 = Number(worker_earn.value);
+    console.table(number_1,number_2);
+    if(number_1&&number_2){
+        let textContent = (number_1*number_2).toFixed(2);
+        total_budget_span.innerHTML = textContent;
+    }else{
+        total_budget_span.innerHTML = '0';
+    }
 })

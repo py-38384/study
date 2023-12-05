@@ -8,6 +8,7 @@
 </style>
     <h1 class="title">Post a job</h1>
     <form action="#" method="post" enctype="multipart/form-data" class="post-job-wizard">
+        {% csrf_token %}
         <div class="location-container form-data-section">
             <div class="section-title">
                 <h1>Select location to <span>exclude</span></h1>
@@ -1634,30 +1635,34 @@
                 </div>
             </div>
         </div>
-        <div class="job-information-section form-data-section">
+        <div class="form-data-section job-information-section">
             <div class="section-title">
                 <h1>Job Information</h1>
                 <small><b>Provide your job details</b></small>
             </div>
             <div class="job-title-div">
                 <label for="job-name">Write an accurate job Title</label>
-                <input type="text" name="job_name" id="job-name">
+                <input type="text" placeholder="Job Title" name="job_name" id="job-name" maxlength="60">
+                <span>0/60</span>
             </div>
             <div class="job-task-div">
-                <div>What specific tasks need to be Completed</div>
+                <div class="text-area-label">What specific tasks need to be Completed</div>
                 <div class="job-task-div-step-textarea-div">
-                    <textarea name="job_task_1" id="job-task-1" cols="30" rows="10"></textarea>
+                    <div class="step step-1-task">
+                        <span class="step_label">Step 1:
+                        <textarea name="job_task_1"></textarea>
+                    </div>
                 </div>
                 <div class="add-step-div">
-                    <button>Add Step</button>
+                    <button data-step-count="2">Add Step</button>
                 </div>
             </div>
             <div class="job-proof-div">
-                <div for="Required-job-proof">Required proof the job was Completed</div>
-                <textarea name="Required_job_proof" id="Required-job-proof" cols="30" rows="10"></textarea>
+                <div class="Required-job-proof">Required proof the job was Completed</div>
+                <textarea name="Required_job_proof"></textarea>
             </div>
             <div class="job-image-div">
-                <div for="job-image">Upload a image related to your job</div>
+                <div class="job-image-title">Upload a image related to your job(upto 3)</div>
                 <div class="image-input-div">
                     <div class="image-upload-container" id="image-upload-container-1">
                         <div class="image-upload-preview-container">
@@ -1675,7 +1680,7 @@
                             <input type="file" class="image-upload-button" id="image-upload-button-1" accept="image/*">
                             <label for="image-upload-button-1" class="image-upload-button-label">
                                 <img src="{% static 'images/upload.png' %}" alt="upload">
-                                <span>Upload Image</span>
+                                <span>Select Image</span>
                             </label>
                         </div>
                     </div>
@@ -1695,7 +1700,7 @@
                             <input type="file" class="image-upload-button" id="image-upload-button-2" accept="image/*">
                             <label for="image-upload-button-2" class="image-upload-button-label">
                                 <img src="{% static 'images/upload.png' %}" alt="upload">
-                                <span>Upload Image</span>
+                                <span>Select Image</span>
                             </label>
                         </div>
                     </div>
@@ -1715,7 +1720,7 @@
                             <input type="file" class="image-upload-button" id="image-upload-button-3" accept="image/*">
                             <label for="image-upload-button-3" class="image-upload-button-label">
                                 <img src="{% static 'images/upload.png' %}" alt="upload">
-                                <span>Upload Image</span>
+                                <span>Select Image</span>
                             </label>
                         </div>
                     </div>
@@ -1728,30 +1733,32 @@
                 <h1>Budget And Setting</h1>
                 <small><b>Provide Budget And Setting Information for your job</b></small>
             </div>
+            <div class="error"></div>
             <div class="setting-container">
                 <div class="setting-input-div">
                     <label for="total-worker-need">Worker need:</label>
-                    <input type="number" name="total_worker_need" id="total-worker-need">
+                    <input type="number" placeholder="650" name="total_worker_need" id="total-worker-need" min="0" step="1">
                 </div>
                 <div class="setting-input-div">
                     <label for="Each-worker-Earn">Each worker Earn:</label>
-                    <input type="number" name="Each_worker_Earn" id="Each-worker-Earn">
+                    <input type="number" placeholder="0.03" name="Each_worker_Earn" id="Each-worker-Earn" min="0">
                 </div>
                 <div class="setting-input-div">
                     <label for="Require_Screenshots">Require Screenshots:</label>
-                    <input type="number" name="Require_Screenshots" id="Require_Screenshots">
+                    <input type="number" placeholder="Screenshots" name="Require_Screenshots" id="5" max="20" min="1">
                 </div>
                 <div class="setting-input-div">
                     <label for="Project-duration">Project duration(hours):</label>
-                    <input type="number" name="Project_duration" id="Project-duration">
+                    <input type="number" placeholder="72" name="Project_duration" id="Project-duration">
                 </div>
             </div>
             <div class="budget-container">
-                <div class="total-budget"><span>$</span><span>87.57</span></div>
+                <div class="budget-title">Estimated Cost</div>
+                <div class="total-budget"><span>$</span><span>0</span></div>
             </div>
         </div>
 
-        <div class="form-data-section">
+        <div class="form-data-section form-button-section">
             <div class="button-div">
                 <input type="reset" value="Reset">
                 <input type="submit" value="Submit">
