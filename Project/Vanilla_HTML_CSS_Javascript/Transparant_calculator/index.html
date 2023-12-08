@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparant calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form class="calculator" name="calc">
+            <input type="text" name="txt" class="value" readonly>
+            <span class="num clear" onclick="document.querySelector('.value').value =''">c</span>
+            <span class="num" onclick="document.querySelector('.value').value +='/'">/</span>
+            <span class="num" onclick="document.querySelector('.value').value +='*'">*</span>
+            <span class="num" onclick="document.querySelector('.value').value +='7'">7</span>
+            <span class="num" onclick="document.querySelector('.value').value +='8'">8</span>
+            <span class="num" onclick="document.querySelector('.value').value +='9'">9</span>
+            <span class="num" onclick="document.querySelector('.value').value +='-'">-</span>
+            <span class="num" onclick="document.querySelector('.value').value +='4'">4</span>
+            <span class="num" onclick="document.querySelector('.value').value +='5'">5</span>
+            <span class="num" onclick="document.querySelector('.value').value +='6'">6</span>
+            <span class="num plus" onclick="document.querySelector('.value').value +='+'">+</span>
+            <span class="num" onclick="document.querySelector('.value').value +='1'">1</span>
+            <span class="num" onclick="document.querySelector('.value').value +='2'">2</span>
+            <span class="num" onclick="document.querySelector('.value').value +='3'">3</span>
+            <span class="num" onclick="document.querySelector('.value').value +='0'">0</span>
+            <span class="num" onclick="document.querySelector('.value').value +='00'">00</span>
+            <span class="num" onclick="document.querySelector('.value').value +='.'">.</span>
+            <span class="num equal" onclick="try{document.querySelector('.value').value = eval(calc.txt.value)}catch(e){document.querySelector('.value').value = 'Error'}">=</span>
+        </form>
+    </div>
+</body>
+<script src="tilt.js"></script>
+<script src="main.js"></script>
+</html>
