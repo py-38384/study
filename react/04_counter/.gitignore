@@ -1,6 +1,4 @@
-.venv
-.sqlite3
-uploads
+# Logs
 logs
 *.log
 npm-debug.log*
