@@ -1,4 +1,5 @@
 {% load static %}
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,7 +17,7 @@
         </a>
       </div>
       <div class="login">Welcome!</div>
-      <form class="google"><button type="submit"><img src="{% static 'img/google.png'%}" alt="google_logo">Log in with Google</button></form>
+      <form action="{% provider_login_url 'google' %}" method="post" class="google"> {% csrf_token %} <button type="submit"><img src="{% static 'img/google.png'%}" alt="google_logo">Log in with Google</button></form>
       <form class="facebook"><button type="submit"><img src="{% static 'img/facebook.png'%}" alt="facebook_logo">Log in with Facebook</button></form>
       <div class="option-div">
         <span class="left-line"></span>

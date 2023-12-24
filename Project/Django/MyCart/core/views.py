@@ -118,8 +118,8 @@ class UpdateItem(View):
             subtotal = 0
             discount_price_cut = 0
             discount = False
-            
-            customer, created = Customer.objects.get_or_create(user=request.user,name=request.user.name)
+
+            customer, created = Customer.objects.get_or_create(user=request.user)
             product = Product.objects.get(id=productID)
             order, created = Order.objects.get_or_create(customer=customer,complete=False)
             
@@ -510,7 +510,7 @@ class AddReview(View):
                         
                     review_obj = {}
                     review_obj['id'] = review.id
-                    review_obj['user'] = {'user_name':review.user.name,'user_id':review.user.id,'user_image':display_picture_url,'user_email':review.user.email}
+                    review_obj['user'] = {'user_name':review.user.username,'user_id':review.user.id,'user_image':display_picture_url,'user_email':review.user.email}
                     review_obj['comment'] = review.comment
                     review_obj['review_star'] = review.review_star
                     review_obj['time'] = review.time

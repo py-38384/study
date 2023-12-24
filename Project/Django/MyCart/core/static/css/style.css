@@ -9717,7 +9717,7 @@ a.text-dark:hover, a.text-dark:focus {
   --main-color:#FFD333;
 }
 .carousel-image{
-  height: 800px;
+  width: 100%;
 }
 .selected{
   background:#3D464D;

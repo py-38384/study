@@ -10,9 +10,10 @@ from PIL import Image
 
 class Customer(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.CASCADE)
-    name = models.CharField(max_length=130, null=True)
+    first_name = models.CharField(max_length=130, null=True, blank=True)
+    last_name = models.CharField(max_length=130, null=True, blank=True)
     mobile_number = models.CharField(max_length=20, null=True, blank=True)
-    primary_address = models.CharField(max_length=200,null=True)
+    primary_address = models.CharField(max_length=200,null=True, blank=True)
     secondary_address = models.CharField(max_length=200,null=True, blank=True)
     email = models.CharField(max_length=200, null=True, blank=True)
 
