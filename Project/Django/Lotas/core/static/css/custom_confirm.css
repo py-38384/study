@@ -1,0 +1,46 @@
+.confirm-wrapper{
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    backdrop-filter: blur(3px);
+}
+.confirm_div{
+    width: 400px;
+    max-width: 300px;
+    box-shadow: 0 0 12px #3D464D;
+    background-color: rgb(255, 255, 255);
+    /* backdrop-filter: blur(5px); */
+}
+.confirm-header{
+    font-size: 24px;
+    background-color: #3D464D;
+    color: #FFC800;
+}
+.confirm-footer,
+.confirm-body,
+.confirm-header{
+    padding: 10px 10px;
+}
+.confirm-body{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.confirm-footer{
+    background-color: rgb(238, 238, 238);
+}
+.confirm-footer .confirm-buttons button{
+    border: none;
+    outline: none;
+    padding: 8px 16px;
+    color: #FFC800;
+    background-color: #3D464D;
+    cursor: pointer;
+}
+.confirm-footer .confirm-buttons button:hover{
+    background-color: #4d5861;
+}
