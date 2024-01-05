@@ -17,7 +17,7 @@ git show different between previous commit vs staging area: git diff --staged
 Direct Commit: git commit -a -m "Direct commit message"
 Git delete: git rm file.name
 Git rename: git mv currentFile.name renamedFile.name
-Git Untrack: git rm --cached file name
+Git Untrack: git rm --cached <file_name>
 Git repository delete: rm -rf .git
 Git alias: git config --global alias.st "status"
 Git new Branch: git checkout -b branchName
@@ -30,7 +30,9 @@ Git show unmerged branch: git branch --no-merged
 Git safe branch delete: git branch -d branchName
 Git unsafe branch delete: git branch -D branchName
 Git delete remote branch: git push -d origin branchName
+Git create a remote branch: git push origin <branch-name>
 Git create a branch from a commit: git checkout -b <new-branch-name> <commit-id>
+
 
 replaceing master branch with another branch
 git checkout master
