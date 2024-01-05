@@ -1,0 +1,44 @@
+{% extends 'primary/primary_base.html' %}
+{% load static %}
+{% block content %}
+    <div class="dashboard-section-root">
+        <div class="dashboard-section-outer dashboard-first-section">
+            <div class="dashboard-section-column dp-image-div">
+                <div class="dp-image-container">
+                    <img src="{% static 'images/user.jpg' %}" alt="dp image">
+                </div>
+            </div>
+            <div class="dashboard-section-column dashboard-section-column-grow">
+                <h1 class="dashboard-username">Piyal hossein</h1>
+                <div class="dashboard-id">id: 37937e04</div>
+            </div>
+            <div class="dashboard-section-column"><a href="#"><img src="{% static 'images/setting.png' %}" alt="setting"></a></div>
+        </div>
+        <div class="dashboard-section-outer dashboard-second-section">
+            <a href="#" class="deshboard-section deshboard-find-jobs">
+                <h1 class="section-title">Fine jobs</h1>
+                <div class="section-desc-div">
+                    <div class="section-desc">Youtube Watch</div>
+                    <div class="section-desc">Facebook Watch</div>
+                    <div class="section-desc">Facebook like follow</div>
+                </div>
+            </a>
+            <a href="#" class="deshboard-section deshboard-find-worker">
+                <h1 class="section-title">Find Worker</h1>
+                <div class="section-desc-div">
+                    <div class="section-desc">Youtube Watch</div>
+                    <div class="section-desc">Facebook Watch</div>
+                    <div class="section-desc">Facebook like follow</div>
+                </div>
+            </a>
+            <a href="#" class="deshboard-section deshboard-sell-and-buy">
+                <h1 class="section-title">Sell And Buy</h1>
+                <div class="section-desc-div">
+                    <div class="section-desc">Youtube Account</div>
+                    <div class="section-desc">Facebook Account</div>
+                    <div class="section-desc">Google Account</div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock content %}
