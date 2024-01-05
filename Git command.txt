@@ -14,7 +14,7 @@ Update remote: git push origin master
 Commit: git commit -m "commit message"
 git show different between working tree vs staging area: git diff
 git show different between previous commit vs staging area: git diff --staged
-Direct Commit: git commit -a -m "Direct commit commit message"
+Direct Commit: git commit -a -m "Direct commit message"
 Git delete: git rm file.name
 Git rename: git mv currentFile.name renamedFile.name
 Git Untrack: git rm --cached file name
@@ -30,3 +30,12 @@ Git show unmerged branch: git branch --no-merged
 Git safe branch delete: git branch -d branchName
 Git unsafe branch delete: git branch -D branchName
 Git delete remote branch: git push -d origin branchName
+Git create a branch from a commit: git checkout -b <new-branch-name> <commit-id>
+
+replaceing master branch with another branch
+git checkout master
+git pull
+git checkout <another branch name>
+git merge --allow-unrelated-histories -s ours master
+git checkout master
+git merge <another branch name>

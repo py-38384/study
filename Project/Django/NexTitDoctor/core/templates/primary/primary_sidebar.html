@@ -8,37 +8,23 @@
             </a>
             <div class="sidebar-main-container">
                 <a href="#" class="verify-now side-bar-item "><img src="{% static 'images/sidebar_icons/check.png' %}" alt="Verify now"><span>Verify Now</span></a>
-                <a href="#" class="dashboard side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/dashboard.png' %}" alt="Dashboard"><span>Dashboard</span></a>
+                <a href="{% url 'dashboard' %}" class="dashboard side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/dashboard.png' %}" alt="Dashboard"><span>Dashboard</span></a>
                 <a href="{% url 'jobs' %}" class="find-jobs side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/search-dollar.png' %}" alt="Find jobs"><span>Find jobs</span></a>
                 <a href="{% url 'post_job' %}" class="post-new-job side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/plus.png' %}" alt="Find jobs"><span>Post New Job</span></a>
-                <div class="my-work side-bar-item side-bar-item-div filter-apply">
-                    <div class="left-section">
-                        <img src="{% static 'images/sidebar_icons/list.png' %}" alt="My Work"><span>My Work</span>
-                    </div>
-                    <div class="right-section">
-                        <img src="{% static 'images/sidebar_icons/arrow-right.png' %}" alt="Right Arraw">
-                    </div>
-                </div>
-                <a href="" class="my-work side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/jobs.png' %}" alt="My Jobs"><span>My Jobs</span></a>
-                <a href="" class="notifications side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/bell.png' %}" alt="Notifications"><span>Notifications</span></a>
+                <a href="{% url 'my_task' %}" class="my-work side-bar-item side-bar-item-div filter-apply"><img src="{% static 'images/sidebar_icons/list.png' %}" alt="My Work"><span>My Work</span>
+                </a>
+                <a href="{% url 'my_jobs' %}" class="my-work side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/jobs.png' %}" alt="My Jobs"><span>My Jobs</span></a>
+                <a href="{% url 'notifications' %}" class="notifications side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/bell.png' %}" alt="Notifications"><span>Notifications</span></a>
+                <a href="" class="Withdrawal side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/Withdrawal.png' %}" alt="Withdrawal"><span>Withdraw</span></a>
                 <a href="" class="deposit side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/credit-card.png' %}" alt="Deposit"><span>Deposit</span></a>
+                <a href="" class="marketplace side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/marketplace.png' %}" alt="Deposit"><span>Marketplace</span></a>
                 <a href="" class="share-and-earn side-bar-item filter-apply"><img src="{% static 'images/sidebar_icons/group.png' %}" alt="Share & Earn"><span>Share & Earn</span></a>
-                <div class="transaction side-bar-item side-bar-item-div filter-apply">
-                    <div class="left-section">
+                <a href="" class="transaction side-bar-item side-bar-item-div filter-apply">
                         <img src="{% static 'images/sidebar_icons/transaction.png' %}" alt="Transaction"><span>Transaction</span>
-                    </div>
-                    <div class="right-section">
-                        <img src="{% static 'images/sidebar_icons/arrow-right.png' %}" alt="Right Arraw">
-                    </div>
-                </div>
-                <div class="advertisement side-bar-item side-bar-item-div filter-apply">
-                    <div class="left-section">
+                </a>
+                <a href="" class="advertisement side-bar-item side-bar-item-div filter-apply">
                         <img src="{% static 'images/sidebar_icons/ad.png' %}" alt="Advertisement"><span>Advertisement</span>
-                    </div>
-                    <div class="right-section">
-                        <img src="{% static 'images/sidebar_icons/arrow-right.png' %}" alt="Right Arraw">
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
         <div class="sidebar-primary-contents-container">

@@ -2,10 +2,10 @@ import smtplib
 from email.mime.text import MIMEText
 from email.message import Message
 
-file = open('email_body','rb') #importing email body which content HTML,CSS AND Javascript
+file = open('emails/email_body.html','rb') #importing email body which content HTML,CSS AND Javascript
 
 sender = 'workwithpiyal@gmail.com'
-receiver = 'piyal13133@gmail.com'
+receiver = 'piyal13131@gmail.com'
 application_password = 'wrgp kqoh cqtq hagv' # this password is given by Google
 
 mail_subject = "testing purpose"
