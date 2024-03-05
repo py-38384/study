@@ -73,6 +73,7 @@ let Brick7Alt = [[{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 0, y: 1 }, { x: 1, y: 1 }
       
  */
 
+
 //Utility functions...⚙️
 function arrange(num) {
   scoreMusic.play();
@@ -441,23 +442,15 @@ window.addEventListener('keydown', e => {
       break;
   }
 })
-var a;
-var isMobileDevice = function () {
-  if (navigator.userAgent.match(/Android/i)
-    || navigator.userAgent.match(/webOS/i)
-    || navigator.userAgent.match(/iPhone/i)
-    || navigator.userAgent.match(/iPad/i)
-    || navigator.userAgent.match(/iPod/i)
-    || navigator.userAgent.match(/BlackBerry/i)
-    || navigator.userAgent.match(/Windows Phone/i)) {
-    a = true;
-  } else {
-    a = false;
-  }
+function isMobile() {
+  return window.navigator.maxTouchPoints > 1
 }
-if (isMobileDevice()) {
-  document.querySelector(".button-container").style.display = "flex";
-} else {
-  Board.style.width = "600px";
-  Board.style.height = "90vh";
+
+const is_mobile = isMobile()
+if(is_mobile){}else{
+  document.querySelector('.button-wrapper').style.display = 'none'
+  document.querySelector('#displayBoard').style.height = '90vh'
+  document.querySelector('#displayBoard').style.width = '30vw'
+  document.querySelector('#scoreBoard').style.fontSize = '1vw'
+  document.querySelector('#highScoreBoard').style.fontSize = '1vw'
 }

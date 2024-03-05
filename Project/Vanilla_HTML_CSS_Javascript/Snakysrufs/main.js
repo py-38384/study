@@ -16,6 +16,22 @@ let highScore = JSON.parse(localStorage.getItem('highScore'));
 if (highScore === null) {
   highScore = 0;
 }
+
+function isMobile() {
+  return window.navigator.maxTouchPoints > 1
+}
+
+const is_mobile = isMobile()
+if(is_mobile){}else{
+  document.querySelector('.button-wrapper').style.display = 'none'
+  document.querySelector('#displayBoard').style.height = '90vh'
+  document.querySelector('#displayBoard').style.width = '30vw'
+  document.querySelector('#scoreBoard').style.fontSize = '2vw'
+  document.querySelector('#highScoreBoard').style.fontSize = '2vw'
+}
+
+
+
 //Left Button button functionality
 function leftBtn(ele) {
   ele.style.outline = btn_outline;
@@ -106,6 +122,21 @@ function pauseGame(ele) {
     }
   }
 }
+
+window.addEventListener('keydown', function (e) {
+  if(e.key === 'w'){
+    topBtn(this.document.createElement('div'))
+  }else if(e.key === 'd'){
+    rightBtn(this.document.createElement('div'))
+  }else if(e.key === 'a'){
+    leftBtn(this.document.createElement('div'))
+  }else if(e.key === 's'){
+    bottomBtn(this.document.createElement('div'))
+  }else if(e.key === ' '){
+    pauseGame(this.document.createElement('div'))
+  }
+})
+
 // Game Functions
 function main(ctime) {
   window.requestAnimationFrame(main);
