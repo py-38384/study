@@ -19,7 +19,8 @@ console.log(cont.children);
 
 let container = document.querySelector('div.container');
 
-console.log(container.children[1].children[0].children);
+console.log(container.children[1].
+	.children);
 
 console.log(container.firstChild);
 console.log(container.firstElementChild);
