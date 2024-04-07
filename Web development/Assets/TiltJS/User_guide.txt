@@ -1,2 +1,0 @@
-1. Fast of all connect the script to your html
-2. Then To use the tilt effect on a element use 'data-tilt' just like any attribute but without any values
