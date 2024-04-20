@@ -9,7 +9,7 @@ import Github, { githubInfoLoader } from './components/github.jsx'
 import './css/index.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 
-// routing technic 1
+// routing technique 1
 // const router = createBrowserRouter([
 //   {
 //     path: '/',
@@ -30,7 +30,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 //   },
 // ])
 
-// routing technic 2
+// routing technique 2
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>}>
