@@ -1,0 +1,17 @@
+{
+  "name": "node_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.37.0",
+    "mkdirp": "^3.0.1",
+    "phin": "^3.7.1"
+  }
+}
