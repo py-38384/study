@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User Generate</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+      <div id="app">
+        <img :class="data.gender" :src="data.picture" :alt="data.firstName">
+        <h1>{{ data.firstName }} {{ data.lastName }}</h1>
+        <h3>Email: {{ data.email }}</h3>
+        <button v-on:click="getUser" :class="data.gender">Get Random User</button>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
