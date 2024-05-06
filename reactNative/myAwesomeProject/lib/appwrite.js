@@ -1,4 +1,4 @@
-import { Client, Account, ID, Avatars, Databases, Query } from 'react-native-appwrite'
+import { Client, Account, ID, Avatars, Databases, Storage, Query } from 'react-native-appwrite'
 export const appwriteConfig = {
     endpoint: 'https://cloud.appwrite.io/v1',
     plateform: 'com.opinc.Aora',
@@ -20,6 +20,7 @@ client
 const account = new Account(client);
 const avatars = new Avatars(client)
 const databases = new Databases(client)
+const storage = new Storage(client)
 
 // Register User
 export const createUser = async (email, password, username) => {
@@ -67,12 +68,139 @@ export const getCurrentUser = async () => {
         const currentUser = await databases.listDocuments(
             appwriteConfig.databaseId,
             appwriteConfig.userCollectionId,
-            [Query.equal('accountId', currentAccount.$id)]
+            [Query.equal('accountId', currentAccount.$id), Query.orderDesc('$createdAt')]
         )
         if(!currentUser) throw Error
         return currentUser.documents[0]
     } catch (error) {
         console.log(`Debug: ${error}`);
+        throw new Error(error)
+    }
+}
+
+export const getAllPosts = async () => {
+    try {
+        const posts = await databases.listDocuments(
+            appwriteConfig.databaseId,
+            appwriteConfig.videoCollectionId,
+            [Query.orderDesc('$createdAt')]
+        )
+        return posts
+    } catch (error) {
+        console.log("Debug: "+error);
+        throw new Error(error)
+    }
+}
+
+export const getLatestPosts = async () => {
+    try {
+        const posts = await databases.listDocuments(
+            appwriteConfig.databaseId,
+            appwriteConfig.videoCollectionId,
+            [Query.orderDesc('$createdAt',Query.limit(7))]
+        )
+        return posts
+    } catch (error) {
+        console.log("Debug: "+error);
+        throw new Error(error)
+    }
+}
+
+export const serachPosts = async (query) => {
+    try {
+        const posts = await databases.listDocuments(
+            appwriteConfig.databaseId,
+            appwriteConfig.videoCollectionId,
+            [Query.search('title',query.query)]
+        )
+        return posts
+    } catch (error) {
+        console.log("Debug: "+error);
+        throw new Error(error)
+    }
+}
+
+export const getUserPosts = async (userId) => {
+    try {
+        const posts = await databases.listDocuments(
+            appwriteConfig.databaseId,
+            appwriteConfig.videoCollectionId,
+            [Query.equal('users',userId)]
+        )
+        return posts
+    } catch (error) {
+        console.log("Debug: "+error);
+        throw new Error(error)
+    }
+}
+
+export const signout = async () => {
+    try {
+        const session = await account.deleteSession('current')
+        return session
+    } catch (error) {
+        console.log(error);
+        throw new Error(error)
+    }
+}
+
+export const getFilePreview = async (fileId, type) => {
+    let fileUrl
+    try {
+        if (type === 'video'){
+            fileUrl = storage.getFileView(appwriteConfig.bucketId, fileId)
+        } else if(type === 'image'){
+            fileUrl = storage.getFilePreview(appwriteConfig.bucketId, fileId, 2000, 2000, 'top', 100)
+        } else {
+            throw new Error('Invalid file type')
+        }
+        if(!fileUrl) throw Error
+        return fileUrl
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+
+export const uploadFile = async (file, type) => {
+    if(!file) return
+    const asset = {
+        name: file.fileName,
+        type: file.mimeType,
+        size: file.filesize,
+        uri: file.uri
+    }
+    
+
+    try {
+        const uploadFile = await storage.createFile(
+            appwriteConfig.bucketId,
+            ID.unique(),
+            asset
+        )
+        console.log(uploadFile);
+        
+        const fileUrl = await getFilePreview(uploadFile.$id, type)
+        return fileUrl
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+
+export const createVideo = async (form) => {
+    try {
+        const thumnailUrl = await uploadFile(form.thumbnail, 'image')
+        const videoUrl = await uploadFile(form.video, 'video')
+        console.log(thumnailUrl);
+        console.log(videoUrl);
+        const newPost = await databases.createDocument(appwriteConfig.databaseId, appwriteConfig.videoCollectionId,ID.unique(), {
+            title: form.title,
+            thumbnail: thumnailUrl,
+            video: videoUrl,
+            prompt: form.prompt,
+            users: form.userId
+        })
+        return newPost
+    } catch (error) {
         throw new Error(error)
     }
 }
