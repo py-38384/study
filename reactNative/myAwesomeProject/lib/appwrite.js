@@ -32,7 +32,7 @@ export const createUser = async (email, password, username) => {
             username
         )
         if(!newAccount) throw Error
-        const avatarURL = avatars.getInitials()
+        const avatarURL = avatars.getInitials(username)
         await signIn(email, password)
         const newUser = await databases.createDocument(
              appwriteConfig.databaseId,
