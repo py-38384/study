@@ -17,13 +17,7 @@ export const todoSlice = createSlice({
             state.todos = state.todos.filter((todo)=> todo.id !== action.payload)
         },
         updateTodo: (state, action) => {
-            state.todos.forEach((todo)=>{
-                console.log("Debug-foreach-id: "+action.payload.id)
-                console.log("Debug-foreach-todo-id: "+todo.id)
-                if(String(todo.id)===(action.payload.id)){
-                    todo.text = action.payload.text
-                }
-            })
+            state.todos.map((todo) => String(todo.id) === action.payload.id?todo.text = action.payload.text: todo.text = todo.text)
                 
         }
     }
