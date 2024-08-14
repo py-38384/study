@@ -3,3 +3,5 @@ prisma initialization and database selection:  npx prisma init --datasource-prov
 prisma database migration: npx prisma migrate dev --name <migration name>
 
 prisma studio: npx prisma studio
+
+: npx prisma generate
