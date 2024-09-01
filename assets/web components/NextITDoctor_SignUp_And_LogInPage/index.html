@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in and sign up page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box-container">
+        <div class="box">
+            <!-------Login box--------->
+            <form action="" method="post" class="box-login" id="login" style="left: 27px;">
+                <div class="top-header">
+                    <h3>Hello, Again</h3>
+                    <small>We are happy to have you back.</small>
+                </div>
+                <div class="input-group">
+                    <div class="input-field">
+                        <input type="text" class="input-box" id="logEmail" required>
+                        <label for="logEmail">Email address</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="input-box" id="logPassword" required>
+                        <label for="logPassword">Password</label>
+                        <div class="eye-area">
+                            <div class="eye-box" onclick="myLogPassword()">
+                                <img id="eye" src="eye-solid.svg" alt="eye solid">
+                                <img id="eye-slash" src="eye-slash-solid.svg" alt="eye slash solid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <input type="submit" class="input-submit" value="Log in">
+                    </div>
+                    <div class="forgot">
+                        <a href="#">Forget password?</a>
+                    </div>
+                </div>
+            </form>
+            <!-------Sign Up box--------->
+            <form action="" method="post" class="box-register" id="register" style="left: 350px;">
+                <div class="top-header">
+                    <h3>Sign Up, Now</h3>
+                    <small>We are happy to have you with us.</small>
+                </div>
+                <div class="input-group">
+                    <div class="input-field">
+                        <input type="text" class="input-box" id="regUser" required>
+                        <label for="regEmail">Username</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" class="input-box" id="regEmail" required>
+                        <label for="regEmail">Email address</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="input-box" id="regPassword" required>
+                        <label for="regPassword">Password</label>
+                        <div class="eye-area">
+                            <div class="eye-box" onclick="myRegPassword">
+                                <img src="eye-solid.svg" alt="eye solid">
+                                <img src="eye-slash-solid.svg" alt="eye slash solid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <input type="submit" class="input-submit" value="Sign Up">
+                    </div>
+                    <div class="forgot">
+                        <a href="#">Forget password?</a>
+                    </div>
+                </div>
+            </form>
+            <!-------Switch------->
+            <div class="switch">
+                <a href="#" class="login" onclick="login()">Login</a>
+                <a href="#" class="register" onclick="register()">Sign up</a>
+                <div class="btn-active" id="btn"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>

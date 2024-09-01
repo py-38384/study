@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.post-container{
+    width: 800px;
+    height: 1200px;
+    margin: 4px auto;
+    columns: 3;
+    column-gap: 4px;
+}
+.post-container .post{
+    width: 100%;
+    height: 100%;
+    break-inside: avoid;
+    position: relative;
+}
+.post-container .post .like-and-comment{
+    display: none;
+    position: absolute;
+    color: rgb(241, 241, 241);
+    top: -100%;
+    left: 25%;
+    z-index: 1;
+}
+.post-container .post img{
+    max-width: 100%;
+}
+.post-container .post:hover .like-and-comment{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.post-container .post:hover .like-and-comment .like,
+.post-container .post:hover .like-and-comment .comment{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.post-container .post:hover img{
+    filter: brightness(50%);
+}
+@media (max-width: 1200px){
+    .post-container{
+        width: calc(100% - 8px);
+    }
+}

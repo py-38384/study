@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    padding: 0 35px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #343F4F;
+}
+img{
+    pointer-events: none;
+}
+.wrapper{
+    max-width: 1200px;
+    position: relative;
+}
+.wrapper .carousel{
+    font-size: 0;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: norap;
+    scroll-behavior: smooth;
+}
+.carousel img{
+    height: 340px;
+    object-fit: cover;
+    margin-left: 14px;
+    width: calc(100% / 3);
+}
+.carousel img:first-child{
+    margin-left: 0px;
+}
+.left-arrow{
+    display: none;
+}
+.right-arrow{
+    display: flex;
+}
+.left-arrow,
+.right-arrow{
+    width: 46px;
+    height: 46px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.left-arrow img,
+.right-arrow img{
+    width: 16px;
+}
+.left-arrow:first-child{
+    left: -23px;
+}
+.right-arrow:last-child{
+    right: -23px;
+}
+@media screen and (max-width: 900px) {
+    .carousel img{
+        width: calc(100% / 2);
+    }
+}
+@media screen and (max-width: 550px) {
+    .carousel img{
+        width: 100%;
+    }
+}
